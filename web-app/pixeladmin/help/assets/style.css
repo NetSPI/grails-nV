@@ -1,0 +1,175 @@
+body {
+	color: #444;
+	margin: 0;
+	padding: 60px 0 40px 0;
+}
+
+h3 {
+	margin-top: 40px;
+}
+
+a {
+	color: #3690e6;
+	text-decoration: none;
+	-webkit-transition: color 0.15s ;
+	-moz-transition: color 0.15s ;
+	-ms-transition: color 0.15s ;
+	-o-transition: color 0.15s ;
+	transition: color 0.15s ;
+}
+
+a:hover {
+	color: #444;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+ul ul {
+	margin-left: 40px;
+}
+
+nav ul {
+	margin-left: 20px;
+}
+
+li {
+	list-style: none;
+}
+
+ul ul li,
+nav ul li {
+	list-style-type: circle;
+}
+
+nav ul li {
+	font-size: 13px;
+}
+
+code {
+	background: #eee;
+	padding: 3px 5px;
+}
+
+h5 a,
+h5 a:hover,
+h5 a:active,
+h5 a:link {
+	color: #000;
+}
+
+.container {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0 auto;
+	width: 900px;
+}
+
+header {
+	background: #333;
+	border-bottom: 3px solid #52b9d7;
+	height: 40px;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 100;
+}
+
+header a {
+	color: #bbb;
+	float: right;
+	padding-top: 10px;
+}
+
+header a:hover {
+	color: #fff;
+}
+
+header span, header img {
+	display: block;
+	float: left;
+}
+
+header img {
+	margin: 5px 10px 0 -8px;
+}
+
+header span {
+	color: #bbb;
+	font-size: 12px;
+	padding-top: 12px;
+}
+
+nav {
+	border-right: 1px solid #ddd;
+	height: 100%;
+	margin-left: -220px;
+	padding-top: 60px;
+	position: fixed;
+	top: 0;
+	width: 200px;
+	z-index: 50;
+}
+
+nav h6 {
+	color: #aaa;
+	font-size: 11px;
+	margin-bottom: 10px
+}
+
+nav li {
+	list-style: none;
+	padding: 2px 0;
+}
+
+#folder-structure li {
+	list-style: none;
+	margin-bottom: 5px;
+}
+
+#folder-structure li ul {
+	margin-left: 20px;
+}
+
+.second-icon {
+	position: absolute;
+	margin: 0 0 0 -15px;
+}
+
+ul li span {
+	color: #bbb;
+	font-size: 13px;
+	font-style: italic;
+}
+
+.javascripts ul {
+	margin-left: 20px;
+}
+
+.javascripts ul li {
+	margin-top: 10px;
+}
+
+.license {
+	background: #eee;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	margin-bottom: 20px;
+	padding: 10px 20px;
+}
+
+.license li {
+	list-style-type: circle;
+}
+
+.changelog {
+	margin: -15px 0 25px 0;
+}
+
+.changelog li {
+	list-style-type: circle;
+	margin-left: 20px;
+}

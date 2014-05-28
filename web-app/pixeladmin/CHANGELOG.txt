@@ -1,0 +1,45 @@
+v1.3.0 - 05/03/2014
+  - Rewrited the Main Menu script (Improved performance, fixed mobile Chrome issues, fixed some small bugs)
+  - Added a few new Main Menu features (dropdown close delay, active menu item detection)
+  - Changed the Main Navbar script
+  - Removed iScroll plugin (slimScroll used instead)
+  - Fixed a FileInput plugin bug
+  - Added resizeSteps() method to the Wizard plugin 
+  - Fixed IE8 Javascript errors
+  - Fixed a few additional bugs
+
+v1.2.1 - 04/14/2014
+  - Fixed Grunt installation instruction. No need to update files
+
+v1.2.0 - 04/13/2014
+
+  - Switched to Grunt task runner. Custom build scripts are removed
+  - Fixed _mixins.scss
+  - Fixed side nav labels/badges position (RTL)
+  - Fixed grid pull/push (RTL)
+  - Changed accordion styles
+  - Made some "cosmetic" changes
+  - Added "Followers" widget
+  - Added "FAQ" page
+  - Added "Profile" page
+  - Added "Timeline" page
+  - Added "Sign Up" page
+  - Added alternative "Sign In" page
+  - Added alternative "Sign Up" page
+  - Added "Inbox" page
+  - Added "Show message" page
+  - Added "New message" page
+
+1.1.0 - 04/03/2014
+
+  - Added SCSS source files
+  - Fixed z-indexes
+  - Fixed checkboxes (RTL)
+  - Fixed "Sign In" page (RTL)
+  - Fixed form labels (RTL)
+  - Added animation to ".menu-content" blocks
+  - Changed sidebar nav labels/badges
+  - Made few small additional fixes
+
+1.0.0 - 03/31/2014
+  -  Initial release

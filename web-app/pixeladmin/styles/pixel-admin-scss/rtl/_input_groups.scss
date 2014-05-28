@@ -1,0 +1,124 @@
+//
+// RTL: Input groups
+// --------------------------------------------------
+
+ 
+@include input-size(".input-sm", $input-height-small, $padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small);
+
+@include input-size(".input-lg", $input-height-large, $padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large);
+
+// Sizing options
+//
+// Remix the default form control sizing classes into new ones for easier
+// manipulation.
+
+.input-group-lg > .form-control,
+.input-group-lg > .input-group-addon,
+.input-group-lg > .input-group-btn > .btn { @extend .input-lg; }
+.input-group-sm > .form-control,
+.input-group-sm > .input-group-addon,
+.input-group-sm > .input-group-btn > .btn { @extend .input-sm; }
+
+
+// Text input groups
+// -------------------------
+.input-group-addon {
+  border: 1px solid $input-group-addon-border-color;
+  border-radius: $border-radius-base;
+
+  // Sizing
+  &.input-sm {
+    border-radius: $border-radius-small;
+  }
+  &.input-lg {
+    border-radius: $border-radius-large;
+  }
+}
+
+// Reset rounded corners
+.input-group .form-control:first-child,
+.input-group-addon:first-child,
+.input-group-btn:first-child > .btn,
+.input-group-btn:first-child > .btn-group > .btn,
+.input-group-btn:first-child > .dropdown-toggle,
+.input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle),
+.input-group-btn:last-child > .btn-group:not(:last-child) > .btn {
+  border-radius: $border-radius-base;
+  @include border-left-radius(0);
+
+  // Sizing
+  &.input-sm {
+    border-radius: $border-radius-small;
+    @include border-left-radius(0);
+  }
+  &.input-lg {
+    border-radius: $border-radius-large;
+    @include border-left-radius(0);
+  }
+}
+.input-group-addon:first-child {
+  border-left: 0;
+}
+.input-group .form-control:last-child,
+.input-group-addon:last-child,
+.input-group-btn:last-child > .btn,
+.input-group-btn:last-child > .btn-group > .btn,
+.input-group-btn:last-child > .dropdown-toggle,
+.input-group-btn:first-child > .btn:not(:first-child),
+.input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
+  border-radius: $border-radius-base;
+  @include border-right-radius(0);
+
+  // Sizing
+  &.input-sm {
+    border-radius: $border-radius-small;
+    @include border-right-radius(0);
+  }
+  &.input-lg {
+    border-radius: $border-radius-large;
+    @include border-right-radius(0);
+  }
+}
+.input-group-addon:last-child {
+  border-right: 0;
+}
+
+// Button input groups
+// -------------------------
+.input-group-btn {
+  > .btn {
+    position: relative;
+    + .btn {
+      margin-left: 0;
+      margin-right: -1px;
+    }
+  }
+
+  // Negative margin to only have a 1px border between the two
+  &:first-child {
+    > .btn,
+    > .btn-group {
+      margin-left: -1px;
+      margin-right: 0;
+    }
+  }
+  &:last-child {
+    > .btn,
+    > .btn-group {
+      margin-left: 0;
+      margin-right: -1px;
+    }
+  }
+}
+
+
+// Remove double borders
+.input-group > .input-group-btn + input {
+  margin-left: 0;
+  margin-right: -1px;
+}
+
+.input-group > input + .input-group-btn .btn:first-child {
+  border-left-width: 1px;
+  border-right-width: 0;
+}

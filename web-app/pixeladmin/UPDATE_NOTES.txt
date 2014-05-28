@@ -1,0 +1,68 @@
+//
+// You can update the template version by copying files manually or using Git:
+
+1. Install Git. Instructions: https://help.github.com/articles/set-up-git
+2. Open terminal window and go the root of existing PixelAdmin directory (version 1.2.1)
+3. Init Git repository: git init
+4. Add files to the repository: git add .
+5. Create a commit: git commit -am "Before upgrading to 1.3.0"
+6. Copy the "patches/121-130.patch" file to the root of existing PixelAdmin directory
+7. Apply the patch: git apply --whitespace=fix 121-130.patch
+
+
+// Changed files:
+
+html/assets/javascripts/*.js
+html/assets/stylesheets/*.css
+html/*.html
+javascripts/build/*.js
+
+javascripts/sources/app.coffee
+javascripts/sources/components/main-menu.coffee
+javascripts/sources/components/main-navbar.coffee
+javascripts/sources/plugins/file-input.coffee
+javascripts/sources/plugins/switcher.coffee
+javascripts/sources/plugins/wizard.coffee
+javascripts/sources/utils.coffee
+
+styles/pixel-admin-less/base.less
+styles/pixel-admin-less/demo.less
+styles/pixel-admin-less/main-menu.less
+styles/pixel-admin-less/pages/timeline.less
+styles/pixel-admin-less/rtl/main-menu.less
+styles/pixel-admin-less/themes/adminflare/main-menu.less
+styles/pixel-admin-less/themes/asphalt/main-menu.less
+styles/pixel-admin-less/themes/clean/main-menu.less
+styles/pixel-admin-less/themes/default/main-menu.less
+styles/pixel-admin-less/themes/dust/main-menu.less
+styles/pixel-admin-less/themes/fresh/main-menu.less
+styles/pixel-admin-less/themes/frost/main-menu.less
+styles/pixel-admin-less/themes/purple-hills/main-menu.less
+styles/pixel-admin-less/themes/silver/main-menu.less
+styles/pixel-admin-less/themes/white/main-menu.less
+
+styles/pixel-admin-scss/base.scss
+styles/pixel-admin-scss/demo.scss
+styles/pixel-admin-scss/main-menu.scss
+styles/pixel-admin-scss/pages/timeline.scss
+styles/pixel-admin-scss/rtl/main-menu.scss
+styles/pixel-admin-scss/themes/adminflare/main-menu.scss
+styles/pixel-admin-scss/themes/asphalt/main-menu.scss
+styles/pixel-admin-scss/themes/clean/main-menu.scss
+styles/pixel-admin-scss/themes/default/main-menu.scss
+styles/pixel-admin-scss/themes/dust/main-menu.scss
+styles/pixel-admin-scss/themes/fresh/main-menu.scss
+styles/pixel-admin-scss/themes/frost/main-menu.scss
+styles/pixel-admin-scss/themes/purple-hills/main-menu.scss
+styles/pixel-admin-scss/themes/silver/main-menu.scss
+styles/pixel-admin-scss/themes/white/main-menu.scss
+
+tasks/concat.js
+tasks/uglify.js
+Gruntfile.js
+package.json
+
+
+// Added files:
+
+javascripts/libs/pixel-slimscroll.js

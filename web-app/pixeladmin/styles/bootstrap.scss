@@ -1,0 +1,59 @@
+// Note: Some variables are overriding in the 'pixel-admin-scss/_variables.scss' file
+
+// Core variables and mixins
+
+// --------------------------------------------------
+// Override variables
+@import "./pixel-admin-scss/variables";
+// --------------------------------------------------
+
+
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/variables";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/mixins";
+
+// Reset and dependencies
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/normalize";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/print";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/glyphicons";
+
+// Core CSS
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/scaffolding";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/type";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/code";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/grid";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/tables";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/forms";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/buttons";
+
+// Components
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/component-animations";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/dropdowns";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/button-groups";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/input-groups";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/navs";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/navbar";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/breadcrumbs";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/pagination";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/pager";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/labels";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/badges";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/jumbotron";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/thumbnails";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/alerts";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/progress-bars";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/media";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/list-group";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/panels";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/responsive-embed";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/wells";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/close";
+
+// Components w/ JavaScript
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/modals";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/tooltip";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/popovers";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/carousel";
+
+// Utility classes
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/utilities";
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/responsive-utilities";

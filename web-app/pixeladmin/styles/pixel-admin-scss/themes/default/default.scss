@@ -1,0 +1,119 @@
+//
+// Themes / Default
+// --------------------------------------------------
+
+.theme-default {
+  $primary-color: #1d89cf;
+
+  // Panel border color
+  $theme-border-color: #e2e2e2;
+
+  // Main navbar header background color
+  $header-color: #fff;
+
+  // Main navbar background color
+  $navbar-color: #fff;
+
+  // Main menu background color
+  $menu-color: #23272d;
+
+  // Body background color
+  $body-color: #f6f6f6;
+
+  // Page header background color
+  $page-header-color: $body-color;
+
+  // Page header border color
+  $page-header-border-color: #e9e9e9;
+
+
+  // Imports
+  //
+
+  @import "./base";
+  @import "./main_navbar";
+  @import "./main_menu";
+  @import "./demo";
+  @import "./pages";
+
+
+  // Styles
+  // see {PixelAdmin}/styles/pixel-admin-less/mixins.less
+  //
+
+  // Navbar icon buttons
+  @include nav-icon-btn-theme($primary-color);
+
+  // Buttons
+  @include buttons-theme($primary-color);
+
+  // Progress bars
+  @include progress-bars-theme($primary-color);
+
+  // Labels
+  @include labels-theme($primary-color);
+
+  // Badges
+  @include badges-theme($primary-color);
+
+  // Tables
+  @include tables-theme($primary-color);
+
+  // Tabs
+  @include tabs-theme($primary-color);
+
+  // Pills
+  @include pills-theme($primary-color);
+
+  // Dropdowns
+  @include dropdowns-theme($primary-color, #fff);
+
+  // Button groups
+  @include button-groups-theme($primary-color);
+
+  // Pagination
+  @include pagination-theme($primary-color);
+
+  // List groups
+  @include list-groups-theme($primary-color);
+
+  // Forms theme
+  @include forms-theme($primary-color);
+
+  // Text color
+  .text-primary {
+    @include pixel-text-color($primary-color);
+  }
+
+  // Background color
+  .bg-primary {
+    @include pixel-bg-color($primary-color);
+  }  
+
+
+  // Plugins
+  //
+
+  // jQuery UI
+  @include ui-slider-theme($primary-color);
+  @include ui-autocomplete-theme($primary-color, #fff);
+  @include ui-menu-theme($primary-color);
+  @include ui-progressbar-theme($primary-color);
+  @include ui-tabs-theme($primary-color);
+  @include ui-datepicker-theme($primary-color);
+
+  // Plugins
+  @include select2-theme($primary-color);
+  @include switcher-theme($primary-color);
+  @include pixel-file-input-theme($primary-color);
+  @include bootstrap-datepicker-theme($primary-color);
+  @include bootstrap-timepicker-theme($primary-color);
+  @include datepaginator-theme($primary-color);
+  @include editable-typeahead-theme($primary-color);
+  @include data-table-theme($primary-color);
+  @include dropzone-theme($primary-color);
+  @include md-editor-theme($primary-color);
+
+  // Widgets
+  @include widget-rating-theme($primary-color);
+}

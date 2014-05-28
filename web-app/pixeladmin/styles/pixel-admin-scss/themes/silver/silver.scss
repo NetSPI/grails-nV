@@ -1,0 +1,129 @@
+//
+// Themes / Silver
+// --------------------------------------------------
+
+.theme-silver {
+  $primary-color: #64bed8;
+
+  // Panel border color
+  $theme-border-color: #e4e4e4;
+
+  // Main navbar gradient
+  $navbar-start-color: #f6f6f6;
+  $navbar-end-color: #ebebeb;
+
+  // Main navbar text color
+  $navbar-text-color: #666;
+
+  // Main navbar text shadow
+  $navbar-text-shadow: none;
+
+  // Main menu background color
+  $menu-color: #333;
+
+  // Main menu active item background color
+  $menu-active-color: $primary-color;
+
+  // Body background color
+  $body-color: #fafafa;
+
+  // Page header background color
+  $page-header-color: #fafafa;
+
+  // Page header border color
+  $page-header-border-color: #eee;
+
+  #main-navbar {
+    @include box-shadow(0 2px 2px rgba(0,0,0,0.08),0 1px 0 rgba(0,0,0,0.08));
+  }
+
+  // Imports
+  //
+
+  @import "./base";
+  @import "./main_navbar";
+  @import "./main_menu";
+  @import "./demo";
+  @import "./pages";
+
+
+  // Styles
+  // see {PixelAdmin}/styles/pixel-admin-less/mixins.less
+  //
+
+  // Navbar icon buttons
+  @include nav-icon-btn-theme($primary-color);
+
+  // Buttons
+  @include buttons-theme($primary-color);
+
+  // Progress bars
+  @include progress-bars-theme($primary-color);
+
+  // Labels
+  @include labels-theme($primary-color);
+
+  // Badges
+  @include badges-theme($primary-color);
+
+  // Tables
+  @include tables-theme($primary-color);
+
+  // Tabs
+  @include tabs-theme($primary-color);
+
+  // Pills
+  @include pills-theme($primary-color);
+
+  // Dropdowns
+  @include dropdowns-theme($primary-color, #fff);
+
+  // Button groups
+  @include button-groups-theme($primary-color);
+
+  // Pagination
+  @include pagination-theme($primary-color);
+
+  // List groups
+  @include list-groups-theme($primary-color);
+
+  // Forms theme
+  @include forms-theme($primary-color);
+
+  // Text color
+  .text-primary {
+    @include pixel-text-color($primary-color);
+  }
+
+  // Background color
+  .bg-primary {
+    @include pixel-bg-color($primary-color);
+  }  
+
+
+  // Plugins
+  //
+
+  // jQuery UI
+  @include ui-slider-theme($primary-color);
+  @include ui-autocomplete-theme($primary-color, #fff);
+  @include ui-menu-theme($primary-color);
+  @include ui-progressbar-theme($primary-color);
+  @include ui-tabs-theme($primary-color);
+  @include ui-datepicker-theme($primary-color);
+
+  // Plugins
+  @include select2-theme($primary-color);
+  @include switcher-theme($primary-color);
+  @include pixel-file-input-theme($primary-color);
+  @include bootstrap-datepicker-theme($primary-color);
+  @include bootstrap-timepicker-theme($primary-color);
+  @include datepaginator-theme($primary-color);
+  @include editable-typeahead-theme($primary-color);
+  @include data-table-theme($primary-color);
+  @include dropzone-theme($primary-color);
+  @include md-editor-theme($primary-color);
+
+  // Widgets
+  @include widget-rating-theme($primary-color);
+}

@@ -1,0 +1,108 @@
+@mixin generate-color($name, $color) {
+  .btn-#{$name} {
+    &:focus {
+      color: #fff;
+    }
+    &.btn-outline:focus {
+      color: $text-color;
+    }
+    &.btn-outline.dark:focus {
+      color: #fff;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    @include pixel-button($color);
+  }
+
+  .badge.badge-#{$name} {
+    @include pixel-badge($color);
+  }
+
+  .label.label-#{$name} {
+    @include pixel-label($color);
+  }
+
+  .alert.alert-#{$name} {
+    color: #fff;
+    @include pixel-alert-dark($color);
+  }
+
+  .progress .progress-bar.progress-bar-#{$name} {
+    @include pixel-progress-bar($color);
+  }
+  .progress.progress-striped .progress-bar.progress-bar-#{$name} {
+    @include pixel-progress-striped($color);
+  }
+
+  .dropdown-menu.dropdown-menu-#{$name} {
+    @include pixel-dropdowns($color, #fff);
+  }
+
+  .nav-tabs.nav-tabs-#{$name} {
+    @include pixel-tabs($color);
+  }
+
+  .nav-pills.nav-pills-#{$name} {
+    @include pixel-pills($color);
+  }
+
+  .table-#{$name} {
+    @include table-color($color);
+  }
+
+  .list-group.list-group-#{$name} {
+    @include list-groups-theme($color);
+  }
+  
+  .panel.panel-#{$name} {
+    @include pixel-panel-dark($color);
+  }
+
+  .popover-#{$name} {
+    @include pixel-popover-state-dark($color);
+  }
+
+  .tooltip-#{$name} + .tooltip {
+    @include pixel-tooltip-state(darken($color, 10%));
+  }
+
+  .panel-group.panel-group-#{$name} {
+    @include pixel-panel-group($color);
+  }
+
+  .switcher-#{$name} {
+    @include switcher-color($color);
+  }
+  
+  .ui-slider.ui-slider-#{$name} {
+    @include ui-slider-color($color);
+  }
+
+  .bg-#{$name} {
+    @include pixel-bg-color($color);
+  }
+
+  .text-#{$name} {
+    @include pixel-text-color($color);
+  }
+}
+
+// Note: I would recommend generate needed colors manually, not using generate-color mixin (see code above for examples).
+//       One @include generate-color() call generates over 85 rules and over 150 selectors.
+
+@include generate-color(pa-purple, #857198);
+@include generate-color(light-green, #a5cd7d);
+@include generate-color(dark-gray, #39393d);
+
+.btn-facebook {
+  &:focus {
+    color: #fff;
+  }
+  &.btn-outline:focus {
+    color: $text-color;
+  }
+  &.btn-outline.dark:focus {
+    color: #fff;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  @include pixel-button(#5571ac);
+}

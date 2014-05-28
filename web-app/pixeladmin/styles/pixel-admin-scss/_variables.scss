@@ -1,0 +1,155 @@
+//
+// Variables
+// --------------------------------------------------
+
+// Paths
+$fonts-path:  "../fonts";
+$images-path: "../images";
+
+// Font-Awesome fonts path
+$fa-font-path: "#{$fonts-path}/font-awesome";
+
+
+
+// --------------------------------------------------
+// Override Bootstrap's variables
+//
+
+
+//** Global text color on `<body>`.
+$text-color: #555;
+
+//** Global textual link color.
+$link-color:       #4083a9;
+//** Link hover color set via `darken()` function.
+$link-hover-color: #205f82;
+
+$font-family-sans-serif:  "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-base: $font-family-sans-serif;
+
+$font-size-base:  13px;
+$font-size-large: 17px; // Set the same value as for the LESS-version
+
+$border-radius-base:  2px;
+$border-radius-large: 3px;
+$border-radius-small: 2px;
+
+//** Border color for table and cell borders.
+$table-border-color: darken(#eee, 4%);
+
+//** `<input>` border color
+$input-border: lighten(#ccc, 4%);
+//** Placeholder text color
+$input-color-placeholder: #999;
+$input-border-radius: $border-radius-base;
+$input-height-base: 32px;  // Set the same value as for the LESS-version
+$input-height-large: 45px; // Set the same value as for the LESS-version
+
+//** Padding between columns. Gets divided in half for the left and right.
+$grid-gutter-width: 22px;
+
+$popover-arrow-outer-color: rgba(0,0,0,.25);
+//** Popover outer arrow fallback color
+$popover-arrow-outer-fallback-color:  #999;
+
+$modal-inner-padding: 20px;
+
+// --------------------------------------------------
+// PixelAdmin's variables
+//
+
+$content-wrapper-padding: 18px;
+
+// Main navbar height
+$main-navbar-height: 46px;
+$main-navbar-right-padding: 16px;
+
+
+// Screen sizes
+//
+
+// Main menu width
+$main-menu-width: 240px;
+
+// Collapsed main menu width
+$main-menu-collapsed-width: 56px;
+
+// Main menu item height
+$main-menu-item-height: 42px;
+$main-menu-subitem-height: 36px;
+
+// Panel content padding
+$panel-content-padding: 20px;
+
+// Screen sizes
+//
+
+$screen-desktop: 992px;
+$screen-tablet:  768px;
+$screen-small:   480px;
+
+
+// Z-Indexes
+//
+
+$zindex-main-menu:             500;
+$zindex-datepicker:            400;
+$zindex-datepaginator:         400;
+$zindex-growls:                5000;
+$zindex-summernote-fullscreen: 1050; // bs3 modal-backdrop: 1030
+
+$zindex-datepicker-modal:      1040;
+$zindex-datepaginator-modal:   1040;
+
+
+// Labels
+//
+
+$label-tag-height: 20px;
+$label-tag-horizontal-padding: 5px;
+$label-tag-arrow-width: 12px;
+$label-tag-circle-size: 6px;
+
+
+// Popovers
+//
+
+$popover-border-width: 3px;
+$popover-border-color: rgba(0, 0, 0, .2);
+
+
+// Colors
+//
+
+$tabs-border-color: $table-border-color;
+$pagination-border-color: $table-border-color;
+$list-groups-border-color: $table-border-color;
+$accordion-border-color: $table-border-color;
+$panels-border-color: $table-border-color;
+
+$tooltip-bg: #222;
+
+$panel-heading-bg: #fafafa;
+
+$info-color: #5bc0de;
+$success-color: #5ebd5e;
+$warning-color: #f4b04f;
+$danger-color: #e66454;
+
+
+// Wizard
+$wizard-step-number-size: 26px;
+$wizard-step-number-border-width: 2px;
+$wizard-step-number-margin: 10px;
+
+
+// Bootstrap datepicker
+$bootstrap-datepicker-col-width: 30px;
+
+
+// Alt messages widget
+$widget-messages-alt-hpadding: 12px;
+$widget-messages-alt-img-width: 32px;
+
+// Sign in page
+$signin-form-group-w-icon-width: 40px;

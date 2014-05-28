@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>PixelAdmin v1.3.0 Documentation</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/style.css" type="text/css">
+	<link rel="stylesheet" href="assets/font-awesome.min.css" type="text/css">
+	<script src="assets/javascripts/jquery.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#navigation a').click(function() {
+				var target = $('a[name=' + $(this).attr('href').substring(1) + ']');
+				$('body,html').animate({ scrollTop: target.offset().top - 60 }, 800);
+				return false;
+			});
+		});
+	</script>
+</head>
+
+
+<body>
+	<header>
+		<div class="container">
+			<img src="assets/images/logo.png">
+			<span><i>v1.3.0</i>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<strong>DOCUMENTATION</strong></span>
+			<a href="mailto:smnedelko@gmail.com">&nbsp;&nbsp;&nbsp;<i class="icon-envelope"></i></a>
+			<a href="https://wrapbootstrap.com/user/smnedelko" target="_blank">by <strong>Sergei Nedelko</strong></a>
+		</div>
+	</header>
+	<div class="container" style="font-size: 14px; padding-left: 220px;">
+		<nav id="navigation">
+			<h6>NAVIGATION</h6>
+			<li><a href="#features">Features</a></li>
+			<ul>
+				<li><a href="#full-feature-list">Full feature list</a></li>
+				<li><a href="#supported-browsers">Supported browsers</a></li>
+			</ul>
+			<li><a href="#folder-structure">Folder structure</a></li>
+			<li><a href="#html-structure">HTML structure</a></li>
+			<li><a href="#javascript">JavaScript</a></li>
+			<li><a href="#customization">Preparing to development</a></li>
+			<ul>
+				<li><a href="#requirements">Installation</a></li>
+				<li><a href="#customizing-less">Customizing LESS</a></li>
+				<li><a href="#customizing-scss">Customizing SCSS</a></li>
+				<li><a href="#customizing-js">Customizing JS</a></li>
+				<li><a href="#compiling">Assets compilation</a></li>
+			</ul>
+			<li><a href="#licenses">Licenses</a></li>
+			<li><a href="#changelog">Changelog</a></li>
+		</nav>
+		<p>Thank you for purchasing PixelAdmin template. If you will have any questions, please feel free to email me. I can't always guarantee a solution but I will do my best to assist you. Thanks very much!</p>
+		<hr>
+		
+		<h3><a name="features">Features</a></h3>
+		<h5><a name="full-feature-list">Full feature list</a></h5>
+		<ul style="margin-bottom: 20px">
+			<li><i class="icon-ok"></i> Beautiful design, created with love to the details </li>
+			<li><i class="icon-ok"></i> Right-to-left-direction support</li>
+			<li><i class="icon-ok"></i> Responsive multilevel main menu</li>
+			<li><i class="icon-ok"></i> Flexible modular code structure, which allows to easily remove unused plugins and components</li>
+			<li><i class="icon-ok"></i> Fully responsive</li>
+			<li><i class="icon-ok"></i> Mobile first development</li>
+			<li><i class="icon-ok"></i> Three main menu layouts: on the left side, on the right side, hidden main menu</li>
+			<li><i class="icon-ok"></i> Built with Bootstrap 3</li>
+			<li><i class="icon-ok"></i> Integrated Font Awesome iconic font</li>
+			<li><i class="icon-ok"></i> Integrated charts</li>
+			<li><i class="icon-ok"></i> Compile sources with Grunt tasks</li>
+			<li><i class="icon-ok"></i> LESS ans SCSS source files (compiled CSS included)</li>
+			<li><i class="icon-ok"></i> Interactive color builder</li>
+			<li><i class="icon-ok"></i> 10 beautiful themes included</li>
+			<li><i class="icon-ok"></i> 9 exclusive plugins</li>
+			<ul>
+				<li>Page-alerts</li>
+				<li>Expanding YouTube-like inputs</li>
+				<li>Styled file inputs</li>
+				<li>Flot.js wrapper, which provides responsive functionality and tooltips</li>
+				<li>Input/Textarea character limit</li>
+				<li>Ratings</li>
+				<li>On/Off switchers</li>
+				<li>Tasks</li>
+				<li>Wizard</li>
+			</ul>
+			<li><i class="icon-ok"></i> 21 integrated plugins</li>
+			<ul>
+				<li>jQuery Select2</li>
+				<li>Bootstrap Datepicker</li>
+				<li>Bootstrap Timepicker</li>
+				<li>Bootstrap Datepaginator</li>
+				<li>Bootstrap Tab drop</li>
+				<li>jQuery Minicolors</li>
+				<li>jQuery Masked inputs</li>
+				<li>jQuery Autoresizing textarea</li>
+				<li>Bootstrap X-Editable</li>
+				<li>jQuery validation</li>
+				<li>Bootbox Modals</li>
+				<li>jQuery Datatables</li>
+				<li>jQuery Growl notifications</li>
+				<li>Dropzone.js file uploads</li>
+				<li>jQuery Knob</li>
+				<li>Summernote WYSIWYG-editor</li>
+				<li>Bootstrap Markdown</li>
+				<li>jQuery Sparklines</li>
+				<li>jQuery Easy Pie Charts</li>
+				<li>Morris.js</li>
+				<li>jQuery Flot charts</li>
+			</ul>
+			<li><i class="icon-ok"></i> 9 integrated jQuery UI plugins</li>
+			<ul>
+				<li>Sliders</li>
+				<li>Accordions</li>
+				<li>Autocomplete</li>
+				<li>Dropdowns</li>
+				<li>Spinners</li>
+				<li>Progress bars</li>
+				<li>Tabs</li>
+				<li>Datepicker</li>
+				<li>Tooltips</li>
+			</ul>
+			<li><i class="icon-ok"></i> 13 ready-to-use widgets</li>
+			<ul>
+				<li>Profile</li>
+				<li>Messages list</li>
+				<li>Alternative messages list</li>
+				<li>Notifications</li>
+				<li>Tasks</li>
+				<li>Support tickets</li>
+				<li>Rating</li>
+				<li>Last comments</li>
+				<li>Last threads</li>
+				<li>Chat</li>
+				<li>Article comments</li>
+				<li>Followers</li>
+				<li>Google Maps</li>
+			</ul>
+			<li><i class="icon-ok"></i> 18 pages</li>
+			<ul>
+				<li>Search results</li>
+				<li>Plans & pricing</li>
+				<li>Sign In</li>
+				<li>Invoice</li>
+				<li>Invoice-print</li>
+				<li>Error 404</li>
+				<li>Error 500</li>
+				<li>Blank page</li>
+				<li>Followers</li>
+				<li>FAQ</li>
+				<li>Profile</li>
+				<li>Timeline</li>
+				<li>Sign Up</li>
+				<li>Alternative "Sign In" page</li>
+				<li>Alternative "Sign Up" page</li>
+				<li>Inbox</li>
+				<li>Show message</li>
+				<li>New message</li>
+			</ul>
+		</ul>
+		<hr>
+		<h5><a name="supported-browsers">Supported browsers</a></h5>
+		<ul style="margin-bottom: 20px">
+			<li><i class="icon-ok"></i> Google Chrome</li>
+			<li><i class="icon-ok"></i> Mozilla Firefox</li>
+			<li><i class="icon-ok"></i> Safari</li>
+			<li><i class="icon-ok"></i> Opera</li>
+			<li><i class="icon-ok"></i> Internet Explorer 8+</li>
+		</ul>
+
+
+		<h3><a name="folder-structure">Folder structure</a></h3>
+		<ul id="folder-structure" style="margin-bottom: 15px">
+			<li><i class="icon-folder-open"></i> PixelAdmin</li>
+			<li>
+				<ul>
+					<li><i class="icon-folder-close-alt"></i> help <span>- Documentation</span></li>
+					<li><i class="icon-folder-open-alt"></i> html</li>
+					<ul>
+						<li><i class="icon-folder-open-alt"></i> assets</li>
+						<li>
+							<ul>
+								<li><i class="icon-folder-close-alt"></i> demo</li>
+								<li><i class="icon-folder-close-alt"></i> fonts</li>
+								<li><i class="icon-folder-close-alt"></i> images</li>
+								<li><i class="icon-folder-close-alt"></i> javascripts</li>
+								<li><i class="icon-folder-close-alt"></i> stylesheets</li>
+							</ul>
+						</li>
+						<li><i class="icon-copy"></i> PixelAdmin HTML files</li>
+					</ul>
+					<li><i class="icon-folder-open-alt"></i> javascripts <span> - JavaScript files</span></li>
+					<li>
+						<ul>
+							<li><i class="icon-folder-close-alt"></i> build <span>- Build folder</span></li>
+							<li><i class="icon-folder-close-alt"></i> libs <span>- Third-party libs</span></li>
+							<li><i class="icon-folder-open-alt"></i> sources <span>- PixelAdmin Sources</span></li>
+							<li>
+								<ul>
+									<li><i class="icon-folder-close-alt"></i> components <span>- PixelAdmin components</span></li>
+									<li><i class="icon-folder-close-alt"></i> extensions <span>- Extensions for third-party libs</span></li>
+									<li><i class="icon-folder-close-alt"></i> plugins <span>- PixelAdmin exclusive plugins</span></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li><i class="icon-folder-open-alt"></i> styles <span> - Style sources</span></li>
+					<li>
+						<ul>
+							<li><i class="icon-folder-close-alt"></i> libs</li>
+							<li><i class="icon-folder-open-alt"></i> pixel-admin-less</li>
+							<li>
+								<ul>
+									<li><i class="icon-folder-close-alt"></i> pages <span>- PixelAdmin Pages</span></li>
+									<li><i class="icon-folder-close-alt"></i> plugins <span>- Third-party plugins</span></li>
+									<li><i class="icon-folder-close-alt"></i> rtl <span>- PixelAdmin RTL</span></li>
+									<li><i class="icon-folder-close-alt"></i> themes <span>- PixelAdmin Themes</span></li>
+									<li><i class="icon-folder-close-alt"></i> widgets <span>- PixelAdmin Widgets</span></li>
+								</ul>
+							</li>
+							<li><i class="icon-file"></i> pixel-admin.less</li>
+						</ul>
+					</li>
+				</ul>
+				<li><i class="icon-file-alt"></i> csscompiler.js <span>- CSS compiler (Node.js)</span></li>
+				<li><i class="icon-file-alt"></i> jscompiler.js <span>- JavaScript compiler (Node.js)</span></li>
+			</li>
+		</ul>
+
+
+		<h3><a name="html-structure">HTML structure</a></h3>
+		<p>The template uses a responsive 12-column fluid layout. The general page structure is the same throughout the template.</p>
+		<p style="text-align: center"><img src="assets/images/html-structure.png"></p>
+
+
+		<h3><a name="javascript">PixelAdmin</a></h3>
+		<ul class="javascripts">
+			<li>
+				The plugins below are only to be used with a purchased license of the PixelAdmin.
+				<ul>
+					<li>
+						<strong>expanding-input.js</strong><br>
+						Expanding YouTube-like inputs
+					</li>
+					<li>
+						<strong>file-input.js</strong><br>
+						Styled file inputs.
+					</li>
+					<li>
+						<strong>flot.js</strong><br>
+						Flot.js wrapper, which provides responsive functionality and tooltips.
+					</li>
+					<li>
+						<strong>limiter.js</strong><br>
+						Input/Textarea character limit.
+					</li>
+					<li>
+						<strong>rating.js</strong><br>
+						Stars Rating widget.
+					</li>
+					<li>
+						<strong>switcher.js</strong><br>
+						On/Off switchers.
+					</li>
+					<li>
+						<strong>tasks.js</strong><br>
+						Tasks widget functionality.
+					</li>
+					<li>
+						<strong>wizard.js</strong><br>
+						Wizard widget functionality.
+					</li>
+				</ul>
+			</li>
+			<li style="margin-top: 20px">
+				Third-party plugins
+				<ul>
+					<li>
+						<strong><a href="http://ivaynberg.github.io/select2/" target="_blank">jQuery Select2</a></strong> <span>- Apache 2.0 or GPL License</span>
+					</li>
+					<li>
+						<strong><a href="https://github.com/eternicode/bootstrap-datepicker" target="_blank">Bootstrap Datepicker</a></strong> <span>- Apache 2.0 License</span>
+					</li>
+					<li>
+						<strong><a href="http://jdewit.github.io/bootstrap-timepicker/" target="_blank">Bootstrap Timepicker</a></strong> <span>- MIT License</span>
+					</li>
+					<li>
+						<strong><a href="http://jondmiles.com/bootstrap-datepaginator/" target="_blank">Bootstrap Datepaginator</a></strong> <span>- Apache 2.0 License</span>
+					</li>
+					<li>
+						<strong><a href="http://www.eyecon.ro/bootstrap-tabdrop/" target="_blank">Bootstrap Tab drop</a></strong> <span>- Apache 2.0 License</span>
+					</li>
+					<li>
+						<strong><a href="http://labs.abeautifulsite.net/jquery-minicolors/" target="_blank">jQuery Minicolors</a></strong> <span>- MIT License</span>
+					</li>
+					<li>
+						<strong><a href="http://digitalbush.com/projects/masked-input-plugin/" target="_blank">jQuery Masked inputs</a></strong> <span>- MIT License</span>
+					</li>
+					<li>
+						<strong><a href="http://www.jacklmoore.com/autosize/" target="_blank">jQuery Autoresizing textarea</a></strong> <span>- MIT License</span>
+					</li>
+					<li>
+						<strong><a href="http://vitalets.github.io/x-editable/" target="_blank">Bootstrap X-Editable</a></strong> <span>- MIT License</span>
+					</li>
+					<li>
+						<strong><a href="http://bassistance.de/jquery-plugins/jquery-plugin-validation/" target="_blank">jQuery validation</a></strong> <span>- MIT License</span>
+					</li>
+					<li>
+						<strong><a href="http://bootboxjs.com/" target="_blank">Bootbox Modals</a></strong> <span>- MIT License</span>
+					</li>
+					<li>
+						<strong><a href="http://datatables.net/" target="_blank">jQuery Datatables</a></strong> <span>- GPL v2 or BSD license</span>
+					</li>
+					<li>
+						<strong><a href="http://ksylvest.github.io/jquery-growl/" target="_blank">jQuery Growl notifications</a></strong> <span>- MIT License</span>
+					</li>
+					<li>
+						<strong><a href="http://www.dropzonejs.com/" target="_blank">Dropzone.js file uploads</a></strong> <span>- MIT License</span>
+					</li>
+					<li>
+						<strong><a href="http://anthonyterrien.com/knob/" target="_blank">jQuery Knob</a></strong> <span>- MIT or GPL License</span>
+					</li>
+					<li>
+						<strong><a href="http://hackerwins.github.io/summernote/" target="_blank">Summernote WYSIWYG-editor</a></strong> <span>- MIT License</span>
+					</li>
+					<li>
+						<strong><a href="http://toopay.github.io/bootstrap-markdown/" target="_blank">Bootstrap Markdown</a></strong> <span>- Apache 2.0 License</span>
+					</li>
+					<li>
+						<strong><a href="http://omnipotent.net/jquery.sparkline/" target="_blank">jQuery Sparklines</a></strong> <span>- New BSD License</span>
+					</li>
+					<li>
+						<strong><a href="http://rendro.github.io/easy-pie-chart/" target="_blank">jQuery Easy Pie Charts</a></strong> <span>- MIT License</span>
+					</li>
+					<li>
+						<strong><a href="http://www.oesmith.co.uk/morris.js/" target="_blank">Morris.js</a></strong> <span>- BSD License</span>
+					</li>
+					<li>
+						<strong><a href="http://www.flotcharts.org/" target="_blank">jQuery Flot charts</a></strong> <span>- MIT License</span>
+					</li>
+					<li>
+						<strong><a href="https://jqueryui.com/slider/" target="_blank">jQuery UI Sliders</a></strong> <span>- MIT License</span>
+					</li>
+					<li>
+						<strong><a href="https://jqueryui.com/accordion/" target="_blank">jQuery UI Accordions</a></strong> <span>- MIT License</span>
+					</li>
+					<li>
+						<strong><a href="https://jqueryui.com/autocomplete/" target="_blank">jQuery UI Autocomplete</a></strong> <span>- MIT License</span>
+					</li>
+					<li>
+						<strong><a href="https://jqueryui.com/menu/" target="_blank">jQuery UI Dropdowns</a></strong> <span>- MIT License</span>
+					</li>
+					<li>
+						<strong><a href="https://jqueryui.com/spinner/" target="_blank">jQuery UI Spinners</a></strong> <span>- MIT License</span>
+					</li>
+					<li>
+						<strong><a href="https://jqueryui.com/progressbar/" target="_blank">jQuery UI Progress bars</a></strong> <span>- MIT License</span>
+					</li>
+					<li>
+						<strong><a href="https://jqueryui.com/tabs/" target="_blank">jQuery UI Tabs</a></strong> <span>- MIT License</span>
+					</li>
+					<li>
+						<strong><a href="https://jqueryui.com/datepicker/" target="_blank">jQuery UI Datepicker</a></strong> <span>- MIT License</span>
+					</li>
+					<li>
+						<strong><a href="https://jqueryui.com/tooltip/" target="_blank">jQuery UI Tooltips</a></strong> <span>- MIT License</span>
+					</li>
+				</ul>
+			</li>
+		</ul>	
+
+<a href="#customization"></a></li>
+		<h3><a name="customization">Preparing to development</a></h3>
+		<div><strong>Note:</strong> I would not recommend editing the source files, because you may have trouble with code update in the future.<br><br></div>
+		<div><strong>Note:</strong> I recommend exclude unused plugins and components before development.<br><br></div>
+		<h5><a name="requirements">Installation</a></h5>
+		<ul style="margin-bottom: 20px">
+			<li>
+				<strong>Node.js</strong><br>
+				Go to <a href="http://nodejs.org" target="_blank">http://nodejs.org</a>, and click the "Install" button. Run the installer that you just downloaded and follow instructions.
+				<br><br>
+			</li>
+			<li>
+				<strong>CoffeeScript</strong><br>
+				From a terminal window run the following command: <code>npm install -g coffee-script</code>.
+				<br><br>
+			</li>
+			<li>
+				<strong>Tools</strong><br>
+				Open a terminal window, go to the PixelAdmin folder and run the following command: <code>npm install</code>.
+				<br><br>
+			</li>
+			<li>
+				<strong>Grunt CLI</strong><br>
+				From a terminal window run the following command: <code>npm install -g grunt-cli</code>.
+				<br><br>
+			</li>
+		</ul>
+
+		<h5><a name="customizing-less">Customizing LESS</a></h5>
+		<p>
+			You can customize general Bootstrap variables by editing the <code>styles/libs/bootstrap-3.1.1/variables.less</code> file.
+		</p>
+		<p>
+			Also you can customize general PixelAdmin variables by editing the <code>styles/pixel-admin.less</code> file.
+		</p>
+
+		
+		<p>
+			To exclude unused components, you need remove all imports of the component in the next files:
+		</p>
+			<ul>
+				<li><code>style/pixel-admin.less</code></li>
+				<li><code>style/pixel-admin-less/rtl/rtl.less</code></li>
+			</ul>
+		</p>
+		<p>
+			Also check used theme's less file to remove theme-specific component generators.
+		</p>
+			For example, if you want remove DatePicker styles, you need (default theme):
+			<ul>
+				<li>- open the <code>styles/pixel-admin.less</code> file and remove line <code>@import './pixel-admin-less/plugins/bootstrap-datepicker.less';
+</code></li>
+				<li>- open the <code>styles/pixel-admin-less/rtl/rtl.less</code> file and remove line <code>@import './plugins/bootstrap-datepicker.less';</code></li>
+
+				<li>- open the <code>styles/pixel-admin-less/themes/default/default.less</code> file and remove line <code>.bootstrap-datepicker-theme(@primary-color);</code></li>
+			</ul> 
+		</p>
+		<p>In the same way you can remove widgets/pages, but additionally you need to remove imports from the <code>styles/pixel-admin-less/widgets/widgets.less</code>/<code>styles/pixel-admin-less/pages/pages.less</code>.</p>
+		<p>To change image and font paths you can edit <code>@fonts-path</code> and <code>@images-path</code> variables in the <code>styles/pixel-admin-less/variables.less</code> file.</p>
+
+
+		<h5><a name="customizing-scss">Customizing SCSS</a></h5>
+		<p>
+			You can customize general Bootstrap and PixelAdmin variables by editing the <code>styles/pixel-admin-scss/_variables.scss</code> file. If you want to change extra bootstrap variables - You will need to put them in this file (Bootstrap's _variables.scss must be untouched).
+		</p>
+		
+		<p>
+			To exclude unused components, you need remove all imports of the component in the next files:
+		</p>
+			<ul>
+				<li><code>style/pixel-admin.scss</code></li>
+				<li><code>style/pixel-admin-scss/rtl/rtl.scss</code></li>
+			</ul>
+		</p>
+		<p>
+			Also check used theme's scss file to remove theme-specific component generators.
+		</p>
+			For example, if you want remove DatePicker styles, you need (default theme):
+			<ul>
+				<li>- open the <code>styles/pixel-admin.scss</code> file and remove line <code>@import "./pixel-admin-scss/plugins/bootstrap_datepicker";
+</code></li>
+				<li>- open the <code>styles/pixel-admin-scss/rtl/rtl.scss</code> file and remove line <code>@import "./plugins/bootstrap_datepicker";</code></li>
+
+				<li>- open the <code>styles/pixel-admin-scss/themes/default/default.scss</code> file and remove line <code>@include bootstrap-datepicker-theme($primary-color);</code></li>
+			</ul> 
+		</p>
+		<p>In the same way you can remove widgets/pages, but additionally you need to remove imports from the <code>styles/pixel-admin-scss/widgets/widgets.scss</code>/<code>styles/pixel-admin-scss/pages/pages.scss</code>.</p>
+		<p>To change image and font paths you can edit <code>$fonts-path</code> and <code>$images-path</code> variables in the <code>styles/pixel-admin-scss/_variables.scss</code> file.</p>
+
+
+
+		<h5><a name="customizing-js">Customizing JS</a></h5>
+		<p>
+			Removing javascript plugins is pretty easy - just open the <code>tasks/concat.js</code> file and remove the needed line.
+		</p>
+
+		<h5><a name="compiling">Assets compilation</a></h5>
+		<p>
+			After customization you need to compile your LESS/SCSS and JavaScript sources by running the following commands from command line in the PixelAdmin directory:<br>
+			- <code>grunt compile-less</code>
+		</p>
+		<p>
+			SCSS cources compilation:<br>
+			- <code>grunt compile-sass</code>
+		</p>
+
+		<p>
+			JavaScript cources compilation:<br>
+			- <code>grunt compile-js</code>
+		</p>
+
+		<p>
+			Also I recommend to use a very useful command <code>grunt watch</code>. This command will recompile project with any change of project files.
+		</p>
+
+
+		<h3><a name="licenses">Licenses</a></h3>
+		<p>There are three types of licenses available:</p>
+		<div class="license">
+			<h5>Single Application License</h5>
+			<ul style="margin: -15px 0 0 20px">
+				<li>Your use of the item is restricted to a single installation.</li>
+				<li>You may use the item in work which you are creating for your own purposes or for your client.</li>
+				<li>You must not incorporate the item in a work which is created for redistribution or resale by you or your client.</li>
+				<li>The item may not be redistributed or resold.</li>
+				<li>If the item contains licensed components, those components must only be used within the item and you must not extract and use them on a stand-alone basis.</li>
+				<li>If the item was created using materials which are the subject of a GNU General Public License (GPL), your use of the item is subject to the terms of the GPL in place of the foregoing conditions (to the extent the GPL applies).</li>
+			</ul>
+		</div>
+		<div class="license">
+			<h5>Multiple Applications License</h5>
+			<ul style="margin: -15px 0 0 20px">
+				<li>Your use of the item may extend to multiple installations.</li>
+				<li>You may use the item in work which you are creating for your own purposes or for your clients.</li>
+				<li>You must not incorporate the item in a work which is created for redistribution or resale by you or your clients.</li>
+				<li>The item may not be redistributed or resold.</li>
+				<li>If the item contains licensed components, those components must only be used within the item and you must not extract and use them on a stand-alone basis.</li>
+				<li>If the item was created using materials which are the subject of a GNU General Public License (GPL), your use of the item is subject to the terms of the GPL in place of the foregoing conditions (to the extent the GPL applies).</li>
+			</ul>
+		</div>
+		<div class="license">
+			<h5>Extended License</h5>
+			<ul style="margin: -15px 0 0 20px">
+				<li>Your use of the item may extend to multiple installations.</li>
+				<li>You may use the item in work which you are creating for your own purposes or for your clients.</li>
+				<li>You may license, sublicense, redistribute, or resell the item in the following circumstances:</li>
+				<ul style="margin-left: 20px">
+					<li>the item is incorporated into a larger work you have created; or</li>
+					<li>if you modify the item and resell the end product.</li>
+				</ul>
+				<li>If the item contains licensed components, those components must only be used within the item and you must not extract and use them on a stand-alone basis.</li>
+				<li>If the item was created using materials which are the subject of a GNU General Public License (GPL), your use of the item is subject to the terms of the GPL in place of the foregoing conditions (to the extent the GPL applies).</li>
+			</ul>
+		</div>
+
+
+		<h3><a name="changelog">Changelog</a></h3>
+		<h5>v1.3.0 <span style="color: #bbb">- 05/03/2014</span></h5>
+		<ul class="changelog">
+			<li>Rewrited the Main Menu script (Improved performance, fixed mobile Chrome issues, fixed some small bugs)</li>
+			<li>Added a few new Main Menu features (dropdown close delay, active menu item detection)</li>
+			<li>Changed the Main Navbar script</li>
+			<li>Removed iScroll plugin (slimScroll used instead)</li>
+			<li>Fixed a FileInput plugin bug</li>
+			<li>Added resizeSteps() method to the Wizard plugin </li>
+			<li>Fixed IE8 Javascript errors</li>
+			<li>Fixed a few additional bugs</li>
+		</ul>
+		<h5>v1.2.1 <span style="color: #bbb">- 04/14/2014</span></h5>
+		<ul class="changelog">
+			<li>Fixed Grunt installation instruction. No need to update files</li>
+		</ul>
+		<h5>v1.2.0 <span style="color: #bbb">- 04/13/2014</span></h5>
+		<ul class="changelog">
+			<li>Switched to Grunt task runner. Custom build scripts are removed</li>
+			<li>Fixed _mixins.scss</li>
+			<li>Fixed side nav labels/badges position (RTL)</li>
+			<li>Fixed grid pull/push (RTL)</li>
+			<li>Changed accordion styles</li>
+			<li>Made some "cosmetic" changes</li>
+			<li>Added "Followers" widget</li>
+			<li>Added "FAQ" page</li>
+			<li>Added "Profile" page</li>
+			<li>Added "Timeline" page</li>
+			<li>Added "Sign Up" page</li>
+			<li>Added alternative "Sign In" page</li>
+			<li>Added alternative "Sign Up" page</li>
+			<li>Added "Inbox" page</li>
+			<li>Added "Show message" page</li>
+			<li>Added "New message" page</li>
+		</ul>
+		<h5>v1.1.0 <span style="color: #bbb">- 04/03/2014</span></h5>
+		<ul class="changelog">
+			<li>Added SCSS source files</li>
+			<li>Fixed z-indexes</li>
+			<li>Fixed checkboxes (RTL)</li>
+			<li>Fixed "Sign In" page (RTL)</li>
+			<li>Fixed form labels (RTL)</li>
+			<li>Added animation to ".menu-content" blocks</li>
+			<li>Changed sidebar nav labels/badges</li>
+			<li>Made few small additional fixes</li>
+		</ul>
+		<h5>v1.0.0 <span style="color: #bbb">- 03/31/2014</span></h5>
+		<ul class="changelog">
+			<li>Initial release</li>
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+// Note: Some variables are overriding in the "pixel-admin-scss/_variables.scss" file
+
+// ### Variables
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/variables"; // Default _variables.scss
+@import "./pixel-admin-scss/variables";
+
+// ### Bootstrap"s mixins
+@import "./libs/bootstrap-sass-3.1.1/bootstrap/mixins";
+
+// ### Font Awesome"s stylesheets
+@import "./libs/font-awesome-4.0.3/scss/font-awesome.scss"; // Default Font-Awesome
+
+// ### Animate.css
+@import "./libs/animate.scss";
+
+
+// ### Pixel Admin"s stylesheets
+@import "./pixel-admin-scss/mixins";
+@import "./pixel-admin-scss/base";
+@import "./pixel-admin-scss/main_navbar";
+@import "./pixel-admin-scss/main_menu";
+@import "./pixel-admin-scss/navbar";
+@import "./pixel-admin-scss/buttons";
+@import "./pixel-admin-scss/progress_bars";
+@import "./pixel-admin-scss/labels";
+@import "./pixel-admin-scss/badges";
+@import "./pixel-admin-scss/breadcrumb";
+@import "./pixel-admin-scss/alerts";
+@import "./pixel-admin-scss/tables";
+@import "./pixel-admin-scss/navs";
+@import "./pixel-admin-scss/dropdowns";
+@import "./pixel-admin-scss/button_groups";
+@import "./pixel-admin-scss/pagination";
+@import "./pixel-admin-scss/list_groups";
+@import "./pixel-admin-scss/forms";
+@import "./pixel-admin-scss/input_groups";
+@import "./pixel-admin-scss/panels";
+@import "./pixel-admin-scss/wells";
+@import "./pixel-admin-scss/popovers";
+@import "./pixel-admin-scss/tooltips";
+@import "./pixel-admin-scss/modals";
+@import "./pixel-admin-scss/accordions";
+@import "./pixel-admin-scss/notes";
+@import "./pixel-admin-scss/counters";
+@import "./pixel-admin-scss/colors";
+@import "./pixel-admin-scss/stats";
+@import "./pixel-admin-scss/utils";
+
+@import "./pixel-admin-scss/demo";
+
+// jQuery UI
+//
+
+@import "./pixel-admin-scss/plugins/jquery_ui/common";
+@import "./pixel-admin-scss/plugins/jquery_ui/sliders";
+@import "./pixel-admin-scss/plugins/jquery_ui/accordions";
+@import "./pixel-admin-scss/plugins/jquery_ui/autocomplete";
+@import "./pixel-admin-scss/plugins/jquery_ui/menus";
+@import "./pixel-admin-scss/plugins/jquery_ui/spinners";
+@import "./pixel-admin-scss/plugins/jquery_ui/progress_bars";
+@import "./pixel-admin-scss/plugins/jquery_ui/tabs";
+@import "./pixel-admin-scss/plugins/jquery_ui/datepicker";
+@import "./pixel-admin-scss/plugins/jquery_ui/tooltips";
+
+
+// Plugins
+//
+
+@import "./pixel-admin-scss/plugins/pa.switcher";
+@import "./pixel-admin-scss/plugins/pa.limiter";
+@import "./pixel-admin-scss/plugins/pa.expanding_input";
+@import "./pixel-admin-scss/plugins/pa.wizard";
+@import "./pixel-admin-scss/plugins/pa.file_input";
+@import "./pixel-admin-scss/plugins/jquery.select2";
+@import "./pixel-admin-scss/plugins/bootstrap_datepicker";
+@import "./pixel-admin-scss/plugins/bootstrap_timepicker";
+@import "./pixel-admin-scss/plugins/bootstrap_datepaginator";
+@import "./pixel-admin-scss/plugins/bootstrap_tabdrop";
+@import "./pixel-admin-scss/plugins/jquery.minicolors";
+// {
+  @import "./pixel-admin-scss/plugins/bootstrap_editable/bootstrap_editable";
+  @import "./pixel-admin-scss/plugins/bootstrap_editable/address";
+  @import "./pixel-admin-scss/plugins/bootstrap_editable/typeahead";
+// }
+@import "./pixel-admin-scss/plugins/bootbox";
+@import "./pixel-admin-scss/plugins/jquery.datatables";
+@import "./pixel-admin-scss/plugins/jquery.growl";
+@import "./pixel-admin-scss/plugins/dropzone";
+@import "./pixel-admin-scss/plugins/summernote";
+@import "./pixel-admin-scss/plugins/bootstrap_markdown";
+@import "./pixel-admin-scss/plugins/jquery.sparkline";
+@import "./pixel-admin-scss/plugins/easy_pie_chart";
+@import "./pixel-admin-scss/plugins/morris";
+@import "./pixel-admin-scss/plugins/jquery.flot";
+@import "./pixel-admin-scss/plugins/slim_scroll";

@@ -1,0 +1,64 @@
+//
+// Progress bars
+// --------------------------------------------------
+
+// Bar animations
+// -------------------------
+
+// WebKit
+@-webkit-keyframes progress-bar-stripes {
+  from  { background-position: 40px 0; }
+  to    { background-position: 0 0; }
+}
+
+// Spec and IE10+
+@keyframes progress-bar-stripes {
+  from  { background-position: 40px 0; }
+  to    { background-position: 0 0; }
+}
+
+// Default progress bars
+//
+
+.progress {
+  background-color: rgba(0, 0, 0, .06);
+  height: 13px; 
+}
+
+.progress-bar {
+  background: none;
+  border: 1px solid;
+  @include box-shadow(none);
+}
+
+
+// Colors
+//
+
+.progress .progress-bar.progress-bar-info {
+  @include pixel-progress-bar($info-color);
+}
+.progress.progress-striped .progress-bar.progress-bar-info {
+  @include pixel-progress-striped($info-color);
+}
+
+.progress .progress-bar.progress-bar-success {
+  @include pixel-progress-bar($success-color);
+}
+.progress.progress-striped .progress-bar.progress-bar-success {
+  @include pixel-progress-striped($success-color);
+}
+
+.progress .progress-bar.progress-bar-warning {
+  @include pixel-progress-bar($warning-color);
+}
+.progress.progress-striped .progress-bar.progress-bar-warning {
+  @include pixel-progress-striped($warning-color);
+}
+
+.progress .progress-bar.progress-bar-danger {
+  @include pixel-progress-bar($danger-color);
+}
+.progress.progress-striped .progress-bar.progress-bar-danger {
+  @include pixel-progress-striped($danger-color);
+}
