@@ -1,0 +1,4 @@
+grailsgoat
+==========
+
+Vulnerable Grails application
