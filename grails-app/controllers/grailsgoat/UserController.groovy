@@ -6,7 +6,11 @@ class UserController {
 
 	def index() {
 		// TODO: Check if the user is already signed in
-		redirect(action: "signin")
+		if (!session.user) {
+			redirect(action: "signin")
+		} else {
+			render "Main page goes here for logged in users"
+		}
 	}
 
     def signin() { 
@@ -24,6 +28,7 @@ class UserController {
 
     			if (user != null && user_password_md5.equals(user.password)) {
     				// User was validated, so create a session
+    				session["user"] = user
     				render "Successfully logged in"
     				return
     			}
@@ -60,13 +65,10 @@ class UserController {
 
     			if (user == null && passwords_match) {
     				def new_user = new User(email: user_email, firstname: user_firstname, lastname: user_lastname, password: user_password_md5, auth_token: RandomStringUtils.randomAlphanumeric(30))
-    				if (!new_user.save(flush: true)) {
-    					new_user.errors.each {
-        					println it
-    					}
+    				if (new_user.save(flush: true)) {
+    					render "Successfully registered a new account!"
+    					return
 					}
-    				render "Successfully registered a new account!"
-    				return
     			}
     		}
 
@@ -76,6 +78,11 @@ class UserController {
     	} else {
     		render(view: "signup")
     	}
+    }
+
+    def logout() {
+    	session.invalidate()
+    	redirect(action: "login")
     }
 
     // Redirect

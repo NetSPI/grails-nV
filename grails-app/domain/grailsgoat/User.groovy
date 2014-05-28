@@ -16,6 +16,16 @@ class User {
     static constraints = {
     	verified nullable: true
     	updated_at nullable: true
+
+    	email maxSize: 255
+
+    	firstname maxSize: 255
+
+    	lastname maxSize: 255
+
+    	password maxSize: 36
+
+    	auth_token maxSize: 30
     }
 
     static mapping = {
