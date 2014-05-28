@@ -17,17 +17,17 @@ hibernate {
 environments {
     development {
         dataSource {
-            url = "jdbc:mysql://localhost/grailsgoat-dev?useUnicode=yes&characterEncoding=UTF-8"
+            url = "jdbc:mysql://localhost/grailsgoat-dev?useUnicode=yes&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull"
         }
     }
     test {
         dataSource {
-            url = "jdbc:mysql://localhost/grailsgoat-test?useUnicode=yes&characterEncoding=UTF-8"
+            url = "jdbc:mysql://localhost/grailsgoat-test?useUnicode=yes&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull"
         }
     }
     production {
         dataSource {
-            url = "jdbc:mysql://localhost/grailsgoat-prod?useUnicode=yes&characterEncoding=UTF-8"
+            url = "jdbc:mysql://localhost/grailsgoat-prod?useUnicode=yes&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull"
             properties {
                // See http://grails.org/doc/latest/guide/conf.html#dataSource for documentation
                jmxEnabled = true

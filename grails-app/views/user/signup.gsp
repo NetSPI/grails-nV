@@ -61,10 +61,11 @@
 
 		<!-- Form -->
 		<div class="signup-form">
-			<form action="index.html" id="signup-form_id">
+			<form action="${request.contextPath}/user/signup" id="signup-form_id" method="post">
 				
 				<div class="signup-text">
 					<span>Create an account</span>
+					<span><g:if test="${flash.error}">${flash.error}</g:if></span>
 				</div>
 
 				<div class="form-group w-icon">
@@ -87,9 +88,14 @@
 					<span class="fa fa-lock signup-form-icon"></span>
 				</div>
 
+				<div class="form-group w-icon">
+					<input type="password" name="signup_confirm" id="confirm_id" class="form-control input-lg" placeholder="Confirm Password">
+					<span class="fa fa-lock signup-form-icon"></span>
+				</div>
+
 				<div class="form-group" style="margin-top: 20px;margin-bottom: 20px;">
 					<label class="checkbox-inline">
-						<input type="checkbox" name="signup_confirm" class="px" id="confirm_id">
+						<input type="checkbox" name="signup_agree" class="px" id="agree_id">
 						<span class="lbl">I agree with the <a href="#" target="_blank">Terms and Conditions</a></span>
 					</label>
 				</div>
@@ -165,8 +171,13 @@
 			minlength: 6
 		});
 
-		// Validate confirm checkbox
 		$("#confirm_id").rules("add", {
+			required: true,
+			equalTo: "#password_id"
+		})
+
+		// Validate confirm checkbox
+		$("#agree_id").rules("add", {
 			required: true
 		});
 	});

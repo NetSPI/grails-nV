@@ -70,13 +70,14 @@
 		<div class="signin-form">
 
 			<!-- Form -->
-			<form action="index.html" id="signin-form_id">
+			<form action="${request.contextPath}/user/signin" id="signin-form_id" method="post">
 				<div class="signin-text">
 					<span>Sign In to your account</span>
+					<span><g:if test="${flash.error}">${flash.error}</g:if></span>
 				</div> <!-- / .signin-text -->
 
 				<div class="form-group w-icon">
-					<input type="text" name="signin_username" id="username_id" class="form-control input-lg" placeholder="Username or email">
+					<input type="text" name="signin_email" id="username_id" class="form-control input-lg" placeholder="Email">
 					<span class="fa fa-user signin-form-icon"></span>
 				</div> <!-- / Username -->
 
