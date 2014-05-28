@@ -68,12 +68,11 @@
 
 		<!-- Right side -->
 		<div class="signin-form">
-
+			<g:if test="${flash.error}"><div class="alert alert-danger">${flash.error}</div></g:if><g:if test="${flash.info}"><div class="alert alert-info">${flash.info}</div></g:if>
 			<!-- Form -->
 			<form action="${request.contextPath}/user/signin" id="signin-form_id" method="post">
 				<div class="signin-text">
 					<span>Sign In to your account</span>
-					<span><g:if test="${flash.error}">${flash.error}</g:if></span>
 				</div> <!-- / .signin-text -->
 
 				<div class="form-group w-icon">
@@ -102,7 +101,7 @@
 				</div> <!-- / .header -->
 				
 				<!-- Form -->
-				<form action="index.html" id="password-reset-form_id">
+				<form action="${request.contextPath}/user/forgot" id="password-reset-form_id" method="post">
 					<div class="form-group w-icon">
 						<input type="text" name="password_reset_email" id="p_email_id" class="form-control input-lg" placeholder="Enter your email">
 						<span class="fa fa-envelope signin-form-icon"></span>

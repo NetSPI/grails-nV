@@ -47,6 +47,7 @@
 
 	<!-- Container -->
 	<div class="signup-container">
+		<g:if test="${flash.error}"><div class="alert alert-danger">${flash.error}</div></g:if>
 		<!-- Header -->
 		<div class="signup-header">
 			<a href="index.html" class="logo">
@@ -65,7 +66,6 @@
 				
 				<div class="signup-text">
 					<span>Create an account</span>
-					<span><g:if test="${flash.error}">${flash.error}</g:if></span>
 				</div>
 
 				<div class="form-group w-icon">

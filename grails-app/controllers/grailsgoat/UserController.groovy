@@ -80,6 +80,36 @@ class UserController {
     	}
     }
 
+    def forgot() {
+    	if (request.post) {
+    		if (params.password_reset_email) {
+				def user_email = params.password_reset_email
+
+				def user = User.findWhere(email: user_email)
+
+				if (user != null) {
+
+					// This is secure, right :)?
+					sendMail {
+  						to user_email    
+  						subject "Reset your FindMeAJob account"     
+  						body 'Someone requested their password on FindMeAJob be reset. If it was you, click on the link below. If it wasn\'t, don\t click on the link! ' + request.contextPath + "/user/forgothook?token=" + user.auth_token
+					}
+
+					println "Reset account"
+
+					flash.info = "If an account with that email exists, it has been sent a reset token"
+					render(view: "signin")
+					return
+				}
+    		}
+
+    		redirect(action: "signin")
+    	} else {
+    		redirect(action: "signin")
+    	}
+    }
+
     def logout() {
     	session.invalidate()
     	redirect(action: "login")
