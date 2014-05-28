@@ -3,6 +3,16 @@ grailsgoat
 
 Vulnerable Grails application
 
+Setup
+-----
+
+(Something about installing groovy, grails, how it requires java 1.7, etc)
+
+To set up the database, run the initial setup script provided in the directory.
+
+    chmod +x initial_setup.sh
+    ./initial_setup.sh
+
 Updating the Database
 ---------------------
 
