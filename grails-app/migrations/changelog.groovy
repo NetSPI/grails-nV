@@ -49,4 +49,6 @@ databaseChangeLog = {
 	include file: '2014-05-28-added-default-user-values.groovy'
 
 	include file: '2014-05-28-added-updated-constraints.groovy'
+
+	include file: '2014-05-28-added-job-listing.groovy'
 }
