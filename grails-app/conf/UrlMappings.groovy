@@ -11,6 +11,11 @@ class UrlMappings {
         {
             controller = "main"
         }
+        "/logout"
+        {
+            controller = "session"
+            action = "logout"
+        }
         "500"(view:'/error')
 	}
 }

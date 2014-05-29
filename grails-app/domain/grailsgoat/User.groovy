@@ -17,6 +17,7 @@ class User {
     	updated_at nullable: true
         forgot_token nullable: true
         verify_token nullable: true
+        created_at nullable: true
 
     	email maxSize: 255
 

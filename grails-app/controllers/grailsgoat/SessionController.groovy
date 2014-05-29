@@ -8,6 +8,6 @@ class SessionController {
 
     def logout() {
     	session.invalidate()
-    	redirect(action: "login")
+    	redirect(controller: "user", action: "login")
     }
 }
