@@ -5,13 +5,13 @@
 	</head>
 <body>
 		<div class="profile-full-name">
-			<span class="text-semibold">Denise Steiner</span>'s profile
+			<span class="text-semibold">${session.user.firstname} ${session.user.lastname}</span>'s profile
 		</div>
 	 	<div class="profile-row">
 			<div class="left-col">
 				<div class="profile-block">
 					<div class="panel profile-photo">
-						<img src="assets/demo/avatars/5.jpg" alt="">
+						<asset:image src="demo/avatars/5.jpg" alt=""/>
 					</div><br>
 					<a href="#" class="btn btn-success"><i class="fa fa-check"></i>&nbsp;&nbsp;Following</a>&nbsp;&nbsp;
 					<a href="#" class="btn"><i class="fa fa-comment"></i></a>
@@ -22,7 +22,7 @@
 						<span class="panel-title">About me</span>
 					</div>
 					<div class="panel-body">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et <a href="#">dolore magna</a> aliqua.
+						[My personal description would go here]
 					</div>
 				</div>
 
@@ -87,7 +87,7 @@
 						<div class="widget-article-comments tab-pane panel no-padding no-border fade in active" id="profile-tabs-board">
 
 							<div class="comment">
-								<img src="assets/demo/avatars/1.jpg" alt="" class="comment-avatar">
+								<asset:image src="demo/avatars/1.jpg" alt="" class="comment-avatar"/>
 								<div class="comment-body">
 									<form action="" id="leave-comment-form" class="comment-text no-padding no-border">
 										<textarea class="form-control" rows="1"></textarea>
@@ -105,7 +105,7 @@
 							<hr class="no-panel-padding-h panel-wide">
 
 							<div class="comment">
-								<img src="assets/demo/avatars/2.jpg" alt="" class="comment-avatar">
+								<asset:image src="demo/avatars/2.jpg" alt="" class="comment-avatar"/>
 								<div class="comment-body">
 									<div class="comment-text">
 										<div class="comment-heading">
@@ -122,7 +122,7 @@
 								</div> <!-- / .comment-body -->
 
 								<div class="comment">
-									<img src="assets/demo/avatars/4.jpg" alt="" class="comment-avatar">
+									<asset:image src="demo/avatars/4.jpg" alt="" class="comment-avatar"/>
 									<div class="comment-body">
 										<div class="comment-text">
 											<div class="comment-heading">
@@ -140,7 +140,7 @@
 								</div> <!-- / .comment -->
 
 								<div class="comment">
-									<img src="assets/demo/avatars/5.jpg" alt="" class="comment-avatar">
+									<asset:image src="demo/avatars/5.jpg" alt="" class="comment-avatar"/>
 									<div class="comment-body">
 										<div class="comment-text">
 											<div class="comment-heading">
@@ -157,7 +157,7 @@
 									</div> <!-- / .comment-body -->
 
 									<div class="comment">
-										<img src="assets/demo/avatars/1.jpg" alt="" class="comment-avatar">
+										<asset:image src="demo/avatars/1.jpg" alt="" class="comment-avatar"/>
 										<div class="comment-body">
 											<div class="comment-text">
 												<div class="comment-heading">
@@ -177,7 +177,7 @@
 							</div> <!-- / .comment -->
 
 							<div class="comment">
-								<img src="assets/demo/avatars/3.jpg" alt="" class="comment-avatar">
+								<asset:image src="demo/avatars/3.jpg" alt="" class="comment-avatar"/>
 								<div class="comment-body">
 									<div class="comment-text">
 										<div class="comment-heading">
@@ -195,7 +195,7 @@
 							</div> <!-- / .comment -->
 
 							<div class="comment">
-								<img src="assets/demo/avatars/2.jpg" alt="" class="comment-avatar">
+								<asset:image src="demo/avatars/2.jpg" alt="" class="comment-avatar"/>
 								<div class="comment-body">
 									<div class="comment-text">
 										<div class="comment-heading">
@@ -212,7 +212,7 @@
 								</div> <!-- / .comment-body -->
 
 								<div class="comment">
-									<img src="assets/demo/avatars/4.jpg" alt="" class="comment-avatar">
+									<asset:image src="demo/avatars/4.jpg" alt="" class="comment-avatar"/>
 									<div class="comment-body">
 										<div class="comment-text">
 											<div class="comment-heading">
@@ -230,7 +230,7 @@
 								</div> <!-- / .comment -->
 
 								<div class="comment">
-									<img src="assets/demo/avatars/5.jpg" alt="" class="comment-avatar">
+									<asset:image src="demo/avatars/5.jpg" alt="" class="comment-avatar"/>
 									<div class="comment-body">
 										<div class="comment-text">
 											<div class="comment-heading">
@@ -247,7 +247,7 @@
 									</div> <!-- / .comment-body -->
 
 									<div class="comment">
-										<img src="assets/demo/avatars/1.jpg" alt="" class="comment-avatar">
+										<asset:image src="demo/avatars/1.jpg" alt="" class="comment-avatar"/>
 										<div class="comment-body">
 											<div class="comment-text">
 												<div class="comment-heading">
@@ -267,7 +267,7 @@
 							</div> <!-- / .comment -->
 
 							<div class="comment">
-								<img src="assets/demo/avatars/3.jpg" alt="" class="comment-avatar">
+								<asset:image src="demo/avatars/3.jpg" alt="" class="comment-avatar"/>
 								<div class="comment-body">
 									<div class="comment-text">
 										<div class="comment-heading">
@@ -309,7 +309,7 @@
 									<div class="panel tl-body">
 										<a href="#">Denise Steiner</a> shared an image on <a href="#">The Gallery</a>
 										<div class="tl-wide text-center" style="padding: 10px;margin-top:15px;margin-bottom: 15px;background: #f1f1f1">
-											<img src="assets/demo/signin-bg-5.jpg" alt="" style="max-height: 150px;max-width: 100%;">
+											<asset:image src="demo/signin-bg-5.jpg" alt="" style="max-height: 150px;max-width: 100%;"/>
 										</div>
 										<i class="text-muted text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</i>
 									</div> <!-- / .tl-body -->
@@ -319,7 +319,7 @@
 									<div class="tl-time">
 										3h ago
 									</div>
-									<div class="tl-icon bg-success"><img src="assets/demo/avatars/2.jpg" alt=""></div>
+									<div class="tl-icon bg-success"><asset:image src="demo/avatars/2.jpg" alt=""/></div>
 									<div class="panel tl-body">
 										<a href="#">Robert Jang</a> commented on <a href="#">The Article</a>
 										<div class="well well-sm" style="margin: 10px 0 0 0;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
@@ -332,7 +332,7 @@
 									</div>
 									<div class="tl-icon bg-dark-gray"><i class="fa fa-check"></i></div>
 									<div class="panel tl-body">
-										<img src="assets/demo/avatars/5.jpg" alt="" class="rounded" style=" width: 20px;height: 20px;margin-top: -2px;">&nbsp;&nbsp;<a href="#">Denise Steiner</a> followed <a href="#">Johg Doe</a>
+										<asset:image src="demo/avatars/5.jpg" alt="" class="rounded" style=" width: 20px;height: 20px;margin-top: -2px;"/>&nbsp;&nbsp;<a href="#">Denise Steiner</a> followed <a href="#">Johg Doe</a>
 									</div> <!-- / .tl-body -->
 								</div> <!-- / .tl-entry -->
 
@@ -347,7 +347,7 @@
 									<div class="panel tl-body">
 										<a href="#">Denise Steiner</a> liked a comment on <a href="#">Some Article</a>
 										<div style="margin-top: 10px;" class="text-sm">
-											<img src="assets/demo/avatars/3.jpg" alt="" class="rounded" style=" width: 20px;height: 20px;margin-top: -2px;">&nbsp;&nbsp;<a href="#">Michelle Bortz</a> commented 2 days ago
+											<asset:image src="demo/avatars/3.jpg" alt="" class="rounded" style=" width: 20px;height: 20px;margin-top: -2px;"/>&nbsp;&nbsp;<a href="#">Michelle Bortz</a> commented 2 days ago
 											<div class="well well-sm" style="margin: 6px 0 0 0;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
 										</div>
 									</div> <!-- / .tl-body -->
@@ -386,7 +386,7 @@
 						</div> <!-- / .tab-pane -->
 						<div class="tab-pane fade widget-followers" id="profile-tabs-followers">
 							<div class="follower">
-								<img src="assets/demo/avatars/1.jpg" alt="" class="follower-avatar">
+								<asset:image src="demo/avatars/1.jpg" alt="" class="follower-avatar"/>
 								<div class="body">
 									<div class="follower-controls">
 										<a href="#" class="btn btn-sm btn-success"><i class="fa fa-check"></i><span>&nbsp;&nbsp;Following</span></a>
@@ -397,7 +397,7 @@
 							</div>
 
 							<div class="follower">
-								<img src="assets/demo/avatars/3.jpg" alt="" class="follower-avatar">
+								<asset:image src="demo/avatars/3.jpg" alt="" class="follower-avatar"/>
 								<div class="body">
 									<div class="follower-controls">
 										<a href="#" class="btn btn-sm btn-outline">Follow</a>
@@ -408,7 +408,7 @@
 							</div>
 
 							<div class="follower">
-								<img src="assets/demo/avatars/4.jpg" alt="" class="follower-avatar">
+								<asset:image src="demo/avatars/4.jpg" alt="" class="follower-avatar"/>
 								<div class="body">
 									<div class="follower-controls">
 										<a href="#" class="btn btn-sm btn-outline">Follow</a>
@@ -419,7 +419,7 @@
 							</div>
 
 							<div class="follower">
-								<img src="assets/demo/avatars/5.jpg" alt="" class="follower-avatar">
+								<asset:image src="demo/avatars/5.jpg" alt="" class="follower-avatar"/>
 								<div class="body">
 									<div class="follower-controls">
 										<a href="#" class="btn btn-sm btn-outline">Follow</a>
@@ -430,7 +430,7 @@
 							</div>
 
 							<div class="follower">
-								<img src="assets/demo/avatars/1.jpg" alt="" class="follower-avatar">
+								<asset:image src="demo/avatars/1.jpg" alt="" class="follower-avatar"/>
 								<div class="body">
 									<div class="follower-controls">
 										<a href="#" class="btn btn-sm btn-success"><i class="fa fa-check"></i><span>&nbsp;&nbsp;Following</span></a>
@@ -441,7 +441,7 @@
 							</div>
 
 							<div class="follower">
-								<img src="assets/demo/avatars/3.jpg" alt="" class="follower-avatar">
+								<asset:image src="demo/avatars/3.jpg" alt="" class="follower-avatar"/>
 								<div class="body">
 									<div class="follower-controls">
 										<a href="#" class="btn btn-sm btn-outline">Follow</a>
@@ -452,289 +452,13 @@
 							</div>
 
 							<div class="follower">
-								<img src="assets/demo/avatars/4.jpg" alt="" class="follower-avatar">
+								<asset:image src="demo/avatars/4.jpg" alt="" class="follower-avatar"/>
 								<div class="body">
 									<div class="follower-controls">
 										<a href="#" class="btn btn-sm btn-outline">Follow</a>
 									</div>
 									<a href="#" class="follower-name">Timothy Owens</a><br>
 									<a href="#" class="follower-username">@towens</a>
-								</div>
-							</div>
-
-							<div class="follower">
-								<img src="assets/demo/avatars/5.jpg" alt="" class="follower-avatar">
-								<div class="body">
-									<div class="follower-controls">
-										<a href="#" class="btn btn-sm btn-outline">Follow</a>
-									</div>
-									<a href="#" class="follower-name">Denise Steiner</a><br>
-									<a href="#" class="follower-username">@dsteiner</a>
-								</div>
-							</div>
-
-							<div class="follower">
-								<img src="assets/demo/avatars/1.jpg" alt="" class="follower-avatar">
-								<div class="body">
-									<div class="follower-controls">
-										<a href="#" class="btn btn-sm btn-success"><i class="fa fa-check"></i><span>&nbsp;&nbsp;Following</span></a>
-									</div>
-									<a href="#" class="follower-name">John Doe</a><br>
-									<a href="#" class="follower-username">@jdoe</a>
-								</div>
-							</div>
-
-							<div class="follower">
-								<img src="assets/demo/avatars/3.jpg" alt="" class="follower-avatar">
-								<div class="body">
-									<div class="follower-controls">
-										<a href="#" class="btn btn-sm btn-outline">Follow</a>
-									</div>
-									<a href="#" class="follower-name">Michelle Bortz</a><br>
-									<a href="#" class="follower-username">@mbortz</a>
-								</div>
-							</div>
-
-							<div class="follower">
-								<img src="assets/demo/avatars/4.jpg" alt="" class="follower-avatar">
-								<div class="body">
-									<div class="follower-controls">
-										<a href="#" class="btn btn-sm btn-outline">Follow</a>
-									</div>
-									<a href="#" class="follower-name">Timothy Owens</a><br>
-									<a href="#" class="follower-username">@towens</a>
-								</div>
-							</div>
-
-							<div class="follower">
-								<img src="assets/demo/avatars/5.jpg" alt="" class="follower-avatar">
-								<div class="body">
-									<div class="follower-controls">
-										<a href="#" class="btn btn-sm btn-outline">Follow</a>
-									</div>
-									<a href="#" class="follower-name">Denise Steiner</a><br>
-									<a href="#" class="follower-username">@dsteiner</a>
-								</div>
-							</div>
-
-							<div class="follower">
-								<img src="assets/demo/avatars/1.jpg" alt="" class="follower-avatar">
-								<div class="body">
-									<div class="follower-controls">
-										<a href="#" class="btn btn-sm btn-success"><i class="fa fa-check"></i><span>&nbsp;&nbsp;Following</span></a>
-									</div>
-									<a href="#" class="follower-name">John Doe</a><br>
-									<a href="#" class="follower-username">@jdoe</a>
-								</div>
-							</div>
-
-							<div class="follower">
-								<img src="assets/demo/avatars/3.jpg" alt="" class="follower-avatar">
-								<div class="body">
-									<div class="follower-controls">
-										<a href="#" class="btn btn-sm btn-outline">Follow</a>
-									</div>
-									<a href="#" class="follower-name">Michelle Bortz</a><br>
-									<a href="#" class="follower-username">@mbortz</a>
-								</div>
-							</div>
-
-							<div class="follower">
-								<img src="assets/demo/avatars/4.jpg" alt="" class="follower-avatar">
-								<div class="body">
-									<div class="follower-controls">
-										<a href="#" class="btn btn-sm btn-outline">Follow</a>
-									</div>
-									<a href="#" class="follower-name">Timothy Owens</a><br>
-									<a href="#" class="follower-username">@towens</a>
-								</div>
-							</div>
-
-							<div class="follower">
-								<img src="assets/demo/avatars/5.jpg" alt="" class="follower-avatar">
-								<div class="body">
-									<div class="follower-controls">
-										<a href="#" class="btn btn-sm btn-outline">Follow</a>
-									</div>
-									<a href="#" class="follower-name">Denise Steiner</a><br>
-									<a href="#" class="follower-username">@dsteiner</a>
-								</div>
-							</div>
-						</div> <!-- / .tab-pane -->
-						<div class="tab-pane fade widget-followers" id="profile-tabs-following">
-							<div class="follower">
-								<img src="assets/demo/avatars/1.jpg" alt="" class="follower-avatar">
-								<div class="body">
-									<div class="follower-controls">
-										<a href="#" class="btn btn-sm btn-success"><i class="fa fa-check"></i><span>&nbsp;&nbsp;Following</span></a>
-									</div>
-									<a href="#" class="follower-name">John Doe</a><br>
-									<a href="#" class="follower-username">@jdoe</a>
-								</div>
-							</div>
-
-							<div class="follower">
-								<img src="assets/demo/avatars/3.jpg" alt="" class="follower-avatar">
-								<div class="body">
-									<div class="follower-controls">
-										<a href="#" class="btn btn-sm btn-outline">Follow</a>
-									</div>
-									<a href="#" class="follower-name">Michelle Bortz</a><br>
-									<a href="#" class="follower-username">@mbortz</a>
-								</div>
-							</div>
-
-							<div class="follower">
-								<img src="assets/demo/avatars/4.jpg" alt="" class="follower-avatar">
-								<div class="body">
-									<div class="follower-controls">
-										<a href="#" class="btn btn-sm btn-outline">Follow</a>
-									</div>
-									<a href="#" class="follower-name">Timothy Owens</a><br>
-									<a href="#" class="follower-username">@towens</a>
-								</div>
-							</div>
-
-							<div class="follower">
-								<img src="assets/demo/avatars/5.jpg" alt="" class="follower-avatar">
-								<div class="body">
-									<div class="follower-controls">
-										<a href="#" class="btn btn-sm btn-outline">Follow</a>
-									</div>
-									<a href="#" class="follower-name">Denise Steiner</a><br>
-									<a href="#" class="follower-username">@dsteiner</a>
-								</div>
-							</div>
-
-							<div class="follower">
-								<img src="assets/demo/avatars/1.jpg" alt="" class="follower-avatar">
-								<div class="body">
-									<div class="follower-controls">
-										<a href="#" class="btn btn-sm btn-success"><i class="fa fa-check"></i><span>&nbsp;&nbsp;Following</span></a>
-									</div>
-									<a href="#" class="follower-name">John Doe</a><br>
-									<a href="#" class="follower-username">@jdoe</a>
-								</div>
-							</div>
-
-							<div class="follower">
-								<img src="assets/demo/avatars/3.jpg" alt="" class="follower-avatar">
-								<div class="body">
-									<div class="follower-controls">
-										<a href="#" class="btn btn-sm btn-outline">Follow</a>
-									</div>
-									<a href="#" class="follower-name">Michelle Bortz</a><br>
-									<a href="#" class="follower-username">@mbortz</a>
-								</div>
-							</div>
-
-							<div class="follower">
-								<img src="assets/demo/avatars/4.jpg" alt="" class="follower-avatar">
-								<div class="body">
-									<div class="follower-controls">
-										<a href="#" class="btn btn-sm btn-outline">Follow</a>
-									</div>
-									<a href="#" class="follower-name">Timothy Owens</a><br>
-									<a href="#" class="follower-username">@towens</a>
-								</div>
-							</div>
-
-							<div class="follower">
-								<img src="assets/demo/avatars/5.jpg" alt="" class="follower-avatar">
-								<div class="body">
-									<div class="follower-controls">
-										<a href="#" class="btn btn-sm btn-outline">Follow</a>
-									</div>
-									<a href="#" class="follower-name">Denise Steiner</a><br>
-									<a href="#" class="follower-username">@dsteiner</a>
-								</div>
-							</div>
-
-							<div class="follower">
-								<img src="assets/demo/avatars/1.jpg" alt="" class="follower-avatar">
-								<div class="body">
-									<div class="follower-controls">
-										<a href="#" class="btn btn-sm btn-success"><i class="fa fa-check"></i><span>&nbsp;&nbsp;Following</span></a>
-									</div>
-									<a href="#" class="follower-name">John Doe</a><br>
-									<a href="#" class="follower-username">@jdoe</a>
-								</div>
-							</div>
-
-							<div class="follower">
-								<img src="assets/demo/avatars/3.jpg" alt="" class="follower-avatar">
-								<div class="body">
-									<div class="follower-controls">
-										<a href="#" class="btn btn-sm btn-outline">Follow</a>
-									</div>
-									<a href="#" class="follower-name">Michelle Bortz</a><br>
-									<a href="#" class="follower-username">@mbortz</a>
-								</div>
-							</div>
-
-							<div class="follower">
-								<img src="assets/demo/avatars/4.jpg" alt="" class="follower-avatar">
-								<div class="body">
-									<div class="follower-controls">
-										<a href="#" class="btn btn-sm btn-outline">Follow</a>
-									</div>
-									<a href="#" class="follower-name">Timothy Owens</a><br>
-									<a href="#" class="follower-username">@towens</a>
-								</div>
-							</div>
-
-							<div class="follower">
-								<img src="assets/demo/avatars/5.jpg" alt="" class="follower-avatar">
-								<div class="body">
-									<div class="follower-controls">
-										<a href="#" class="btn btn-sm btn-outline">Follow</a>
-									</div>
-									<a href="#" class="follower-name">Denise Steiner</a><br>
-									<a href="#" class="follower-username">@dsteiner</a>
-								</div>
-							</div>
-
-							<div class="follower">
-								<img src="assets/demo/avatars/1.jpg" alt="" class="follower-avatar">
-								<div class="body">
-									<div class="follower-controls">
-										<a href="#" class="btn btn-sm btn-success"><i class="fa fa-check"></i><span>&nbsp;&nbsp;Following</span></a>
-									</div>
-									<a href="#" class="follower-name">John Doe</a><br>
-									<a href="#" class="follower-username">@jdoe</a>
-								</div>
-							</div>
-
-							<div class="follower">
-								<img src="assets/demo/avatars/3.jpg" alt="" class="follower-avatar">
-								<div class="body">
-									<div class="follower-controls">
-										<a href="#" class="btn btn-sm btn-outline">Follow</a>
-									</div>
-									<a href="#" class="follower-name">Michelle Bortz</a><br>
-									<a href="#" class="follower-username">@mbortz</a>
-								</div>
-							</div>
-
-							<div class="follower">
-								<img src="assets/demo/avatars/4.jpg" alt="" class="follower-avatar">
-								<div class="body">
-									<div class="follower-controls">
-										<a href="#" class="btn btn-sm btn-outline">Follow</a>
-									</div>
-									<a href="#" class="follower-name">Timothy Owens</a><br>
-									<a href="#" class="follower-username">@towens</a>
-								</div>
-							</div>
-
-							<div class="follower">
-								<img src="assets/demo/avatars/5.jpg" alt="" class="follower-avatar">
-								<div class="body">
-									<div class="follower-controls">
-										<a href="#" class="btn btn-sm btn-outline">Follow</a>
-									</div>
-									<a href="#" class="follower-name">Denise Steiner</a><br>
-									<a href="#" class="follower-username">@dsteiner</a>
 								</div>
 							</div>
 						</div> <!-- / .tab-pane -->

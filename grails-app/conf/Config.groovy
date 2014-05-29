@@ -125,4 +125,5 @@ log4j.main = {
 grails.plugin.databasemigration.updateOnStart = true
 grails.plugin.databasemigration.updateOnStartFileNames = ['changelog.groovy']
 
+grails.resources.adhoc.includes = ['/images/**', '/css/**', '/js/**', '/font/**']
 grails.assets.bundle=true
