@@ -5,12 +5,7 @@ import org.apache.commons.lang.RandomStringUtils
 class UserController {
 
 	def index() {
-		// TODO: Check if the user is already signed in
-		if (!session.user) {
-			redirect(action: "signin")
-		} else {
-			render "Main page goes here for logged in users"
-		}
+		redirect(action: "signin")
 	}
 
     def signin() { 
@@ -193,11 +188,6 @@ class UserController {
     		flash.error = "This email has been verified or is not valid"
     		redirect(action: "signin")
     	}
-    }
-
-    def logout() {
-    	session.invalidate()
-    	redirect(action: "login")
     }
 
     // Redirect
