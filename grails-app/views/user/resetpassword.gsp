@@ -5,7 +5,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>Sign In - FindMeAJob</title>
+	<title>Reset your Password - FindMeAJob</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 
 	<!-- Open Sans font from Google CDN -->
@@ -68,52 +68,29 @@
 
 		<!-- Right side -->
 		<div class="signin-form">
-			<g:if test="${flash.error}"><div class="alert alert-danger">${flash.error}</div></g:if><g:if test="${flash.info}"><div class="alert alert-info">${flash.info}</div></g:if><g:if test="${flash.success}"><div class="alert alert-success">${flash.success}</div></g:if>
+			<g:if test="${flash.error}"><div class="alert alert-danger">${flash.error}</div></g:if><g:if test="${flash.info}"><div class="alert alert-info">${flash.info}</div></g:if>
 			<!-- Form -->
-			<form action="${request.contextPath}/user/signin" id="signin-form_id" method="post">
+			<form action="${request.contextPath}/user/forgothook" id="signin-form_id" method="post">
+				<input type="hidden" name="forgot_token" value="${flash.forgot_token}">
 				<div class="signin-text">
-					<span>Sign In to your account</span>
+					<span>Reset your password</span>
 				</div> <!-- / .signin-text -->
 
 				<div class="form-group w-icon">
-					<input type="text" name="signin_email" id="username_id" class="form-control input-lg" placeholder="Email">
-					<span class="fa fa-user signin-form-icon"></span>
-				</div> <!-- / Username -->
+					<input type="password" name="password" id="password_id" class="form-control input-lg" placeholder="New Password">
+					<span class="fa fa-lock signin-form-icon"></span>
+				</div> <!-- / Password -->
 
 				<div class="form-group w-icon">
-					<input type="password" name="signin_password" id="password_id" class="form-control input-lg" placeholder="Password">
+					<input type="password" name="confirm" id="confirm_id" class="form-control input-lg" placeholder="Confirm New Password">
 					<span class="fa fa-lock signin-form-icon"></span>
 				</div> <!-- / Password -->
 
 				<div class="form-actions">
 					<input type="submit" value="SIGN IN" class="signin-btn bg-primary">
-					<a href="#" class="forgot-password" id="forgot-password-link">Forgot your password?</a>
 				</div> <!-- / .form-actions -->
 			</form>
 			<!-- / Form -->
-			<!-- Password reset form -->
-			<div class="password-reset-form" id="password-reset-form">
-				<div class="header">
-					<div class="signin-text">
-						<span>Password reset</span>
-						<div class="close">&times;</div>
-					</div> <!-- / .signin-text -->
-				</div> <!-- / .header -->
-				
-				<!-- Form -->
-				<form action="${request.contextPath}/user/forgot" id="password-reset-form_id" method="post">
-					<div class="form-group w-icon">
-						<input type="text" name="password_reset_email" id="p_email_id" class="form-control input-lg" placeholder="Enter your email">
-						<span class="fa fa-envelope signin-form-icon"></span>
-					</div> <!-- / Email -->
-
-					<div class="form-actions">
-						<input type="submit" value="SEND PASSWORD RESET LINK" class="signin-btn bg-primary">
-					</div> <!-- / .form-actions -->
-				</form>
-				<!-- / Form -->
-			</div>
-			<!-- / Password reset form -->
 		</div>
 		<!-- Right side -->
 	</div>
@@ -153,46 +130,22 @@
 		});
 	});
 
-	// Show/Hide password reset form on click
-	init.push(function () {
-		$('#forgot-password-link').click(function () {
-			$('#password-reset-form').fadeIn(400);
-			return false;
-		});
-		$('#password-reset-form .close').click(function () {
-			$('#password-reset-form').fadeOut(400);
-			return false;
-		});
-	});
-
 	// Setup Sign In form validation
 	init.push(function () {
 		$("#signin-form_id").validate({ focusInvalid: true, errorPlacement: function () {} });
-		
-		// Validate username
-		$("#username_id").rules("add", {
-			required: true,
-			minlength: 3
-		});
 
 		// Validate password
 		$("#password_id").rules("add", {
 			required: true,
 			minlength: 6
 		});
-	});
 
-	// Setup Password Reset form validation
-	init.push(function () {
-		$("#password-reset-form_id").validate({ focusInvalid: true, errorPlacement: function () {} });
-		
-		// Validate email
-		$("#p_email_id").rules("add", {
+		// Validate confirm password
+		$("#confirm_id").rules("add", {
 			required: true,
-			email: true
+			minlength: 6
 		});
 	});
-
 	window.PixelAdmin.start(init);
 </script>
 
