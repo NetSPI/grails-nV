@@ -94,7 +94,7 @@ class UserController {
 						async true
   						to user_email    
   						subject "Reset your FindMeAJob account"     
-  						body 'Someone requested their password on FindMeAJob be reset. If it was you, click on the link below. If it wasn\'t, don\t click on the link! ' + request.contextPath + "/user/forgothook?token=" + user.auth_token
+  						body 'Someone requested their password on FindMeAJob be reset. If it was you, click on the link below. If it wasn\'t, don\'t click on the link! http://localhost:8080' + request.contextPath + "/user/forgothook?token=" + user.auth_token
 					}
 
 					println "Reset account"
