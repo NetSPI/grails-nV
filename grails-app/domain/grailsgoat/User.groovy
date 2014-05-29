@@ -16,6 +16,7 @@ class User {
     static constraints = {
     	verified nullable: true
     	updated_at nullable: true
+        auth_token nullable: true
 
     	email maxSize: 255
 

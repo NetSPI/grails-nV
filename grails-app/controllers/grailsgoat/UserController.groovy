@@ -91,6 +91,7 @@ class UserController {
 
 					// This is secure, right :)?
 					sendMail {
+						async true
   						to user_email    
   						subject "Reset your FindMeAJob account"     
   						body 'Someone requested their password on FindMeAJob be reset. If it was you, click on the link below. If it wasn\'t, don\t click on the link! ' + request.contextPath + "/user/forgothook?token=" + user.auth_token
@@ -106,6 +107,33 @@ class UserController {
 
     		redirect(action: "signin")
     	} else {
+    		redirect(action: "signin")
+    	}
+    }
+
+    def forgothook() {
+    	if (request.post) {
+    		// Why is someone POSTing this address?
+    		redirect(action: "signin")
+    	} else {
+    		if (params.token) {
+    			// _Very_ securely check the entire database for the token
+    			def user_token = params.token
+
+    			def user = User.findWhere(auth_token: user_token)
+
+    			if (user != null) {
+    				user.verified = true
+    				user.auth_token = null
+    				user.save(flush: true)
+
+    				flash.info = "Your email has been verified successfully!"
+    				redirect(action: "signin")
+    				return
+    			}
+    		}
+
+    		flash.error = "This email has been verified or is not valid"
     		redirect(action: "signin")
     	}
     }

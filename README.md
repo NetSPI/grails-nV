@@ -35,6 +35,13 @@ To set up the database, run the initial setup script provided in the directory.
     chmod +x initial_setup.sh
     ./initial_setup.sh
 
+In order for the app to send mail (for account verification, password resets, etc) you will need to configure the mailserver settings in the ```grails-app\Config.groovy``` file. By default, we have used settings for ```mailcatcher```, which captures all emails sent to it and displays them in a web interface.
+
+    gem install mailcatcher
+    mailcatcher
+
+Then open ```http://localhost:1080``` and you should be able to view all emails sent to the daemon.
+
 Finally, to actually run the app, simply run
 
     grails

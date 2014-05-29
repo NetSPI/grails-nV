@@ -51,4 +51,6 @@ databaseChangeLog = {
 	include file: '2014-05-28-added-updated-constraints.groovy'
 
 	include file: '2014-05-28-added-job-listing.groovy'
+
+	include file: '2014-05-29-added-nullability-on-auth_token.groovy'
 }
