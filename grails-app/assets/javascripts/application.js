@@ -9,6 +9,14 @@
 //= require_tree .
 //= require_self
 
+//= require ie.min
+//= require bootstrap.min
+//= require jquery-ui-extras.min
+//= require jquery.mockjax.min
+//= require pixel-admin.min
+
+//= require demo-mock.min.js
+
 if (typeof jQuery !== 'undefined') {
 	(function($) {
 		$('#spinner').ajaxStart(function() {

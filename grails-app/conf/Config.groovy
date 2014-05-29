@@ -124,3 +124,6 @@ log4j.main = {
 
 grails.plugin.databasemigration.updateOnStart = true
 grails.plugin.databasemigration.updateOnStartFileNames = ['changelog.groovy']
+
+grails.assets.bundle=true
+grails.gsp.enable.reload=true

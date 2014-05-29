@@ -6,7 +6,7 @@ class SessionFilters {
        shouldBeLoggedIn(controller: 'user', action: '*', invert: true) {
            before = {
               if (!session.user) {
-                  redirect(action: 'signin')
+                  redirect(controller: 'user', action: 'signin')
                   return false
                }
            }
@@ -14,7 +14,7 @@ class SessionFilters {
        shouldNotBeLoggedIn(controller: 'user', action: '*') {
            before = {
               if (session.user) {
-                  redirect(action: 'mainpage')
+                  redirect(controller: 'main', action: 'index')
                   return false
                }
            }

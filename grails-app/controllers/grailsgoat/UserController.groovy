@@ -24,7 +24,7 @@ class UserController {
     			if (user != null && user_password_md5.equals(user.password) && !user.verify_token) {
     				// User was validated, so create a session
     				session["user"] = user
-    				render "Successfully logged in"
+    				redirect(controller: "main", action: "index")
     				return
     			}
     		}
