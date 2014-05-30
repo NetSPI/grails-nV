@@ -61,4 +61,6 @@ databaseChangeLog = {
 	include file: '2014-05-29-added-job-listing-company.groovy'
 
 	include file: '2014-05-29-added-nullable-created.groovy'
+
+	include file: '2014-05-30-added-user-description.groovy'
 }

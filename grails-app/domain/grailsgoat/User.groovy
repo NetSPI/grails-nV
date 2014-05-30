@@ -7,6 +7,7 @@ class User {
 	String email
 	String firstname
 	String lastname
+    String description
 	String password
 	Date created_at
 	Date updated_at
@@ -18,12 +19,15 @@ class User {
         forgot_token nullable: true
         verify_token nullable: true
         created_at nullable: true
+        description nullable: true
 
     	email maxSize: 255
 
     	firstname maxSize: 255
 
     	lastname maxSize: 255
+
+        description maxSize: 3000
 
     	password maxSize: 36
 
