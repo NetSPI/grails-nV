@@ -31,22 +31,14 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr class="odd gradeX">
-								<td>Trident</td>
-								<td>Internet
-									 Explorer 4.0</td>
-								<td>Win 95+</td>
-								<td class="center"> 4</td>
-								<td class="center">X</td>
-							</tr>
-							<tr class="even gradeC">
-								<td>Trident</td>
-								<td>Internet
-									 Explorer 5.0</td>
-								<td>Win 95+</td>
-								<td class="center">5</td>
-								<td class="center">C</td>
-							</tr>
+							<g:each in="${listings}" var="listing" >
+								<tr class="odd gradeX">
+									<td>${listing.name}</td>
+									<td>${listing.description}</td>
+									<td>${listing.location}</td>
+									<td><g:if test="${listing.fulltime}">Full-time</g:if><g:else>Part-time</g:else></td>
+									<td>${listing.company.name}</td>
+							</g:each>
 						</tbody>
 					</table>
 				</div>

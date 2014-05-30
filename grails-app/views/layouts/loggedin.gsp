@@ -141,7 +141,7 @@
 						</li>
 					</ul>
 				</li>
-					<a href="index.html"><i class="menu-icon fa fa-dashboard"></i><span class="mm-text">Companies</span></a>
+					<a href="${request.contextPath}/companies/"><i class="menu-icon fa fa-dashboard"></i><span class="mm-text">Companies</span></a>
 				</li>
 				<li>
 					<a href="index.html"><i class="menu-icon fa fa-dashboard"></i><span class="mm-text">Messages</span></a>
