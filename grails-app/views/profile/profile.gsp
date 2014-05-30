@@ -4,6 +4,10 @@
 		<meta name="layout" content="loggedin" />
 	</head>
 <body>
+		<div class="page-header">
+			<h1><span class="text-light-gray"><g:if test="${session.user.id == user.id}">My </g:if>Profile / </span>View</h1>
+		</div> <!-- / .page-header -->
+
 		<div class="profile-full-name">
 			<span class="text-semibold">${user.firstname} ${user.lastname}</span>'s profile
 		</div>

@@ -74,11 +74,10 @@
 									<span>${session.user.firstname} ${session.user.lastname}</span>
 								</a>
 								<ul class="dropdown-menu">
-									<li><a href="#"><span class="label label-warning pull-right">New</span>Profile</a></li>
-									<li><a href="#"><span class="badge badge-primary pull-right">New</span>Account</a></li>
+									<li><a href="${request.contextPath}/profile/${session.user.id}">My Profile</a></li>
 									<li><a href="#"><i class="dropdown-icon fa fa-cog"></i>&nbsp;&nbsp;Settings</a></li>
 									<li class="divider"></li>
-									<li><a href="pages-signin.html"><i class="dropdown-icon fa fa-power-off"></i>&nbsp;&nbsp;Log Out</a></li>
+									<li><a href="${request.contextPath}/logout"><i class="dropdown-icon fa fa-power-off"></i>&nbsp;&nbsp;Log Out</a></li>
 								</ul>
 							</li>
 						</ul> <!-- / .navbar-nav -->
@@ -136,6 +135,9 @@
 				<li>
 					<a href="${request.contextPath}/profile/"><i class="menu-icon fa fa-dashboard"></i><span class="mm-text">My Profile</span></a>
 					<ul>
+						<li>
+							<a tabindex="-1" href="${request.contextPath}/profile/edit/${session.user.id}"><span class="mm-text">Edit Profile</span></a>
+						</li>
 						<li>
 							<a tabindex="-1" href="ui-buttons.html"><span class="mm-text">Upload Resume</span></a>
 						</li>
