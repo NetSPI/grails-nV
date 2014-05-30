@@ -32,7 +32,12 @@ class ProfileController {
             
             def uploadedfile = request.getFile('file')
             if (!uploadedfile?.empty) {
-                uploadedfile.transferTo(new File("grails-app/assets/uploads/" + uploadedfile.getOriginalFilename()))
+                uploadedfile.transferTo(new File("web-app/uploads/" + uploadedfile.getOriginalFilename()))
+                def user = User.get(session.user.id)
+
+                user.resume = uploadedfile.getOriginalFilename()
+                user.save(flush: true)
+
                 response.sendError(200, 'Done')
                 render "Uploaded."
                 return
