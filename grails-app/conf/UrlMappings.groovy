@@ -26,6 +26,11 @@ class UrlMappings {
             controller = "profile"
             action = "index"
         }
+        "/profile/resume"
+        {
+            controller = "profile"
+            action = "resume"
+        }
         "500"(view:'/error')
 	}
 }

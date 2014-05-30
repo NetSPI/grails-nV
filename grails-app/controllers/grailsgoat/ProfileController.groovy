@@ -26,6 +26,16 @@ class ProfileController {
         redirect(controller: "main", view: "index")
     }
 
+    def resume() {
+        if (request.post) {
+            // They want to upload a resume
+            render "okay"
+            return
+        } else {
+            render(view: "uploadresume")
+        }
+    }
+
     def edit() {
     	if (request.post) {
             if (params.firstnamevalid && params.lastnamevalid && params.descriptionvalid && params.emailvalid && params.passwordvalid && params.passwordconfirmationvalid && params.id?.isInteger()) {
