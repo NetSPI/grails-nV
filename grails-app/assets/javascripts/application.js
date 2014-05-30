@@ -6,10 +6,8 @@
 // to create separate JavaScript files as needed.
 //
 
-//= require ie.min
-//= require bootstrap.min
-//= require jquery-ui-extras.min
-//= require jquery.mockjax.min
-//= require pixel-admin.min
-
-//= require demo-mock.min.js
+//= require ie
+//= require bootstrap
+//= require jquery-ui-extras.
+//= require jquery.mockjax
+//= require pixel-admin
