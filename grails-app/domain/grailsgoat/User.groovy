@@ -8,6 +8,7 @@ class User {
 	String firstname
 	String lastname
     String description
+    String resume
 	String password
 	Date created_at
 	Date updated_at
@@ -20,6 +21,7 @@ class User {
         verify_token nullable: true
         created_at nullable: true
         description nullable: true
+        resume nullable: true
 
     	email maxSize: 255
 
@@ -39,5 +41,7 @@ class User {
     	updated_at defaultValue: null
     	created_at defaultValue: new Date()
         forgot_token defaultValue: null
+        resume defaultValue: null
+        description defualtValue: null
     }
 }
