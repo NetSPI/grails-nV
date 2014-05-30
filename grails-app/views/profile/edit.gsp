@@ -97,7 +97,7 @@
 							<div class="form-group">
 								<label for="passwordvalid" class="col-sm-3 control-label">Password</label>
 								<div class="col-sm-9">
-									<input type="password" class="form-control" id="passwordvalid" name="passwordvalid" placeholder="Password">
+									<input type="password" class="form-control" id="passwordvalid" name="passwordvalid" placeholder="Password" autocomplete="off">
 									<p class="help-block">Passwords must be at least 6 characters long and contain one number</p>
 								</div>
 							</div>
@@ -105,7 +105,7 @@
 							<div class="form-group">
 								<label for="passwordconfirmationvalid" class="col-sm-3 control-label">Confirm password</label>
 								<div class="col-sm-9">
-									<input type="password" class="form-control" id="passwordconfirmationvalid" name="passwordconfirmationvalid" placeholder="Confirm password">
+									<input type="password" class="form-control" id="passwordconfirmationvalid" name="passwordconfirmationvalid" placeholder="Confirm password" autocomplete="off">
 									<p class="help-block">This must match the original password</p>
 								</div>
 							</div>

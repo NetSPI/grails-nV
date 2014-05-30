@@ -21,6 +21,11 @@ class UrlMappings {
             controller = "profile"
             action = "edit"
         }
+        "/profile/"
+        {
+            controller = "profile"
+            action = "index"
+        }
         "/profile/($id)?"
         {
             controller = "profile"

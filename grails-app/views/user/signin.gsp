@@ -81,7 +81,7 @@
 				</div> <!-- / Username -->
 
 				<div class="form-group w-icon">
-					<input type="password" name="signin_password" id="password_id" class="form-control input-lg" placeholder="Password">
+					<input type="password" name="signin_password" id="password_id" class="form-control input-lg" placeholder="Password" autocomplete="off">
 					<span class="fa fa-lock signin-form-icon"></span>
 				</div> <!-- / Password -->
 

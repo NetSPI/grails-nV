@@ -84,12 +84,12 @@
 				</div>
 
 				<div class="form-group w-icon">
-					<input type="password" name="signup_password" id="password_id" class="form-control input-lg" placeholder="Password">
+					<input type="password" name="signup_password" id="password_id" class="form-control input-lg" placeholder="Password" autocomplete="off">
 					<span class="fa fa-lock signup-form-icon"></span>
 				</div>
 
 				<div class="form-group w-icon">
-					<input type="password" name="signup_confirm" id="confirm_id" class="form-control input-lg" placeholder="Confirm Password">
+					<input type="password" name="signup_confirm" id="confirm_id" class="form-control input-lg" placeholder="Confirm Password" autocomplete="off">
 					<span class="fa fa-lock signup-form-icon"></span>
 				</div>
 

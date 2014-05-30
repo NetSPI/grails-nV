@@ -139,7 +139,7 @@
 							<a tabindex="-1" href="${request.contextPath}/profile/edit/${session.user.id}"><span class="mm-text">Edit Profile</span></a>
 						</li>
 						<li>
-							<a tabindex="-1" href="ui-buttons.html"><span class="mm-text">Upload Resume</span></a>
+							<a tabindex="-1" href="${request.contextPath}/profile/resume/"><span class="mm-text">Upload Resume</span></a>
 						</li>
 					</ul>
 				</li>

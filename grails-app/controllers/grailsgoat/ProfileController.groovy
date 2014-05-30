@@ -29,7 +29,15 @@ class ProfileController {
     def resume() {
         if (request.post) {
             // They want to upload a resume
-            render "okay"
+            
+            def uploadedfile = request.getFile('file')
+            if (!uploadedfile?.empty) {
+                uploadedfile.transferTo(new File("uploads/" + uploadedfile.getOriginalFilename()))
+                response.sendError(200, 'Done')
+                render "Uploaded."
+                return
+            }
+            render "Failed."
             return
         } else {
             render(view: "uploadresume")
