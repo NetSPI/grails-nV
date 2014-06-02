@@ -58,9 +58,30 @@ class UserController {
     			// Calculate MD5 of password
     			def user_password_md5 = user_password.encodeAsMD5()
 
+                // Check the password complexity
+                def passwordmatcher = user_password =~ /\A.*(?=.{10,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\@\#\$\%\^\&\+\=]).*\z/
+
+                if (user_password.length() < 6) {
+                    flash.error = "Your password is too short"
+                    render(view: "signup")
+                    return
+                }
+                if (user_password.length() > 40) {
+                    flash.error = "Your password is too long"
+                    render(view: "signup")
+                    return
+                }
+
+                /*if (!passwordmatcher.matches()) {
+                    flash.error = "Your password is not sufficiently complex"
+                    render(view: "signup")
+                    return
+                }*/
+
     			if (user == null) {
                     if(passwords_match) {    				
         				def user_verify_token = RandomStringUtils.randomAlphanumeric(30)
+
         				def new_user = new User(email: user_email, firstname: user_firstname, lastname: user_lastname, fullname: user_firstname + " " + user_lastname, password: user_password_md5, verify_token: user_verify_token)
         				if (new_user.save(flush: true)) {
     						sendMail {

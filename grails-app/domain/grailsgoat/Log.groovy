@@ -9,5 +9,10 @@ class Log {
 	String parameters
 	
     static constraints = {
+    	ip maxSize: 30
+    	referer maxSize: 2000
+    	useragent maxSize: 2000
+    	page maxSize: 2000
+    	parameters maxSize: 2000
     }
 }
