@@ -58,30 +58,37 @@ class UserController {
     			// Calculate MD5 of password
     			def user_password_md5 = user_password.encodeAsMD5()
 
-    			if (user == null && passwords_match) {    				
-    				def user_verify_token = RandomStringUtils.randomAlphanumeric(30)
-    				def new_user = new User(email: user_email, firstname: user_firstname, lastname: user_lastname, fullname: user_firstname + " " + user.lastname, password: user_password_md5, verify_token: user_verify_token)
-    				if (new_user.save(flush: true)) {
-						sendMail {
-							async true
-  							to user_email    
-  							subject "Verify your FindMeAJob account"     
-  							body 'Someone signed you up for FindMeAJob. We\'re the premier site for helping some people find jobs occasionally. If you were the one who signed up, click on the link below. If you weren\'t, don\'t click on the link! http://localhost:8080' + request.contextPath + "/user/verifyhook?token=" + user_verify_token
-						}
+    			if (user == null) {
+                    if(passwords_match) {    				
+        				def user_verify_token = RandomStringUtils.randomAlphanumeric(30)
+        				def new_user = new User(email: user_email, firstname: user_firstname, lastname: user_lastname, fullname: user_firstname + " " + user_lastname, password: user_password_md5, verify_token: user_verify_token)
+        				if (new_user.save(flush: true)) {
+    						sendMail {
+    							async true
+      							to user_email    
+      							subject "Verify your FindMeAJob account"     
+      							body 'Someone signed you up for FindMeAJob. We\'re the premier site for helping some people find jobs occasionally. If you were the one who signed up, click on the link below. If you weren\'t, don\'t click on the link! http://localhost:8080' + request.contextPath + "/user/verifyhook?token=" + user_verify_token
+    						}
 
-    					flash.success = "Your account has been registered! Please verify your email and then log in"
-                        redirect(view: "signin")
-    					return
-					}
+        					flash.success = "Your account has been registered! Please verify your email and then log in"
+                            redirect(view: "signin")
+        					return
+    					}
 
-                    new_user.errors.each {
-                        println it
+                        new_user.errors.each {
+                            println it
+                        }
                     }
-    			}
+    			} else {
+                    flash.error = "That email is already taken"
+                    render(view: "signup")
+                    return
+                }
     		}
 
     		flash.error = "Invalid registration"
-    		render(view:"signup")
+    		render(view: "signup")
+            return
 
     	} else {
     		render(view: "signup")
