@@ -5,7 +5,7 @@
     </head>
     <body>
 		<div class="page-header">
-			<h1>Job Listings</h1>
+			<h1><span class="text-light-gray">Job Listings / </span>View</h1>
 		</div> <!-- / .page-header -->
 		<p>This page lists all the current job offerings in the system. Only job offerings still available will be listed</p>
 		<div class="row">

@@ -5,7 +5,7 @@
     </head>
     <body>
 		<div class="page-header">
-			<h1><span class="text-light-gray">Messages</span></h1>
+			<h1><span class="text-light-gray">My Messages / </span>View</h1>
 		</div> <!-- / .page-header -->
 		<p>This is the inbox of all messages you've received on our website. You can use this system to send and receive messages from recruiters, employers, and fellow job seekers.</p>
 		<a href="${request.contextPath}/messages/send/"><button class="btn btn-labeled btn-primary"><span class="btn-label icon fa fa-plus"></span>New Message</button></a><br><br>

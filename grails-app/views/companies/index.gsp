@@ -5,7 +5,7 @@
     </head>
     <body>
 		<div class="page-header">
-			<h1>Companies</h1>
+			<h1><span class="text-light-gray">Companies / </span>View</h1>
 		</div> <!-- / .page-header -->
 		<p>This page lists all the companies and employers in the system. The job listings from these companeis can be seen on the main job listing page</p>
 		<div class="row">
