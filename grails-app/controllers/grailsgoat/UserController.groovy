@@ -60,7 +60,7 @@ class UserController {
 
     			if (user == null && passwords_match) {    				
     				def user_verify_token = RandomStringUtils.randomAlphanumeric(30)
-    				def new_user = new User(email: user_email, firstname: user_firstname, lastname: user_lastname, password: user_password_md5, verify_token: user_verify_token)
+    				def new_user = new User(email: user_email, firstname: user_firstname, lastname: user_lastname, fullname: user_firstname + " " + user.lastname, password: user_password_md5, verify_token: user_verify_token)
     				if (new_user.save(flush: true)) {
 						sendMail {
 							async true

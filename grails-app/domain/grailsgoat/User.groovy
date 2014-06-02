@@ -7,6 +7,7 @@ class User {
 	String email
 	String firstname
 	String lastname
+    String fullname
     String description
     String resume
 	String password
@@ -14,6 +15,8 @@ class User {
 	Date updated_at
     String verify_token
     String forgot_token
+
+    static hasMany = [messages: Message]
 
     static constraints = {
     	updated_at nullable: true
@@ -28,6 +31,8 @@ class User {
     	firstname maxSize: 255
 
     	lastname maxSize: 255
+
+        fullname maxSize: 600
 
         description maxSize: 3000
 

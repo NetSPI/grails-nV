@@ -66,6 +66,7 @@ class ProfileController {
                 if (user && user_password.equals(user_password_confirmation) && user_password.length() > 5) {
                     user.firstname = user_firstname
                     user.lastname = user_lastname
+                    user.fullname = user_firstname + " " + user.lastname
                     user.description = user_description
                     user.email = user_email
                     user.password = user_password_md5

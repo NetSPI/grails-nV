@@ -36,6 +36,11 @@ class UrlMappings {
             controller = "profile"
             action = "resume"
         }
+        "/messages/send/($messageid)?"
+        {
+            controller = "messages"
+            action = "send"
+        }
         "500"(view:'/error')
 	}
 }

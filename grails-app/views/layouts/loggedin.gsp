@@ -130,11 +130,14 @@
 			</div>
 			<ul class="navigation">
 				<li>
-					<a href="${request.contextPath}/"><i class="menu-icon fa fa-dashboard"></i><span class="mm-text">Listings</span></a>
+					<a href="${request.contextPath}/"><i class="menu-icon fa fa-list"></i><span class="mm-text">Listings</span></a>
 				</li>
-				<li>
-					<a href="${request.contextPath}/profile/"><i class="menu-icon fa fa-dashboard"></i><span class="mm-text">My Profile</span></a>
+				<li class="mm-dropdown mm-dropdown-root active">
+					<a href="${request.contextPath}/profile/"><i class="menu-icon fa fa-user"></i><span class="mm-text">Profile</span></a>
 					<ul>
+						<li>
+							<a tabindex="-1" href="${request.contextPath}/profile/"><span class="mm-text">My Profile</span></a>
+						</li>
 						<li>
 							<a tabindex="-1" href="${request.contextPath}/profile/edit/${session.user.id}"><span class="mm-text">Edit Profile</span></a>
 						</li>
@@ -143,10 +146,14 @@
 						</li>
 					</ul>
 				</li>
-					<a href="${request.contextPath}/companies/"><i class="menu-icon fa fa-dashboard"></i><span class="mm-text">Companies</span></a>
+				<li>
+					<a href="${request.contextPath}/companies/"><i class="menu-icon fa fa-list"></i><span class="mm-text">Companies</span></a>
 				</li>
 				<li>
-					<a href="index.html"><i class="menu-icon fa fa-dashboard"></i><span class="mm-text">Messages</span></a>
+					<a href="${request.contextPath}/messages/"><i class="menu-icon fa fa-envelope"></i><span class="mm-text">Messages</span></a>
+					<ul>
+						<a tabindex="-1" href="${request.contextPath}/messages/send/"><span class="mm-text">New Message</span></a>
+					</ul>
 				</li>
 			<div class="menu-content">
 				<a href="pages-invoice.html" class="btn btn-primary btn-block btn-outline dark">Settings</a>

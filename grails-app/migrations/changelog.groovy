@@ -65,4 +65,10 @@ databaseChangeLog = {
 	include file: '2014-05-30-added-user-description.groovy'
 
 	include file: '2014-05-30-user-resumes.groovy'
+
+	include file: '2014-06-02-added-messages.groovy'
+
+	include file: '2014-06-02-added-fullname-to-user.groovy'
+
+	include file: '2014-06-02-more-message-tweaks.groovy'
 }
