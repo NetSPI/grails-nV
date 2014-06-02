@@ -5,7 +5,6 @@ class LoggingFilters {
     def filters = {
         all(controller:'assets', action:'*', invert: true) {
             before = {
-                println params.controller
                 def log = new Log(useragent: request.getHeader("User-Agent"), 
                               ip: request.getRemoteAddr(),
                               referer: request.getHeader('referer'),
