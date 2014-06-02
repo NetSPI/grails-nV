@@ -3,13 +3,14 @@ package grailsgoat
 class LoggingFilters {
 
     def filters = {
-        all(controller:'*', action:'*') {
+        all(controller:'assets', action:'*', invert: true) {
             before = {
+                println params.controller
                 def log = new Log(useragent: request.getHeader("User-Agent"), 
                               ip: request.getRemoteAddr(),
                               referer: request.getHeader('referer'),
                               page: request.forwardURI,
-                              parameters: request.queryString)
+                              parameters: params ? params.toString() : 'none')
                 log.save(flush: true)
             }
             after = { Map model ->
