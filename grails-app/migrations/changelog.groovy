@@ -77,4 +77,6 @@ databaseChangeLog = {
 	include file: '2014-06-02-added-field-constraints.groovy'
 
 	include file: '2014-06-02-added-log-constraints.groovy'
+
+	include file: '2014-06-02-added-log-nullables.groovy'
 }

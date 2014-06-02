@@ -1,2 +1,4 @@
 Username Enumeration:
 	UserController.groovy: The signup() action should return only a single "invalid registration" message, and not give more information based on whether or not the user email exists
+Weak Complexity
+	UserController.groovy: Password length is checked, but 1. there should be no max password length and 2. it should validate a minimum level of complexity with the provided regex (commented out)

@@ -33,7 +33,7 @@
 							<g:each in="${listings}" var="listing" >
 								<tr class="odd gradeX">
 									<td>${listing.name}</td>
-									<td>${listing.description}</td>
+									<!-- Formatting in the description --><td>${raw(listing.description)}</td>
 									<td>${listing.location}</td>
 									<td><g:if test="${listing.fulltime}">Full-time</g:if><g:else>Part-time</g:else></td>
 									<td>${listing.company.name}</td>
