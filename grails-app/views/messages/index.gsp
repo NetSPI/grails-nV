@@ -33,7 +33,7 @@
 						<tbody>
 							<g:each in="${messages}" var="message" >
 								<tr class="odd gradeC">
-									<td>${message.author_id}</td>
+									<td>${senders[String.valueOf(message.author_id)]}</td>
 									<td>${message.subject}</td>
 									<td>${message.body}</td>
 									<td><a href="${request.contextPath}/messages/send/${message.id}">Send a Reply</a></td>

@@ -10,7 +10,19 @@ class MessagesController {
     		def user_id = session.user.id
 
     		def user_messages = User.get(user_id).messages
-    		render(view: "index", model: [messages: user_messages])
+
+            def userid_list = user_messages.collect { it.author_id }.join(',')
+
+            // Since author_id isn't a foreign key, we need to get a list of all users
+            def message_senders = User.findAll("from User where id in (${userid_list})")
+
+            def senders = [:]
+
+            message_senders.each {
+                senders[String.valueOf(it.id)] = it.fullname
+            }
+
+    		render(view: "index", model: [messages: user_messages, senders: senders])
     	}
     }
 
