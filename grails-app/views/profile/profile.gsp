@@ -17,7 +17,7 @@
 					<div class="panel profile-photo">
 						<asset:image src="demo/avatars/5.jpg" alt=""/>
 					</div>
-					<a href="#" class="btn"><i class="fa fa-comment"> Message This User</i></a>
+					<a href="${request.contextPath}/messages/sendto/${user.id}" class="btn"><i class="fa fa-comment"> Message This User</i></a>
 				</div>
 				
 				<div class="panel panel-transparent">

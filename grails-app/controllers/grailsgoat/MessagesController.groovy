@@ -14,6 +14,25 @@ class MessagesController {
     	}
     }
 
+    def sendto() {
+        if (request.post) {
+            redirect(view: "index")
+        } else {
+            if (params.userid?.isInteger()) {
+
+                def sendto_user = User.get(params.userid)
+
+                if (sendto_user) {
+                    // Let's fill in a few useful fields
+                    flash.recipient_id = params.userid
+                }
+            }
+
+            flash.users = User.getAll()
+            render(view: "send")
+        }
+    }
+
     def send() { 
     	if (request.post) {
     		// Send the message here
@@ -38,7 +57,6 @@ class MessagesController {
             flash.error = "Your message could not be sent"
             return
     	} else {
-    		// Display the message sending form
     		if (params.messageid?.isInteger()) {
 
                 def reply_message = Message.get(params.messageid)

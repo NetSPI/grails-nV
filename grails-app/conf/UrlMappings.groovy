@@ -41,6 +41,11 @@ class UrlMappings {
             controller = "messages"
             action = "send"
         }
+        "/messages/sendto/($userid)?"
+        {
+            controller = "messages"
+            action = "sendto"
+        }
         "500"(view:'/error')
 	}
 }
