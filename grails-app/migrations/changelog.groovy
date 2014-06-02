@@ -73,4 +73,6 @@ databaseChangeLog = {
 	include file: '2014-06-02-more-message-tweaks.groovy'
 
 	include file: '2014-06-02-analytics.groovy'
+
+	include file: '2014-06-02-added-field-constraints.groovy'
 }
