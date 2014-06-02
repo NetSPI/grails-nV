@@ -1,0 +1,2 @@
+Username Enumeration:
+	UserController.groovy: The signup() action should return only a single "invalid registration" message, and not give more information based on whether or not the user email exists
