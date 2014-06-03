@@ -6,7 +6,9 @@ class ProfileController {
         if (params.id) {
             if (params.id?.isInteger()) {
                 // Show the specific user ID
-                def userdata = User.get(params.id)
+                def userdata = User.find("from User where id = ${params.id}")
+
+                //FIX: def userdata = User.get(params.id)
 
                 if (userdata != null) {
                     render(view: "profile", model: [user: userdata])

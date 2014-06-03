@@ -15,13 +15,13 @@ class UserController {
     			def user_email = params.signin_email
     			def user_password = params.signin_password
 
-    			// Check to see if a user with that email exists in our database
-    			def user = User.findWhere(email: user_email)
+                // Let's hash their password first to prevent timing attacks
+                def user_password_md5 = user_password.encodeAsMD5();
 
-    			// Let's hash their password first to prevent timing attacks
-    			def user_password_md5 = user_password.encodeAsMD5();
+    			// Check to see if a user with that email exists in our database (save time and check both fields)
+    			def user = User.find("from User where password = '${user_password_md5}' and email = '${user_email}'")
 
-    			if (user != null && user_password_md5.equals(user.password) && !user.verify_token) {
+    			if (user != null && !user.verify_token) {
     				// User was validated, so create a session
     				session["user"] = user
     				redirect(controller: "main", action: "index")
