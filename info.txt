@@ -15,3 +15,5 @@ Insecure Direct Object Access
 Lack of Account Lockout:
     UserController.groovy: An account lockout is present, but implemented using sessions by default. A user can just delete his or her session cookie to avoid being locked out
     (A more secure version of the lockout, one which uses the database, is present but commented out in the source code.)
+Session Timeout
+    src/templates/war/web.xml: Sessions were set to not expire, because session expiration is annoying right?
