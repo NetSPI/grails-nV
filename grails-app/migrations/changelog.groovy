@@ -79,4 +79,6 @@ databaseChangeLog = {
 	include file: '2014-06-02-added-log-constraints.groovy'
 
 	include file: '2014-06-02-added-log-nullables.groovy'
+
+	include file: '2014-06-02-added-user-access-level.groovy'
 }

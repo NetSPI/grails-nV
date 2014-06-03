@@ -15,6 +15,7 @@ class User {
 	Date updated_at
     String verify_token
     String forgot_token
+    int accesslevel
 
     static hasMany = [messages: Message]
 
@@ -47,6 +48,7 @@ class User {
     	created_at defaultValue: new Date()
         forgot_token defaultValue: null
         resume defaultValue: null
-        description defualtValue: null
+        description defaultValue: null
+        accesslevel defaultValue: 0
     }
 }

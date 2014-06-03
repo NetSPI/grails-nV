@@ -116,7 +116,7 @@
 		<div id="main-menu-inner">
 			<div class="menu-content top" id="menu-content-demo">
 				<div>
-					<div class="text-bg"><span class="text-slim">Welcome,</span> <span class="text-semibold">${session.user.firstname}</span></div>
+					<div class="text-bg"><span class="text-slim">Welcome,</span> <span class="text-semibold">${session.user.firstname}<br></span><g:if test="${session.user.accesslevel > 0}"><span class="text-slim">(site admin)</span></g:if></div>
 
 					<asset:image src="avatars/1.jpg" alt="" class=""/>
 					<div class="btn-group">
