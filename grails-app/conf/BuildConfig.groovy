@@ -65,6 +65,7 @@ grails.project.dependency.resolution = {
 
         compile ":mail:1.0.5"
         compile ":markdown:1.1.1"
+        compile ":bcrypt:1.0"
 
         // plugins needed at runtime but not for compilation
         runtime ":hibernate4:4.3.5.3" // or ":hibernate:3.6.10.15"

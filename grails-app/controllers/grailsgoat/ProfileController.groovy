@@ -62,6 +62,10 @@ class ProfileController {
                 def input_password = new_data.password
 
                 new_data.password = new_data.password.encodeAsMD5()
+                /*
+                def bcryptService
+                new_data.password = bcryptService.hashPassword(new_data.password)
+                */
 
                 def user = User.get(params.id)
 

@@ -17,10 +17,14 @@ class UserController {
         			def user_password = params.signin_password
 
                     // Let's hash their password first to prevent timing attacks
-                    def user_password_md5 = user_password.encodeAsMD5();
+                    def user_password_hash = user_password.encodeAsMD5();
+                    /* 
+                    def bcryptService
+                    def user_password_hash = bcryptService.hashPassword(user_password)
+                    */
 
         			// Check to see if a user with that email exists in our database (save time and check both fields)
-        			def user = User.find("from User where password = '${user_password_md5}' and email = '${user_email}'")
+        			def user = User.find("from User where password = '${user_password_hash}' and email = '${user_email}'")
       
                     
                     /*if (user && user.original_attempt) {
@@ -164,8 +168,12 @@ class UserController {
         			// Check to see if their passwords match
         			def passwords_match = user_password.equals(user_confirm)
 
-        			// Calculate MD5 of password
-        			def user_password_md5 = user_password.encodeAsMD5()
+        			// Calculate hash of password
+        			def user_password_hash = user_password.encodeAsMD5()
+                    /*
+                    def bcryptService
+                    def user_password_hash = bcryptService.hashPassword(user_password)
+                    */
 
                     // Check the password complexity
                     def passwordmatcher = user_password =~ /\A.*(?=.{10,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\@\#\$\%\^\&\+\=]).*\z/
@@ -191,7 +199,7 @@ class UserController {
                         if(passwords_match) {    				
             				def user_verify_token = RandomStringUtils.randomAlphanumeric(30)
 
-            				def new_user = new User(email: user_email, firstname: user_firstname, lastname: user_lastname, fullname: user_firstname + " " + user_lastname, password: user_password_md5, verify_token: user_verify_token)
+            				def new_user = new User(email: user_email, firstname: user_firstname, lastname: user_lastname, fullname: user_firstname + " " + user_lastname, password: user_password_hash, verify_token: user_verify_token)
             				if (new_user.save(flush: true)) {
         						sendMail {
         							async true
@@ -200,8 +208,7 @@ class UserController {
           							body 'Someone signed you up for FindMeAJob. We\'re the premier site for helping some people find jobs occasionally. If you were the one who signed up, click on the link below. If you weren\'t, don\'t click on the link! http://localhost:8080' + request.contextPath + "/user/verifyhook?token=" + user_verify_token
         						}
 
-            					flash.success = "Your account has been registered! Please verify your email and then log in"
-                                redirect(view: "signin")
+                                redirect(view: "signin", model: [success: "Your account has been registered! Please verify your email and then log in"])
             					return
         					}
 
@@ -270,13 +277,16 @@ class UserController {
                     def user_confirm = params.confirm
                     def user_reset_token = params.reset_token
 
-                    def user_password_md5 = user_password.encodeAsMD5()
+                    def user_password_hash = user_password.encodeAsMD5()
+
+                    //def bcryptService
+                    //def user_password_hash = bcryptService.hashPassword(user_password)
 
                     def user = User.findWhere(reset_token: user_reset_token)
 
                     if (user != null && user_password.equals(user_confirm)) {
                         // Reset the user's password
-                        user.password = user_password_md5
+                        user.password = user_password_hash
                         user.attempts = 0
                         user.original_attempt = 0
                         user.latest_attempt = 0
@@ -315,13 +325,17 @@ class UserController {
                 def user_confirm = params.confirm
                 def user_reset_token = params.reset_token
 
-                def user_password_md5 = user_password.encodeAsMD5()
+                def user_password_hash = user_password.encodeAsMD5()
+                /*
+                def bcryptService
+                def user_password_hash = bcryptService.hashPassword(user_password)
+                */
 
                 def user = User.findWhere(id: session["reset_id"])
 
                 if (user != null && user_password.equals(user_confirm)) {
                     // Reset the user's password
-                    user.password = user_password_md5
+                    user.password = user_password_hash
                     session["attempts"] = 0
                     flash.info = null
                     user.save(flush: true)
@@ -359,13 +373,17 @@ class UserController {
     			def user_confirm = params.confirm
     			def user_forgot_token = params.forgot_token
 
-    			def user_password_md5 = user_password.encodeAsMD5()
+    			def user_password_hash = user_password.encodeAsMD5()
+                /*
+                def bcryptService
+                def user_password_hash = bcryptService.hashPassword(user_password)
+                */
 
     			def user = User.findWhere(forgot_token: user_forgot_token)
 
     			if (user != null && user_password.equals(user_confirm)) {
     				// Reset the user's password
-    				user.password = user_password_md5
+    				user.password = user_password_hash
     				user.forgot_token = null
     				user.save(flush: true)
 

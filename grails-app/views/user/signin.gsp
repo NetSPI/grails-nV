@@ -68,7 +68,7 @@
 
 		<!-- Right side -->
 		<div class="signin-form">
-			<g:if test="${flash.invalidToken}"><div class="alert alert-danger">Please submit the login only once</div></g:if><g:if test="${flash.error}"><div class="alert alert-danger">${flash.error}</div></g:if><g:if test="${flash.info}"><div class="alert alert-info">${flash.info}</div></g:if><g:if test="${flash.success}"><div class="alert alert-success">${flash.success}</div></g:if><g:if test="${success}"><div class="alert alert-success">${success}</div></g:if>
+			<g:if test="${success}"><div class="alert alert-success">${success}</div></g:if><g:if test="${flash.invalidToken}"><div class="alert alert-danger">Please submit the login only once</div></g:if><g:if test="${flash.error}"><div class="alert alert-danger">${flash.error}</div></g:if><g:if test="${flash.info}"><div class="alert alert-info">${flash.info}</div></g:if><g:if test="${flash.success}"><div class="alert alert-success">${flash.success}</div></g:if><g:if test="${success}"><div class="alert alert-success">${success}</div></g:if>
 			<!-- Form -->
 			<g:form action="signin" name="signin-form_id" method="post" useToken="True">
 				<div class="signin-text">
