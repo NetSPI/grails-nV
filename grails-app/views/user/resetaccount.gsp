@@ -71,18 +71,18 @@
 			<g:if test="${flash.error}"><div class="alert alert-danger">${flash.error}</div></g:if><g:if test="${flash.info}"><div class="alert alert-info">${flash.info}</div></g:if>
 			<!-- Form -->
 			<form action="${request.contextPath}/user/resethook" id="signin-form_id" method="post">
-				<input type="hidden" name="reset_token" value="${flash.reset_token}">
+				<input type="hidden" name="reset_token" id="reset_token" value="${flash.reset_token}">
 				<div class="signin-text">
 					<span>Reset your account</span>
 				</div> <!-- / .signin-text -->
 
 				<div class="form-group w-icon">
-					<input type="password" name="password" id="password_id" class="form-control input-lg" placeholder="New Password">
+					<input type="password" name="password" id="password_id" class="form-control input-lg" placeholder="New Password" required>
 					<span class="fa fa-lock signin-form-icon"></span>
 				</div> <!-- / Password -->
 
 				<div class="form-group w-icon">
-					<input type="password" name="confirm" id="confirm_id" class="form-control input-lg" placeholder="Confirm New Password">
+					<input type="password" name="confirm" id="confirm_id" class="form-control input-lg" placeholder="Confirm New Password" required>
 					<span class="fa fa-lock signin-form-icon"></span>
 				</div> <!-- / Password -->
 

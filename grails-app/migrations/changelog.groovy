@@ -83,4 +83,12 @@ databaseChangeLog = {
 	include file: '2014-06-02-added-user-access-level.groovy'
 
 	include file: '2014-06-02-added-user-lockout-fields.groovy'
+
+	include file: '2014-06-02-added-user-reset-token.groovy'
+
+	include file: '2014-06-02-changed-field-types.groovy'
+
+	include file: '2014-06-02-changed-field-types-again.groovy'
+
+	include file: '2014-06-02-changed-field-types-again-again.groovy'
 }

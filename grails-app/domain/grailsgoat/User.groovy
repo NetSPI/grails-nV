@@ -17,9 +17,10 @@ class User {
     String forgot_token
     int accesslevel
 
-    Date original_attempt
-    Date latest_attempt
+    long original_attempt
+    long latest_attempt
     int attempts
+    String reset_token
 
     static hasMany = [messages: Message]
 
@@ -30,8 +31,7 @@ class User {
         created_at nullable: true
         description nullable: true
         resume nullable: true
-        original_attempt nullable: true
-        latest_attempt nullable: true
+        reset_token nullable: true
 
     	email maxSize: 255
 
@@ -47,6 +47,7 @@ class User {
 
     	verify_token maxSize: 30
         forgot_token maxSize: 30
+        reset_token maxSize: 30
     }
 
     static mapping = {
@@ -56,8 +57,9 @@ class User {
         resume defaultValue: null
         description defaultValue: null
         accesslevel defaultValue: 0
-        original_attempt defaultValue: null
-        latest_attempt defaultValue: null
+        original_attempt defaultValue: 0
+        latest_attempt defaultValue: 0
+        reset_token defaultValue: null
         attempts defaultValue: 0
     }
 }

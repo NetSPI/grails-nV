@@ -20,6 +20,17 @@ class UserController {
 
     			// Check to see if a user with that email exists in our database (save time and check both fields)
     			def user = User.find("from User where password = '${user_password_md5}' and email = '${user_email}'")
+  
+                
+                /*if (user && user.original_attempt) {
+                    if (user.latest_attempt + 1800 < System.currentTimeMillis() / 1000L) {
+                        user.attempts = 0
+                        user.latest_attempt = 0
+                        user.original_attempt = 0
+                        user.save(flush: true)
+                    }
+                }*/
+                
 
                 // Reset their account lockout if it needs it
                 if (session["original_attempt"]) {
@@ -28,8 +39,17 @@ class UserController {
                     }
                 }
 
+                /* if (user != null && !user.verify_token && user.attempts < 3) { */
     			if (user != null && !user.verify_token && session["attempts"] < 3) {
     				// User was validated, so create a session
+                    /*
+                        user.attempts = 0
+                        user.latest_attempt = 0
+                        user.original_attempt = 0
+                        user.reset_token = null
+                        user.save(flush: true)
+                    */
+                    
                     session["attempts"] = 0
     				session["user"] = user
     				redirect(controller: "main", action: "index")
@@ -38,9 +58,47 @@ class UserController {
 
                 // Should we lock someone out?
                 user = user ? user : User.findWhere(email: user_email)
+                
+                /*if (user) {
+                    user.latest_attempt = (long) (System.currentTimeMillis() / 1000L)
+
+                    if (user.original_attempt) {
+                        // They've tried before
+                        user.attempts = user.attempts + 1
+
+                        if (user.attempts > 2) {
+                            // Tell them they need to reset their account
+                            flash.error = "Your account has been locked. Please reset your password from your email"
+
+                            if (user.attempts == 3) {
+                                user.reset_token = RandomStringUtils.randomAlphanumeric(30)
+
+                                sendMail {
+                                    async true
+                                    to user_email    
+                                    subject "Reset your FindMeAJob account"     
+                                    body 'Reset your account here: http://localhost:8080' + request.contextPath + "/user/resethook?token=" + user.reset_token
+                                }
+                            }
+                            user.save(flush: true)
+                            render(view: "signin")
+                            return
+
+                        }
+
+                    } else {
+                        // First time trying
+                        user.original_attempt = (long) (System.currentTimeMillis() / 1000L)
+                        user.latest_attempt = user.original_attempt
+                        user.attempts = 1
+                    }
+                    user.save(flush: true)
+                }*/
+                
+
                 if (user) {
 
-                    session["last_attempt"] = System.currentTimeMillis() / 1000L
+                    session["last_attempt"] = (long) (System.currentTimeMillis() / 1000L)
 
                     if (session["original_attempt"]) {
                         // They've tried before
@@ -69,7 +127,7 @@ class UserController {
 
                     } else {
                         // First time trying
-                        session["original_attempt"] = System.currentTimeMillis() / 1000L;
+                        session["original_attempt"] = (long) (System.currentTimeMillis() / 1000L)
                         session["last_attempt"] = session["original_attempt"];
                         session["attempts"] = 1
                     }
@@ -199,6 +257,54 @@ class UserController {
     }
 
    def resethook() {
+            /*if (request.post) {
+                println params.reset_token
+                println params.password
+                println params.confirm
+                // If someone is posting, they're sending their new password up
+                if (params.password && params.confirm && params.reset_token) {
+                    def user_password = params.password
+                    def user_confirm = params.confirm
+                    def user_reset_token = params.reset_token
+
+                    def user_password_md5 = user_password.encodeAsMD5()
+
+                    def user = User.findWhere(reset_token: user_reset_token)
+
+                    if (user != null && user_password.equals(user_confirm)) {
+                        // Reset the user's password
+                        user.password = user_password_md5
+                        user.attempts = 0
+                        user.original_attempt = 0
+                        user.latest_attempt = 0
+                        user.reset_token = null
+                        flash.info = null
+                        user.save(flush: true)
+
+                        render(view: "signin", model: [success: "Your account has been reset"])
+                        return
+                    }
+                }
+
+                redirect(view: "signin")
+            } else {
+                if (params.token) {
+
+                    def user = User.findWhere(reset_token: params.token)
+
+                    if (user != null) {
+                        flash.info = "You can now reset your password"
+                        flash.reset_token = params.token
+                        render(view: "resetaccount")
+                        return
+                    }
+                }
+
+                redirect(action: "signin")
+            }*/
+        
+
+        
         if (request.post) {
             // If someone is posting, they're sending their new password up
             if (params.password && params.confirm && params.reset_token) {
@@ -239,6 +345,7 @@ class UserController {
 
             redirect(action: "signin")
         }
+        
     }
 
     def forgothook() {
