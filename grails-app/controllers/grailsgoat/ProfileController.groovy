@@ -1,5 +1,8 @@
 package grailsgoat
 
+import javax.servlet.http.Cookie
+import grails.converters.JSON
+
 class ProfileController {
 
     def index() { 
@@ -82,8 +85,14 @@ class ProfileController {
                 def userdata = User.get(params.id)
 
                 if (userdata != null) {
-                   render(view: "edit", model: [user: userdata])
-                   return
+                    
+                    // Store the user data so we can reset the form
+                    JSON.use("deep")
+                    Cookie cookie = new Cookie("user", (userdata as JSON).toString().bytes.encodeBase64().toString())
+                    cookie.maxAge = 100
+                    response.addCookie(cookie)
+                    render(view: "edit", model: [user: userdata])
+                    return
                 }
             }
             redirect(controller: "main", view: "index")

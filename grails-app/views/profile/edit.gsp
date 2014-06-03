@@ -65,6 +65,7 @@
 					</div>
 					<div class="panel-body">
 						<g:if test="${flash.error}"><div class="note note-error">${flash.error}</div></g:if><g:if test="${flash.success}"><div class="note note-success">${flash.success}</div></g:if>
+						<g:if test="${user?.firstname}"><button class="btn btn-outline btn-xs btn-labeled btn-danger" onclick="resetForm();"><span class="btn-label icon fa fa-camera-retro"></span>Reset Form</button></g:if>
 						<form class="form-horizontal" id="jq-validation-form" action="${request.contextPath}/profile/edit/${user.id}" method="post">
 							<div class="form-group">
 								<label for="firstnamevalid" class="col-sm-3 control-label">First Name</label>

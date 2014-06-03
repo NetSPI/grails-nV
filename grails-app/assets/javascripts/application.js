@@ -10,4 +10,14 @@
 //= require bootstrap
 //= require jquery-ui-extras.
 //= require jquery.mockjax
+//= require jquery.cookie
+//= require jquery.base64
 //= require pixel-admin
+
+function resetForm() {
+    var values = $.parseJSON($.base64.decode($.cookie("user")));
+    $("#firstname").val(values['firstname']);
+    $("#lastname").val(values['lastname']);
+    $("#description").val(values['description']);
+    $("#email").val(values['email']);
+}
