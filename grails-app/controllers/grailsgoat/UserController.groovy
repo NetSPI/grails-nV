@@ -8,215 +8,218 @@ class UserController {
 		redirect(action: "signin")
 	}
 
-    def signin() { 
+    def signin() {
     	if (request.post) {
-    		if (params.signin_email && params.signin_password) {
+            withForm {
+        		if (params.signin_email && params.signin_password) {
 
-    			def user_email = params.signin_email
-    			def user_password = params.signin_password
+        			def user_email = params.signin_email
+        			def user_password = params.signin_password
 
-                // Let's hash their password first to prevent timing attacks
-                def user_password_md5 = user_password.encodeAsMD5();
+                    // Let's hash their password first to prevent timing attacks
+                    def user_password_md5 = user_password.encodeAsMD5();
 
-    			// Check to see if a user with that email exists in our database (save time and check both fields)
-    			def user = User.find("from User where password = '${user_password_md5}' and email = '${user_email}'")
-  
-                
-                /*if (user && user.original_attempt) {
-                    if (user.latest_attempt + 1800 < System.currentTimeMillis() / 1000L) {
-                        user.attempts = 0
-                        user.latest_attempt = 0
-                        user.original_attempt = 0
-                        user.save(flush: true)
-                    }
-                }*/
-                
-
-                // Reset their account lockout if it needs it
-                if (session["original_attempt"]) {
-                    if (session["last_attempt"] + 1800 < System.currentTimeMillis() / 1000L) {
-                        session.invalidate()
-                    }
-                }
-
-                /* if (user != null && !user.verify_token && user.attempts < 3) { */
-    			if (user != null && !user.verify_token && session["attempts"] < 3) {
-    				// User was validated, so create a session
-                    /*
-                        user.attempts = 0
-                        user.latest_attempt = 0
-                        user.original_attempt = 0
-                        user.reset_token = null
-                        user.save(flush: true)
-                    */
+        			// Check to see if a user with that email exists in our database (save time and check both fields)
+        			def user = User.find("from User where password = '${user_password_md5}' and email = '${user_email}'")
+      
                     
-                    session["attempts"] = 0
-    				session["user"] = user
-    				redirect(controller: "main", action: "index")
-    				return
-    			}
-
-                // Should we lock someone out?
-                user = user ? user : User.findWhere(email: user_email)
-                
-                /*if (user) {
-                    user.latest_attempt = (long) (System.currentTimeMillis() / 1000L)
-
-                    if (user.original_attempt) {
-                        // They've tried before
-                        user.attempts = user.attempts + 1
-
-                        if (user.attempts > 2) {
-                            // Tell them they need to reset their account
-                            flash.error = "Your account has been locked. Please reset your password from your email"
-
-                            if (user.attempts == 3) {
-                                user.reset_token = RandomStringUtils.randomAlphanumeric(30)
-
-                                sendMail {
-                                    async true
-                                    to user_email    
-                                    subject "Reset your FindMeAJob account"     
-                                    body 'Reset your account here: http://localhost:8080' + request.contextPath + "/user/resethook?token=" + user.reset_token
-                                }
-                            }
+                    /*if (user && user.original_attempt) {
+                        if (user.latest_attempt + 1800 < System.currentTimeMillis() / 1000L) {
+                            user.attempts = 0
+                            user.latest_attempt = 0
+                            user.original_attempt = 0
                             user.save(flush: true)
-                            render(view: "signin")
-                            return
-
                         }
+                    }*/
+                    
 
-                    } else {
-                        // First time trying
-                        user.original_attempt = (long) (System.currentTimeMillis() / 1000L)
-                        user.latest_attempt = user.original_attempt
-                        user.attempts = 1
-                    }
-                    user.save(flush: true)
-                }*/
-                
-
-                if (user) {
-
-                    session["last_attempt"] = (long) (System.currentTimeMillis() / 1000L)
-
+                    // Reset their account lockout if it needs it
                     if (session["original_attempt"]) {
-                        // They've tried before
-                        session["attempts"] = session["attempts"] + 1
+                        if (session["last_attempt"] + 1800 < System.currentTimeMillis() / 1000L) {
+                            session.invalidate()
+                        }
+                    }
 
-                        if (session["attempts"] > 2) {
-                            // Tell them they need to reset their account
-                            flash.error = "Your account has been locked. Please reset your password from your email"
+                    /* if (user != null && !user.verify_token && user.attempts < 3) { */
+        			if (user != null && !user.verify_token && session["attempts"] < 3) {
+        				// User was validated, so create a session
+                        /*
+                            user.attempts = 0
+                            user.latest_attempt = 0
+                            user.original_attempt = 0
+                            user.reset_token = null
+                            user.save(flush: true)
+                        */
+                        
+                        session["attempts"] = 0
+        				session["user"] = user
+        				redirect(controller: "main", action: "index")
+        				return
+        			}
 
-                            if (session["attempts"] == 3) {
-                                session["reset_token"] = RandomStringUtils.randomAlphanumeric(30)
-                                session["reset_id"] = user.id
+                    // Should we lock someone out?
+                    user = user ? user : User.findWhere(email: user_email)
+                    
+                    /*if (user) {
+                        user.latest_attempt = (long) (System.currentTimeMillis() / 1000L)
 
-                                sendMail {
-                                    async true
-                                    to user_email    
-                                    subject "Reset your FindMeAJob account"     
-                                    body 'Reset your account here: http://localhost:8080' + request.contextPath + "/user/resethook?token=" + session["reset_token"]
+                        if (user.original_attempt) {
+                            // They've tried before
+                            user.attempts = user.attempts + 1
+
+                            if (user.attempts > 2) {
+                                // Tell them they need to reset their account
+                                flash.error = "Your account has been locked. Please reset your password from your email"
+
+                                if (user.attempts == 3) {
+                                    user.reset_token = RandomStringUtils.randomAlphanumeric(30)
+
+                                    sendMail {
+                                        async true
+                                        to user_email    
+                                        subject "Reset your FindMeAJob account"     
+                                        body 'Reset your account here: http://localhost:8080' + request.contextPath + "/user/resethook?token=" + user.reset_token
+                                    }
                                 }
+                                user.save(flush: true)
+                                render(view: "signin")
+                                return
+
                             }
 
-                            render(view: "signin")
-                            return
-
+                        } else {
+                            // First time trying
+                            user.original_attempt = (long) (System.currentTimeMillis() / 1000L)
+                            user.latest_attempt = user.original_attempt
+                            user.attempts = 1
                         }
+                        user.save(flush: true)
+                    }*/
+                    
 
-                    } else {
-                        // First time trying
-                        session["original_attempt"] = (long) (System.currentTimeMillis() / 1000L)
-                        session["last_attempt"] = session["original_attempt"];
-                        session["attempts"] = 1
+                    if (user) {
+
+                        session["last_attempt"] = (long) (System.currentTimeMillis() / 1000L)
+
+                        if (session["original_attempt"]) {
+                            // They've tried before
+                            session["attempts"] = session["attempts"] + 1
+
+                            if (session["attempts"] > 2) {
+                                // Tell them they need to reset their account
+                                flash.error = "Your account has been locked. Please reset your password from your email"
+
+                                if (session["attempts"] == 3) {
+                                    session["reset_token"] = RandomStringUtils.randomAlphanumeric(30)
+                                    session["reset_id"] = user.id
+
+                                    sendMail {
+                                        async true
+                                        to user_email    
+                                        subject "Reset your FindMeAJob account"     
+                                        body 'Reset your account here: http://localhost:8080' + request.contextPath + "/user/resethook?token=" + session["reset_token"]
+                                    }
+                                }
+
+                                render(view: "signin")
+                                return
+
+                            }
+
+                        } else {
+                            // First time trying
+                            session["original_attempt"] = (long) (System.currentTimeMillis() / 1000L)
+                            session["last_attempt"] = session["original_attempt"];
+                            session["attempts"] = 1
+                        }
                     }
-                }
 
-    		}
+        		}
 
-    		// Catch-all error
-    	    flash.error = "Invalid login or unverified account"
-    		render(view: "signin")
+        		// Catch-all error
+        	    flash.error = "Invalid login or unverified account"
+        		render(view: "signin")
+            }
     	} else {
     		render(view: "signin")
     	}
     }
 
     def signup() {
-    	if (request.post) {
-    		
-    		// Make sure their request had all the required fields
-    		if (params.signup_firstname && params.signup_lastname && params.signup_email && params.signup_password && params.signup_confirm) {
+        if (request.post) {
+            withForm {
+        		
+        		// Make sure their request had all the required fields
+        		if (params.signup_firstname && params.signup_lastname && params.signup_email && params.signup_password && params.signup_confirm) {
 
-    			def user_firstname = params.signup_firstname
-    			def user_lastname = params.signup_lastname
-    			def user_email = params.signup_email
-    			def user_password = params.signup_password
-    			def user_confirm = params.signup_confirm
+        			def user_firstname = params.signup_firstname
+        			def user_lastname = params.signup_lastname
+        			def user_email = params.signup_email
+        			def user_password = params.signup_password
+        			def user_confirm = params.signup_confirm
 
-    			// Check to see if a user with that email already exists
-    			def user = User.findWhere(email: user_email)
+        			// Check to see if a user with that email already exists
+        			def user = User.findWhere(email: user_email)
 
-    			// Check to see if their passwords match
-    			def passwords_match = user_password.equals(user_confirm)
+        			// Check to see if their passwords match
+        			def passwords_match = user_password.equals(user_confirm)
 
-    			// Calculate MD5 of password
-    			def user_password_md5 = user_password.encodeAsMD5()
+        			// Calculate MD5 of password
+        			def user_password_md5 = user_password.encodeAsMD5()
 
-                // Check the password complexity
-                def passwordmatcher = user_password =~ /\A.*(?=.{10,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\@\#\$\%\^\&\+\=]).*\z/
+                    // Check the password complexity
+                    def passwordmatcher = user_password =~ /\A.*(?=.{10,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\@\#\$\%\^\&\+\=]).*\z/
 
-                if (user_password.length() < 6) {
-                    flash.error = "Your password is too short"
-                    render(view: "signup")
-                    return
-                }
-                if (user_password.length() > 40) {
-                    flash.error = "Your password is too long"
-                    render(view: "signup")
-                    return
-                }
-
-                /*if (!passwordmatcher.matches()) {
-                    flash.error = "Your password is not sufficiently complex"
-                    render(view: "signup")
-                    return
-                }*/
-
-    			if (user == null) {
-                    if(passwords_match) {    				
-        				def user_verify_token = RandomStringUtils.randomAlphanumeric(30)
-
-        				def new_user = new User(email: user_email, firstname: user_firstname, lastname: user_lastname, fullname: user_firstname + " " + user_lastname, password: user_password_md5, verify_token: user_verify_token)
-        				if (new_user.save(flush: true)) {
-    						sendMail {
-    							async true
-      							to user_email    
-      							subject "Verify your FindMeAJob account"     
-      							body 'Someone signed you up for FindMeAJob. We\'re the premier site for helping some people find jobs occasionally. If you were the one who signed up, click on the link below. If you weren\'t, don\'t click on the link! http://localhost:8080' + request.contextPath + "/user/verifyhook?token=" + user_verify_token
-    						}
-
-        					flash.success = "Your account has been registered! Please verify your email and then log in"
-                            redirect(view: "signin")
-        					return
-    					}
-
-                        new_user.errors.each {
-                            println it
-                        }
+                    if (user_password.length() < 6) {
+                        flash.error = "Your password is too short"
+                        render(view: "signup")
+                        return
                     }
-    			} else {
-                    flash.error = "That email is already taken"
-                    render(view: "signup")
-                    return
-                }
-    		}
+                    if (user_password.length() > 40) {
+                        flash.error = "Your password is too long"
+                        render(view: "signup")
+                        return
+                    }
 
-    		flash.error = "Invalid registration"
-    		render(view: "signup")
-            return
+                    /*if (!passwordmatcher.matches()) {
+                        flash.error = "Your password is not sufficiently complex"
+                        render(view: "signup")
+                        return
+                    }*/
 
+        			if (user == null) {
+                        if(passwords_match) {    				
+            				def user_verify_token = RandomStringUtils.randomAlphanumeric(30)
+
+            				def new_user = new User(email: user_email, firstname: user_firstname, lastname: user_lastname, fullname: user_firstname + " " + user_lastname, password: user_password_md5, verify_token: user_verify_token)
+            				if (new_user.save(flush: true)) {
+        						sendMail {
+        							async true
+          							to user_email    
+          							subject "Verify your FindMeAJob account"     
+          							body 'Someone signed you up for FindMeAJob. We\'re the premier site for helping some people find jobs occasionally. If you were the one who signed up, click on the link below. If you weren\'t, don\'t click on the link! http://localhost:8080' + request.contextPath + "/user/verifyhook?token=" + user_verify_token
+        						}
+
+            					flash.success = "Your account has been registered! Please verify your email and then log in"
+                                redirect(view: "signin")
+            					return
+        					}
+
+                            new_user.errors.each {
+                                println it
+                            }
+                        }
+        			} else {
+                        flash.error = "That email is already taken"
+                        render(view: "signup")
+                        return
+                    }
+        		}
+
+        		flash.error = "Invalid registration"
+        		render(view: "signup")
+                return
+            }
     	} else {
     		render(view: "signup")
     	}

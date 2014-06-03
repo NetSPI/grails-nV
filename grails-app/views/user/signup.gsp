@@ -47,7 +47,7 @@
 
 	<!-- Container -->
 	<div class="signup-container">
-		<g:if test="${flash.error}"><div class="alert alert-danger">${flash.error}</div></g:if>
+		<g:if test="${flash.invalidToken}"><div class="alert alert-danger">Please submit the login only once</div></g:if><g:if test="${flash.error}"><div class="alert alert-danger">${flash.error}</div></g:if><g:if test="${flash.info}"><div class="alert alert-info">${flash.info}</div></g:if><g:if test="${flash.success}"><div class="alert alert-success">${flash.success}</div></g:if><g:if test="${success}"><div class="alert alert-success">${success}</div></g:if>
 		<!-- Header -->
 		<div class="signup-header">
 			<a href="index.html" class="logo">
@@ -62,7 +62,7 @@
 
 		<!-- Form -->
 		<div class="signup-form">
-			<form action="${request.contextPath}/user/signup" id="signup-form_id" method="post">
+			<g:form action="signup" name="signup-form_id" method="post" useToken="true">
 				
 				<div class="signup-text">
 					<span>Create an account</span>
@@ -103,7 +103,7 @@
 				<div class="form-actions">
 					<input type="submit" value="SIGN UP" class="signup-btn bg-primary">
 				</div>
-			</form>
+			</g:form>
 			<!-- / Form -->
 		</div>
 		<!-- Right side -->

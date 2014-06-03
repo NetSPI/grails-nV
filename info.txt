@@ -17,3 +17,5 @@ Lack of Account Lockout:
     (A more secure version of the lockout, one which uses the database, is present but commented out in the source code.)
 Session Timeout
     src/templates/war/web.xml: Sessions were set to not expire, because session expiration is annoying right?
+CSRF
+    CSRF protection is only present on the signup/signin dialogs. Every other form on the site (messaging/edit profile/upload resume/forgot password/etc) is not protected

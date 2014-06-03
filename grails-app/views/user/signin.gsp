@@ -68,9 +68,9 @@
 
 		<!-- Right side -->
 		<div class="signin-form">
-			<g:if test="${flash.error}"><div class="alert alert-danger">${flash.error}</div></g:if><g:if test="${flash.info}"><div class="alert alert-info">${flash.info}</div></g:if><g:if test="${flash.success}"><div class="alert alert-success">${flash.success}</div></g:if><g:if test="${success}"><div class="alert alert-success">${success}</div></g:if>
+			<g:if test="${flash.invalidToken}"><div class="alert alert-danger">Please submit the login only once</div></g:if><g:if test="${flash.error}"><div class="alert alert-danger">${flash.error}</div></g:if><g:if test="${flash.info}"><div class="alert alert-info">${flash.info}</div></g:if><g:if test="${flash.success}"><div class="alert alert-success">${flash.success}</div></g:if><g:if test="${success}"><div class="alert alert-success">${success}</div></g:if>
 			<!-- Form -->
-			<form action="${request.contextPath}/user/signin" id="signin-form_id" method="post">
+			<g:form action="signin" name="signin-form_id" method="post" useToken="True">
 				<div class="signin-text">
 					<span>Sign In to your account</span>
 				</div> <!-- / .signin-text -->
@@ -89,7 +89,7 @@
 					<input type="submit" value="SIGN IN" class="signin-btn bg-primary">
 					<a href="#" class="forgot-password" id="forgot-password-link">Forgot your password?</a>
 				</div> <!-- / .form-actions -->
-			</form>
+			</g:form>
 			<!-- / Form -->
 			<!-- Password reset form -->
 			<div class="password-reset-form" id="password-reset-form">
