@@ -51,26 +51,21 @@ class ProfileController {
 
     def edit() {
     	if (request.post) {
-            if (params.firstnamevalid && params.lastnamevalid && params.descriptionvalid && params.emailvalid && params.passwordvalid && params.passwordconfirmationvalid && params.id?.isInteger()) {
-                def user_firstname = params.firstnamevalid
-                def user_lastname = params.lastnamevalid
-                def user_description = params.descriptionvalid
-                def user_email = params.emailvalid
-                def user_password = params.passwordvalid
-                def user_password_confirmation = params.passwordconfirmationvalid
+            if (params.firstname && params.lastname && params.description && params.email && params.password && params.passwordconfirm && params.id?.isInteger()) {
+                def new_data = params
 
-                def user_password_md5 = user_password.encodeAsMD5()
+                def input_password = new_data.password
+
+                new_data.password = new_data.password.encodeAsMD5()
 
                 def user = User.get(params.id)
 
-                if (user && user_password.equals(user_password_confirmation) && user_password.length() > 5) {
-                    user.firstname = user_firstname
-                    user.lastname = user_lastname
-                    user.fullname = user_firstname + " " + user.lastname
-                    user.description = user_description
-                    user.email = user_email
-                    user.password = user_password_md5
+                if (user && input_password.equals(new_data.passwordconfirm)) {
+                    user.properties = new_data
                     user.save(flush: true)
+
+                    session.user = user
+
                     flash.success = "Your profile has been updated successfully"
                     render(view: "edit", model: [user: user])
                     return

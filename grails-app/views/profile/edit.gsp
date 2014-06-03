@@ -23,36 +23,36 @@
 							ignore: '.ignore, .select2-input',
 							focusInvalid: false,
 							rules: {
-								'firstnamevalid': {
+								'firstname': {
 									required: true
 								},
-								'lastnamevalid': {
+								'lastname': {
 									required: true
 								},
-								'descriptionvalid': {
+								'description': {
 									maxLength: 3000
 								},
-								'emailvalid': {
+								'email': {
 								  required: true,
 								  email: true
 								},
-								'passwordvalid': {
+								'password': {
 									required: true,
 									minlength: 6,
 								},
-								'passwordconfirmationvalid': {
+								'passwordconfirm': {
 									required: true,
 									minlength: 6,
 									equalTo: "#passwordvalid"
 								},
 							},
 							messages: {
-								'firstnamevalid': 'You must enter your first name',
-								'lastnamevalid': 'You must enter your last name',
-								'descriptionvalid': 'Your description must be under 3000 characters',
-								'emailvalid': 'You must enter a valid email',
-								'passwordvalid': 'Your password must be at least 6 characters long',
-								'passwordconfirmationvalid': 'Confirm password must match the original password'
+								'firstname': 'You must enter your first name',
+								'lastname': 'You must enter your last name',
+								'description': 'Your description must be under 3000 characters',
+								'email': 'You must enter a valid email',
+								'password': 'Your password must be at least 6 characters long',
+								'passwordconfirm': 'Confirm password must match the original password'
 							}
 						});
 					});
@@ -69,35 +69,35 @@
 							<div class="form-group">
 								<label for="firstnamevalid" class="col-sm-3 control-label">First Name</label>
 								<div class="col-sm-9">
-									<input type="text" class="form-control" id="firstnamevalid" name="firstnamevalid" placeholder="First Name" value="${user.firstname}">
+									<input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name" value="${user.firstname}">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label for="lastnamevalid" class="col-sm-3 control-label">Last Name</label>
 								<div class="col-sm-9">
-									<input type="text" class="form-control" id="lastnamevalid" name="lastnamevalid" placeholder="Last Name" value="${user.lastname}">
+									<input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name" value="${user.lastname}">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label for="descriptionvalid" class="col-sm-3 control-label">Description</label>
 								<div class="col-sm-9">
-									<input type="text" class="form-control" id="descriptionvalid" name="descriptionvalid" placeholder="Description" value="${user.description}">
+									<input type="text" class="form-control" id="description" name="description" placeholder="Description" value="${user.description}">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label for="emailvalid" class="col-sm-3 control-label">Email</label>
 								<div class="col-sm-9">
-									<input type="text" class="form-control" id="emailvalid" name="emailvalid" placeholder="Email" value="${user.email}">
+									<input type="text" class="form-control" id="email" name="email" placeholder="Email" value="${user.email}">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label for="passwordvalid" class="col-sm-3 control-label">Password</label>
 								<div class="col-sm-9">
-									<input type="password" class="form-control" id="passwordvalid" name="passwordvalid" placeholder="Password" autocomplete="off">
+									<input type="password" class="form-control" id="password" name="password" placeholder="Password" autocomplete="off">
 									<p class="help-block">Passwords must be at least 6 characters long and contain one number</p>
 								</div>
 							</div>
@@ -105,7 +105,7 @@
 							<div class="form-group">
 								<label for="passwordconfirmationvalid" class="col-sm-3 control-label">Confirm password</label>
 								<div class="col-sm-9">
-									<input type="password" class="form-control" id="passwordconfirmationvalid" name="passwordconfirmationvalid" placeholder="Confirm password" autocomplete="off">
+									<input type="password" class="form-control" id="passwordconfirm" name="passwordconfirm" placeholder="Confirm password" autocomplete="off">
 									<p class="help-block">This must match the original password</p>
 								</div>
 							</div>
