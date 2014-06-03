@@ -14,3 +14,4 @@ Insecure Direct Object Access
 	ProfileController.groovy: The index of the profile pulls the ID from the URL, not the session
 Lack of Account Lockout:
     UserController.groovy: An account lockout is present, but implemented using sessions by default. A user can just delete his or her session cookie to avoid being locked out
+    (A more secure version of the lockout, one which uses the database, is present but commented out in the source code.)
