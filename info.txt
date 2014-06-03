@@ -1,8 +1,16 @@
 Username Enumeration:
 	UserController.groovy: The signup() action should return only a single "invalid registration" message, and not give more information based on whether or not the user email exists
+    UserController.groovy: The signup() action should not return a message if your account is locked, because then 3 tries on a username will reveal if it is real or not
 Weak Complexity
 	UserController.groovy: Password length is checked, but 1. there should be no max password length and 2. it should validate a minimum level of complexity with the provided regex (commented out)
 Templating XSS
 	main/index.gsp: If the description needs formatting, use Markdown or something instead of just arbitrary HTML
 Admin Console
 	/dbconsole/: Accessible and unprotected database console. Grails doesn't neccesarily make it clear this exists!
+SQL/HQL injection:
+	ProfileController.groovy: The index of the profile uses raw HQL rather than User.get(id)
+	UserController.groovy: Signing in "saves time" by checking username and password in one HQL query, but opens itself up to SQL injection
+Insecure Direct Object Access
+	ProfileController.groovy: The index of the profile pulls the ID from the URL, not the session
+Lack of Account Lockout:
+    UserController.groovy: An account lockout is present, but implemented using sessions by default. A user can just delete his or her session cookie to avoid being locked out

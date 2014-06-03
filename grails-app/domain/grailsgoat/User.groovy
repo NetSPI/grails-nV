@@ -17,6 +17,10 @@ class User {
     String forgot_token
     int accesslevel
 
+    Date original_attempt
+    Date latest_attempt
+    int attempts
+
     static hasMany = [messages: Message]
 
     static constraints = {
@@ -26,6 +30,8 @@ class User {
         created_at nullable: true
         description nullable: true
         resume nullable: true
+        original_attempt nullable: true
+        latest_attempt nullable: true
 
     	email maxSize: 255
 
@@ -50,5 +56,8 @@ class User {
         resume defaultValue: null
         description defaultValue: null
         accesslevel defaultValue: 0
+        original_attempt defaultValue: null
+        latest_attempt defaultValue: null
+        attempts defaultValue: 0
     }
 }

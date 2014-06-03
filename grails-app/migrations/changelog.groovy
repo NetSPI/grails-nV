@@ -81,4 +81,6 @@ databaseChangeLog = {
 	include file: '2014-06-02-added-log-nullables.groovy'
 
 	include file: '2014-06-02-added-user-access-level.groovy'
+
+	include file: '2014-06-02-added-user-lockout-fields.groovy'
 }

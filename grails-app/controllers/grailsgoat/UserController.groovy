@@ -21,12 +21,60 @@ class UserController {
     			// Check to see if a user with that email exists in our database (save time and check both fields)
     			def user = User.find("from User where password = '${user_password_md5}' and email = '${user_email}'")
 
-    			if (user != null && !user.verify_token) {
+                // Reset their account lockout if it needs it
+                if (session["original_attempt"]) {
+                    if (session["last_attempt"] + 1800 < System.currentTimeMillis() / 1000L) {
+                        session.invalidate()
+                    }
+                }
+
+    			if (user != null && !user.verify_token && session["attempts"] < 3) {
     				// User was validated, so create a session
+                    session["attempts"] = 0
     				session["user"] = user
     				redirect(controller: "main", action: "index")
     				return
     			}
+
+                // Should we lock someone out?
+                user = user ? user : User.findWhere(email: user_email)
+                if (user) {
+
+                    session["last_attempt"] = System.currentTimeMillis() / 1000L
+
+                    if (session["original_attempt"]) {
+                        // They've tried before
+                        session["attempts"] = session["attempts"] + 1
+
+                        if (session["attempts"] > 2) {
+                            // Tell them they need to reset their account
+                            flash.error = "Your account has been locked. Please reset your password from your email"
+
+                            if (session["attempts"] == 3) {
+                                session["reset_token"] = RandomStringUtils.randomAlphanumeric(30)
+                                session["reset_id"] = user.id
+
+                                sendMail {
+                                    async true
+                                    to user_email    
+                                    subject "Reset your FindMeAJob account"     
+                                    body 'Reset your account here: http://localhost:8080' + request.contextPath + "/user/resethook?token=" + session["reset_token"]
+                                }
+                            }
+
+                            render(view: "signin")
+                            return
+
+                        }
+
+                    } else {
+                        // First time trying
+                        session["original_attempt"] = System.currentTimeMillis() / 1000L;
+                        session["last_attempt"] = session["original_attempt"];
+                        session["attempts"] = 1
+                    }
+                }
+
     		}
 
     		// Catch-all error
@@ -150,7 +198,49 @@ class UserController {
     	}
     }
 
-	// TODO: Password recovery dialog here
+   def resethook() {
+        if (request.post) {
+            // If someone is posting, they're sending their new password up
+            if (params.password && params.confirm && params.reset_token) {
+                def user_password = params.password
+                def user_confirm = params.confirm
+                def user_reset_token = params.reset_token
+
+                def user_password_md5 = user_password.encodeAsMD5()
+
+                def user = User.findWhere(id: session["reset_id"])
+
+                if (user != null && user_password.equals(user_confirm)) {
+                    // Reset the user's password
+                    user.password = user_password_md5
+                    session["attempts"] = 0
+                    flash.info = null
+                    user.save(flush: true)
+
+                    render(view: "signin", model: [success: "Your account has been reset"])
+                    return
+                }
+            }
+
+            redirect(view: "signin")
+        } else {
+            if (params.token && params.token.equals(session["reset_token"])) {
+                // _Very_ securely check the entire database for the token
+
+                def user = User.findWhere(id: session["reset_id"])
+
+                if (user != null) {
+                    flash.info = "You can now reset your password"
+                    flash.reset_token = session["reset_token"]
+                    render(view: "resetaccount")
+                    return
+                }
+            }
+
+            redirect(action: "signin")
+        }
+    }
+
     def forgothook() {
     	if (request.post) {
     		// If someone is posting, they're sending their new password up
