@@ -54,7 +54,7 @@
 			<div class="navbar-header">
 
 				<!-- Logo -->
-				<a href="index.html" class="navbar-brand">
+				<a href="${request.contextPath}/" class="navbar-brand">
 					<div><asset:image alt="Pixel Admin" src="pixel-admin/main-navbar-logo.png"/></div>
 					FindMeAJob
 				</a>
