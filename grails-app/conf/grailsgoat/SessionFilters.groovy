@@ -3,7 +3,9 @@ package grailsgoat
 class SessionFilters {
 
     def filters = {
-       shouldBeLoggedIn(controller: 'user', action: '*', invert: true) {
+
+       /* Use a whitelist instead - shouldBeLoggedIn(controller: 'user', action: '*', invert: true) { */
+       shouldBeLoggedIn(controller: 'profile|main|messages|session', action: '*') {
            before = {
               /*if (flash.userid) {
                 session.user = User.get(flash.userid)

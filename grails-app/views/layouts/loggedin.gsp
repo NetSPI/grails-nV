@@ -71,10 +71,10 @@
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle user-menu" data-toggle="dropdown">
 									<asset:image src="demo/avatars/1.jpg"/>
-									<span>${session.user.firstname} ${session.user.lastname}</span>
+									<span>${session.user?.firstname} ${session.user?.lastname}</span>
 								</a>
 								<ul class="dropdown-menu">
-									<li><a href="${request.contextPath}/profile/${session.user.id}">My Profile</a></li>
+									<li><a href="${request.contextPath}/profile/${session.user?.id}">My Profile</a></li>
 									<li><a href="#"><i class="dropdown-icon fa fa-cog"></i>&nbsp;&nbsp;Settings</a></li>
 									<li class="divider"></li>
 									<li><a href="${request.contextPath}/logout"><i class="dropdown-icon fa fa-power-off"></i>&nbsp;&nbsp;Log Out</a></li>
@@ -116,7 +116,7 @@
 		<div id="main-menu-inner">
 			<div class="menu-content top" id="menu-content-demo">
 				<div>
-					<div class="text-bg"><span class="text-slim">Welcome,</span> <span class="text-semibold">${session.user.firstname}<br></span><g:if test="${session.user.accesslevel > 0}"><span class="text-slim">(site admin)</span></g:if></div>
+					<div class="text-bg"><span class="text-slim">Welcome,</span> <span class="text-semibold">${session.user?.firstname}<br></span><g:if test="${session.user?.accesslevel > 0}"><span class="text-slim">(site admin)</span></g:if></div>
 
 					<asset:image src="avatars/1.jpg" alt="" class=""/>
 					<div class="btn-group">
@@ -139,7 +139,7 @@
 							<a tabindex="-1" href="${request.contextPath}/profile/"><span class="mm-text">My Profile</span></a>
 						</li>
 						<li>
-							<a tabindex="-1" href="${request.contextPath}/profile/edit/${session.user.id}"><span class="mm-text">Edit Profile</span></a>
+							<a tabindex="-1" href="${request.contextPath}/profile/edit/${session.user?.id}"><span class="mm-text">Edit Profile</span></a>
 						</li>
 						<li>
 							<a tabindex="-1" href="${request.contextPath}/profile/resume/"><span class="mm-text">Upload Resume</span></a>
