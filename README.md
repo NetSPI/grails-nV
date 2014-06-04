@@ -3,6 +3,8 @@ grailsgoat
 
 GrailsGoat is a vulnerable jobs listing website.
 
+A list of current vulnerabilities in Grailsgoat can be seen [here](info.txt)
+
 Setup
 -----
 
