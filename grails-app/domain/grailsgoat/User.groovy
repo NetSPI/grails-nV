@@ -10,6 +10,7 @@ class User {
     String fullname
     String description
     String resume
+    String ssn
 	String password
 	Date created_at
 	Date updated_at
@@ -30,6 +31,7 @@ class User {
         verify_token nullable: true
         created_at nullable: true
         description nullable: true
+        ssn nullable: true
         resume nullable: true
         reset_token nullable: true
 
@@ -42,6 +44,7 @@ class User {
         fullname maxSize: 600
 
         description maxSize: 3000
+        ssn maxSize: 11
 
     	password maxSize: 36
 
@@ -56,6 +59,7 @@ class User {
         forgot_token defaultValue: null
         resume defaultValue: null
         description defaultValue: null
+        ssn defaultValue: null
         accesslevel defaultValue: 0
         original_attempt defaultValue: 0
         latest_attempt defaultValue: 0

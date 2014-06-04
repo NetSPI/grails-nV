@@ -7,6 +7,7 @@ class MessagesController {
     		// Why are they posting the message index?
     		redirect(action: "index")
     	} else {
+
     		def user_id = session.user.id
 
     		def user_messages = User.get(user_id).messages
@@ -21,6 +22,11 @@ class MessagesController {
             message_senders.each {
                 senders[String.valueOf(it.id)] = it.fullname
             }
+
+            // Let's set some headers so the messages don't get insecurely cached!!
+            header 'Cache-Control', 'no-cache, no-store, must-revalidate'
+            header 'Pragma', 'no-cache'
+            header 'Expires', '0'
 
     		render(view: "index", model: [messages: user_messages, senders: senders])
     	}

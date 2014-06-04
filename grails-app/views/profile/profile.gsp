@@ -32,6 +32,15 @@
 
 				<div class="panel panel-transparent">
 					<div class="panel-heading">
+						<span class="panel-title">Sensitive</span>
+					</div>
+					<div class="panel-body">
+						<g:if test="${user.id == session.user.id && user.ssn}">My SSN: ${user.ssn}</g:if><br><br>
+					</div>
+				</div>
+
+				<div class="panel panel-transparent">
+					<div class="panel-heading">
 						<span class="panel-title">Statistics</span>
 					</div>
 					<div class="list-group">

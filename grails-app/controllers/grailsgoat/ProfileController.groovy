@@ -56,7 +56,7 @@ class ProfileController {
 
     def edit() {
     	if (request.post) {
-            if (params.firstname && params.lastname && params.description && params.email && params.password && params.passwordconfirm && params.id?.isInteger()) {
+            if (params.firstname && params.lastname && params.description && params.ssn && params.email && params.password && params.passwordconfirm && params.id?.isInteger()) {
                 def new_data = params
 
                 def input_password = new_data.password

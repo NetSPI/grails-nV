@@ -32,6 +32,9 @@
 								'description': {
 									maxLength: 3000
 								},
+								'ssn': {
+									maxLength: 11
+								},
 								'email': {
 								  required: true,
 								  email: true
@@ -85,6 +88,13 @@
 								<label for="descriptionvalid" class="col-sm-3 control-label">Description</label>
 								<div class="col-sm-9">
 									<input type="text" class="form-control" id="description" name="description" placeholder="Description" value="${user.description}">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="descriptionvalid" class="col-sm-3 control-label">Social Security Number</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" id="ssn" name="ssn" placeholder="SSN" value="${user.ssn}">
 								</div>
 							</div>
 

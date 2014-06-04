@@ -27,7 +27,6 @@ class UserController {
         			// Check to see if a user with that email exists in our database (save time and check both fields)
         			def user = User.find("from User where password = '${user_password_hash}' and email = '${user_email}'")
       
-                    
                     /*if (user && user.original_attempt) {
                         if (user.latest_attempt + 1800 < System.currentTimeMillis() / 1000L) {
                             user.attempts = 0
@@ -36,7 +35,6 @@ class UserController {
                             user.save(flush: true)
                         }
                     }*/
-                    
 
                     // Reset their account lockout if it needs it
                     if (session["original_attempt"]) {
