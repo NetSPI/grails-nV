@@ -23,3 +23,9 @@ Session Fixation
 	UserController.groovy/SessionFilters.groovy: By default, the session ID does not change after a login. However, commented out code in the UserController and the SessionFilters allow for the session to be invalidated and a new session ID assigned after a login. (Session IDs are by default changed on logout.)
 Information Disclosure
 	ProfileController.groovy: Caching headers (as seen in MessagesController.groovy) are not set, so the application may cache the page and cause attackers to be able to view user SSN information in the browser cache
+XSS - JS Context
+	MainController.groovy: In order to create the links on the main listings page, we use a funky array that allows for XSS in a JS context
+Auth Filters Blacklist
+	SessionFilters.groovy: The session filters present in this file protect all pages, but use a blacklist not a whitelist and are missing the individual listings page
+Validators:
+	UserController.groovy: On signup/registration, a weak email regex is used, which allows users to sign up multiple times by appending a string to their emails (ex: dave@test.com and dave+evil@test.com)
