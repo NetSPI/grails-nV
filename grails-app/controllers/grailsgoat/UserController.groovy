@@ -1,6 +1,7 @@
 package grailsgoat
 
 import org.apache.commons.lang.RandomStringUtils
+import org.codehaus.groovy.grails.web.servlet.mvc.GrailsHttpSession
 
 class UserController {
 
@@ -56,7 +57,11 @@ class UserController {
                         */
                         
                         session["attempts"] = 0
+
         				session["user"] = user
+                        //session.invalidate()
+                        //flash.userid = user.id
+
         				redirect(controller: "main", action: "index")
         				return
         			}
