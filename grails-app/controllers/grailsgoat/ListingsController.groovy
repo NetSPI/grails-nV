@@ -7,7 +7,12 @@ class ListingsController {
     		// why are they posting this address?
     		redirect(controller: "main", view: "index")
     	} else {
-    		render "test"
+    		if (params.listing?.isInteger()) {
+
+    			def listing = JobListing.get(params.listing)
+
+    			render(view: "index", model: [listing: listing])
+    		}
     	}
     }
 }

@@ -16,6 +16,11 @@ class UrlMappings {
             controller = "session"
             action = "logout"
         }
+        "/listings/($listing)?"
+        {
+            controller = "listings"
+            action = "index"
+        }
         "/profile/edit/$id?"
         {
             controller = "profile"

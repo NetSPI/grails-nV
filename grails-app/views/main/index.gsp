@@ -13,8 +13,14 @@
 				<!-- Javascript -->
 				<script>
 					init.push(function () {
+						var lookup_data = $.parseJSON('${listings_lookup.encodeAsRaw()}');
+						console.log(lookup_data);
 						$('#jq-datatables-example').dataTable();
 						$('#jq-datatables-example_wrapper .dataTables_filter input').attr('placeholder', 'Search...');
+						$('#jq-datatables-example tbody').on('click', 'tr', function () { 
+							var key = $('td', this).eq(0).text() + $('td', this).eq(1).text();
+							document.location = "${request.contextPath}/listings/" + lookup_data[key];
+						} );
 					});
 				</script>
 				<!-- / Javascript -->

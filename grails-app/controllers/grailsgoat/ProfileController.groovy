@@ -92,6 +92,8 @@ class ProfileController {
                     
                     // Store the user data so we can reset the form
                     JSON.use("deep")
+
+                    // Encrypt the cookie so it can't be read by attackers
                     Cookie cookie = new Cookie("user", (userdata as JSON).toString().bytes.encodeBase64().toString())
                     cookie.maxAge = 100
                     response.addCookie(cookie)

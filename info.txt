@@ -21,3 +21,5 @@ CSRF
     CSRF protection is only present on the signup/signin dialogs. Every other form on the site (messaging/edit profile/upload resume/forgot password/etc) is not protected
 Session Fixation
 	UserController.groovy/SessionFilters.groovy: By default, the session ID does not change after a login. However, commented out code in the UserController and the SessionFilters allow for the session to be invalidated and a new session ID assigned after a login. (Session IDs are by default changed on logout.)
+Information Disclosure
+	ProfileController.groovy: Caching headers (as seen in MessagesController.groovy) are not set, so the application may cache the page and cause attackers to be able to view user SSN information in the browser cache

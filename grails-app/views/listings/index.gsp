@@ -1,47 +1,65 @@
 <html>
-    <head>
-        <title>${listing.title} - FindMeAJob</title>
-        <meta name="layout" content="loggedin" />
-    </head>
-    <body>
+	<head>
+		<title>${listing.name} - Find Me A Job</title>
+		<meta name="layout" content="loggedin" />
+	</head>
+<body>
 		<div class="page-header">
-			<h1><span class="text-light-gray">Job Listings / </span>View</h1>
+			<h1><span class="text-light-gray">Listings / </span>${listing.name}</h1>
 		</div> <!-- / .page-header -->
-		<p>This page lists all the current job offerings in the system. Only job offerings still available will be listed</p>
-		<div class="row">
-			<div class="col-sm-12">
-				<!-- Javascript -->
-				<script>
-					init.push(function () {
-						$('#jq-datatables-example').dataTable();
-						$('#jq-datatables-example_wrapper .dataTables_filter input').attr('placeholder', 'Search...');
-					});
-				</script>
-				<!-- / Javascript -->
-				<div class="table-primary">
-					<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="jq-datatables-example">
-						<thead>
-							<tr>
-								<th>Name</th>
-								<th>Description</th>
-								<th>Location</th>
-								<th>Full-time</th>
-								<th>Company</th>
-							</tr>
-						</thead>
-						<tbody>
-							<g:each in="${listings}" var="listing" >
-								<tr class="odd gradeX">
-									<td>${listing.name}</td>
-									<td>${listing.description}</td>
-									<td>${listing.location}</td>
-									<td><g:if test="${listing.fulltime}">Full-time</g:if><g:else>Part-time</g:else></td>
-									<td>${listing.company.name}</td>
-							</g:each>
-						</tbody>
-					</table>
+
+	 	<div class="profile-row">
+			<div class="">
+				<!--<div class="profile-block">
+					<a href="${request.contextPath}/messages/sendto/" class="btn"><i class="fa fa-comment"> Message This User</i></a>
+				</div>-->
+				
+				<g:if test="${listing.description}">
+				<div class="panel panel-transparent">
+					<div class="panel-heading">
+						<span class="panel-title">Listing Description</span>
+					</div>
+					<div class="panel-body">
+						${listing.description}<br><br>
+					</div>
 				</div>
+				</g:if>
+
+				<g:if test="${listing.requirements}">
+				<div class="panel panel-transparent">
+					<div class="panel-heading">
+						<span class="panel-title">Requirements</span>
+					</div>
+					<div class="panel-body">
+						${listing.requirements}<br><br>
+					</div>
+				</div>
+				</g:if>
+
+				<g:if test="${listing.howtoapply}">
+				<div class="panel panel-transparent">
+					<div class="panel-heading">
+						<span class="panel-title">How to Apply</span>
+					</div>
+					<div class="panel-body">
+						${listing.howtoapply}<br><br>
+					</div>
+				</div>
+				</g:if>
+
+				<div class="panel panel-transparent">
+					<div class="panel-heading">
+						<span class="panel-title">Other Information</span>
+					</div>
+					<div class="list-group">
+						<a href="#" class="list-group-item"><i class="profile-list-icon fa fa-map-marker" style="color: #4ab6d5"></i> Location: <g:if test="${listing.location}">${listing.location}</g:if><g:else>(unknown)</g:else></a>
+						<a href="#" class="list-group-item"><i class="profile-list-icon fa fa-check-square" style="color: #1a7ab9"></i> Type: <g:if test="${listing.fulltime}">full time</g:if><g:else>part time</g:else></a>
+						<a href="#" class="list-group-item"><i class="profile-list-icon fa fa-calendar" style="color: #888"></i> Starts: <g:if test="${listing.startdate}">${listing.startdate.format("MMMM dd, yyyy")}</g:if><g:else>(unknown)</g:else></a>
+					</div>
+				</div>
+
 			</div>
 		</div>
 </body>
+</html>
 </html>
