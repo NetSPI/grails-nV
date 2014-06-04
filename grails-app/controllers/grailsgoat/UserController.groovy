@@ -15,7 +15,7 @@ class UserController {
         		if (params.signin_email && params.signin_password) {
 
         			def user_email = params.signin_email
-        			def user_password = params.signin_password
+                    def user_password = params.signin_password
 
                     // Let's hash their password first to prevent timing attacks
                     def user_password_hash = user_password.encodeAsMD5();
@@ -168,6 +168,9 @@ class UserController {
         			// Check to see if a user with that email already exists
         			def user = User.findWhere(email: user_email)
 
+                    // Let's validate the user email address
+                    def email_valid = (user_email =~ /(.*)@(.*).(.*)/)
+
         			// Check to see if their passwords match
         			def passwords_match = user_password.equals(user_confirm)
 
@@ -199,7 +202,7 @@ class UserController {
                     }*/
 
         			if (user == null) {
-                        if(passwords_match) {    				
+                        if(passwords_match && email_valid) {    				
             				def user_verify_token = RandomStringUtils.randomAlphanumeric(30)
 
             				def new_user = new User(email: user_email, firstname: user_firstname, lastname: user_lastname, fullname: user_firstname + " " + user_lastname, password: user_password_hash, verify_token: user_verify_token)
