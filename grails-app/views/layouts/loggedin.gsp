@@ -163,6 +163,9 @@
 			<div class="menu-content">
 				<a href="${request.contextPath}/tutorials" class="btn btn-primary btn-block btn-outline dark">Tutorial</a>
 			</div>
+			<div class="menu-content">
+				<button id="lang" class="btn btn-primary btn-block btn-outline dark btn-xs btn-danger">Switch to Spanish</button>
+			</div>
 		</div> <!-- / #main-menu-inner -->
 	</div> <!-- / #main-menu -->
 <!-- /4. $MAIN_MENU -->
@@ -190,6 +193,22 @@
 <script type="text/javascript">
 	init.push(function () {
 		// Javascript code here
+		var hashParam = location.hash.split("#")[1];
+
+		$("#lang").click();
+
+		$( "#lang" ).click(function() {
+			hashParam = location.hash.split("#")[1];
+			// Unfortunately, we don't have spanish support yet :(
+			if (hashParam.length > 0) {
+				$(this).html("Switch to " + hashParam);
+				if (hashParam === "English") {
+					location.hash = "Spanish"
+				} else {
+					location.hash = "English"
+				}
+			}
+  		});
 	})
 	window.PixelAdmin.start(init);
 </script>
