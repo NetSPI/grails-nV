@@ -29,3 +29,6 @@ Auth Filters Blacklist
 	SessionFilters.groovy: The session filters present in this file protect all pages, but use a blacklist not a whitelist and are missing the individual listings page
 Validators:
 	UserController.groovy: On signup/registration, a weak email regex is used, which allows users to sign up multiple times by appending a string to their emails (ex: dave@test.com and dave+evil@test.com)
+Insecure Redirect
+	SessionFilters.groovy: Uses a redirect when you are sent to the login. Convenient, but it is an unsecured redirect
+	UserController.groovy: Contains a redirect, but does not validate that the user is sent to a site on the same domain

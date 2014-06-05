@@ -60,7 +60,14 @@ class UserController {
                         //session.invalidate()
                         //flash.userid = user.id
 
-        				redirect(controller: "main", action: "index")
+                        // Redirect to the last page
+                        println params.lastpage
+                        if (params.lastpage) {
+                            println params.lastpage
+                            redirect(url: params.lastpage)
+                        } else {
+        				    redirect(controller: "main", action: "index")
+                        }
         				return
         			}
 
@@ -148,7 +155,11 @@ class UserController {
         		render(view: "signin")
             }
     	} else {
-    		render(view: "signin")
+            if (params.redirect_to) {
+                render(view: "signin", model: [lastpage: params.redirect_to])
+            } else {
+                render(view: "signin")
+            }
     	}
     }
 

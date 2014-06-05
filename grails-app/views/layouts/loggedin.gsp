@@ -75,7 +75,7 @@
 								</a>
 								<ul class="dropdown-menu">
 									<li><a href="${request.contextPath}/profile/${session.user?.id}">My Profile</a></li>
-									<li><a href="#"><i class="dropdown-icon fa fa-cog"></i>&nbsp;&nbsp;Settings</a></li>
+									<li><a href="#"><i class="dropdown-icon fa fa-cog"></i>&nbsp;&nbsp;Tutorial</a></li>
 									<li class="divider"></li>
 									<li><a href="${request.contextPath}/logout"><i class="dropdown-icon fa fa-power-off"></i>&nbsp;&nbsp;Log Out</a></li>
 								</ul>
@@ -156,7 +156,7 @@
 					</ul>
 				</li>
 			<div class="menu-content">
-				<a href="pages-invoice.html" class="btn btn-primary btn-block btn-outline dark">Settings</a>
+				<a href="pages-invoice.html" class="btn btn-primary btn-block btn-outline dark">Tutorial</a>
 			</div>
 		</div> <!-- / #main-menu-inner -->
 	</div> <!-- / #main-menu -->

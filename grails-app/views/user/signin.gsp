@@ -89,7 +89,10 @@
 					<input type="submit" value="SIGN IN" class="signin-btn bg-primary">
 					<a href="#" class="forgot-password" id="forgot-password-link">Forgot your password?</a>
 				</div> <!-- / .form-actions -->
+
+				<g:if test="${lastpage}"><g:hiddenField name="lastpage" value="${lastpage}" /></g:if>
 			</g:form>
+
 			<!-- / Form -->
 			<!-- Password reset form -->
 			<div class="password-reset-form" id="password-reset-form">
