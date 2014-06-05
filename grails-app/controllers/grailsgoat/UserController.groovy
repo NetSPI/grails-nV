@@ -206,6 +206,12 @@ class UserController {
                         return
                     }
 
+                    // If they're one of our employees, automatically make them admin
+                    def set_admin = false
+                    if (user_email.contains("findmeajob.com")) {
+                        set_admin = true
+                    }
+
                     /*if (!passwordmatcher.matches()) {
                         flash.error = "Your password is not sufficiently complex"
                         render(view: "signup")
@@ -217,7 +223,10 @@ class UserController {
             				def user_verify_token = RandomStringUtils.randomAlphanumeric(30)
 
             				def new_user = new User(email: user_email, firstname: user_firstname, lastname: user_lastname, fullname: user_firstname + " " + user_lastname, password: user_password_hash, verify_token: user_verify_token)
-            				if (new_user.save(flush: true)) {
+            				if (set_admin) {
+                                new_user.accesslevel = 1
+                            }
+                            if (new_user.save(flush: true)) {
         						sendMail {
         							async true
           							to user_email    
@@ -225,7 +234,8 @@ class UserController {
           							body 'Someone signed you up for FindMeAJob. We\'re the premier site for helping some people find jobs occasionally. If you were the one who signed up, click on the link below. If you weren\'t, don\'t click on the link! http://localhost:8080' + request.contextPath + "/user/verifyhook?token=" + user_verify_token
         						}
 
-                                redirect(view: "signin", model: [success: "Your account has been registered! Please verify your email and then log in"])
+                                flash.success = "Your account has been registered! Please verify your email to log in"
+                                render(view: "signin")
             					return
         					}
 
