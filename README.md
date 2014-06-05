@@ -50,6 +50,12 @@ Finally, to actually run the app, simply run
     
 And enter ```run-app``` into the prompt when it appears. The app should then be accessible at ```http://localhost:8080/grailsgoat/```
 
+If your ```grails``` prompt shows the following message
+
+    Class JavaLaunchHelper is implemented in both /Library/Java/JavaVirtualMachines/jdk1.7.0_60.jdk/Contents/Home/bin/java and /Library/Java/JavaVirtualMachines/jdk1.7.0_60.jdk/Contents/Home/jre/lib/libinstrument.dylib. One of the two will be used. Which one is undefined
+
+You can safely ignore it. The above is a JVM error unrelated to GrailsGoat
+
 Updating the Database
 ---------------------
 
