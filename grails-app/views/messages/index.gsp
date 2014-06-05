@@ -7,9 +7,9 @@
 		<div class="page-header">
 			<h1><span class="text-light-gray">My Messages / </span>View</h1>
 		</div> <!-- / .page-header -->
+		<g:if test="${flash.error}"><div class="note note-error">${flash.error}</div></g:if><g:if test="${flash.success}"><div class="note note-success">${flash.success}</div></g:if>
 		<p>This is the inbox of all messages you've received on our website. You can use this system to send and receive messages from recruiters, employers, and fellow job seekers.</p>
 		<a href="${request.contextPath}/messages/send/"><button class="btn btn-labeled btn-primary"><span class="btn-label icon fa fa-plus"></span>New Message</button></a><br><br>
-		<g:if test="${flash.error}"><div class="note note-error">${flash.error}</div></g:if><g:if test="${flash.success}"><div class="note note-success">${flash.success}</div></g:if>
 		<div class="row">
 			<div class="col-sm-12">
 				<!-- Javascript -->
