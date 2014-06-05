@@ -25,6 +25,8 @@ Information Disclosure
 	ProfileController.groovy: Caching headers (as seen in MessagesController.groovy) are not set, so the application may cache the page and cause attackers to be able to view user SSN information in the browser cache
 XSS - JS Context
 	MainController.groovy: In order to create the links on the main listings page, we use a funky array that allows for XSS in a JS context
+XSS - DOM Based
+	loggedin.gsp: The dummy language switcher pulls straight from the fragment of the URL, allowing for XSS on its contents
 Auth Filters Blacklist
 	SessionFilters.groovy: The session filters present in this file protect all pages, but use a blacklist not a whitelist and are missing the individual listings page
 Validators:
