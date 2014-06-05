@@ -34,7 +34,7 @@ Once you're using Java 7, you can install Grails with GVM
 
 To set up the database, run the initial setup script provided in the directory.
 
-    chmod +x initial_setup.sh
+    chmod +x initial-setup.sh
     ./initial_setup.sh
 
 In order for the app to send mail (for account verification, password resets, etc) you will need to configure the mailserver settings in the ```grails-app\Config.groovy``` file. By default, we have used settings for ```mailcatcher```, which captures all emails sent to it and displays them in a web interface.

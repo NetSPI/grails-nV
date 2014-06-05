@@ -12,11 +12,7 @@
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin" rel="stylesheet" type="text/css">
 
 	<!-- Pixel Admin's stylesheets -->
-	<link href="${request.contextPath}/pixeladmin/html/assets/stylesheets/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link href="${request.contextPath}/pixeladmin/html/assets/stylesheets/pixel-admin.min.css" rel="stylesheet" type="text/css">
-	<link href="${request.contextPath}/pixeladmin/html/assets/stylesheets/pages.min.css" rel="stylesheet" type="text/css">
-	<link href="${request.contextPath}/pixeladmin/html/assets/stylesheets/rtl.min.css" rel="stylesheet" type="text/css">
-	<link href="${request.contextPath}/pixeladmin/html/assets/stylesheets/themes.min.css" rel="stylesheet" type="text/css">
+	<asset:stylesheet href="application.css"/>
 
 	<!--[if lt IE 9]>
 		<script src="${request.contextPath}/pixeladmin/html/assets/javascripts/ie.min.js"></script>
@@ -41,7 +37,7 @@
 		<!-- Background overlay -->
 		<div class="overlay"></div>
 		<!-- Replace this with your bg image -->
-		<img src="${request.contextPath}/pixeladmin/html/assets/demo/signin-bg-1.jpg" alt="">
+		<asset:image alt="background" src="demo/signin-bg-1.jpg"/>
 	</div>
 	<!-- / Page background -->
 
@@ -51,7 +47,7 @@
 		<!-- Left side -->
 		<div class="signin-info">
 			<a href="index.html" class="logo">
-				<img src="${request.contextPath}/pixeladmin/html/assets/demo/logo-big.png" alt="" style="margin-top: -5px;">&nbsp;
+				<asset:image alt="" src="demo/logo-big.png" style="margin-top: -5px;"/>&nbsp;
 				FindMeAJob
 			</a> <!-- / .logo -->
 			<div class="slogan">
@@ -137,8 +133,7 @@
 
 
 <!-- Pixel Admin's javascripts -->
-<script src="${request.contextPath}/pixeladmin/html/assets/javascripts/bootstrap.min.js"></script>
-<script src="${request.contextPath}/pixeladmin/html/assets/javascripts/pixel-admin.min.js"></script>
+<asset:javascript src="application.js"/>
 
 <script type="text/javascript">
 	// Resize BG

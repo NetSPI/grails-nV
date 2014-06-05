@@ -29,8 +29,10 @@ XSS - DOM Based
 	loggedin.gsp: The dummy language switcher pulls straight from the fragment of the URL, allowing for XSS on its contents
 Auth Filters Blacklist
 	SessionFilters.groovy: The session filters present in this file protect all pages, but use a blacklist not a whitelist and are missing the individual listings page
-Validators:
+Validators
 	UserController.groovy: On signup/registration, a weak email regex is used, which allows users to sign up multiple times by appending a string to their emails (ex: dave@test.com and dave+evil@test.com)
 Insecure Redirect
 	SessionFilters.groovy: Uses a redirect when you are sent to the login. Convenient, but it is an unsecured redirect
 	UserController.groovy: Contains a redirect, but does not validate that the user is sent to a site on the same domain
+Logic Flaw
+	UserController.groovy: Users who have the string "findmeajob.com" in their e-mail are automatically promoted to admin.
