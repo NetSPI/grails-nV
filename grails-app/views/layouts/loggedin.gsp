@@ -75,7 +75,7 @@
 								</a>
 								<ul class="dropdown-menu">
 									<li><a href="${request.contextPath}/profile/${session.user?.id}">My Profile</a></li>
-									<li><a href="#"><i class="dropdown-icon fa fa-cog"></i>&nbsp;&nbsp;Tutorial</a></li>
+									<li><a href="${request.contextPath}/tutorials"><i class="dropdown-icon fa fa-cog"></i>&nbsp;&nbsp;Tutorial</a></li>
 									<li class="divider"></li>
 									<li><a href="${request.contextPath}/logout"><i class="dropdown-icon fa fa-power-off"></i>&nbsp;&nbsp;Log Out</a></li>
 								</ul>
@@ -149,14 +149,19 @@
 				<li>
 					<a href="${request.contextPath}/companies/"><i class="menu-icon fa fa-list"></i><span class="mm-text">Companies</span></a>
 				</li>
-				<li>
+				<li class="mm-dropdown mm-dropdown-root active">
 					<a href="${request.contextPath}/messages/"><i class="menu-icon fa fa-envelope"></i><span class="mm-text">Messages</span></a>
 					<ul>
-						<a tabindex="-1" href="${request.contextPath}/messages/send/"><span class="mm-text">New Message</span></a>
+						<li>
+						<a tabindex="-1" href="${request.contextPath}/messages/"><span class="mm-text">My Messages</span></a>
+						</li>
+						<li>
+							<a tabindex="-1" href="${request.contextPath}/messages/send/"><span class="mm-text">New Message</span></a>
+						</li>
 					</ul>
 				</li>
 			<div class="menu-content">
-				<a href="pages-invoice.html" class="btn btn-primary btn-block btn-outline dark">Tutorial</a>
+				<a href="${request.contextPath}/tutorials" class="btn btn-primary btn-block btn-outline dark">Tutorial</a>
 			</div>
 		</div> <!-- / #main-menu-inner -->
 	</div> <!-- / #main-menu -->

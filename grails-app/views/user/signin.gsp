@@ -123,7 +123,8 @@
 	<!-- / Container -->
 
 	<div class="not-a-member">
-		Not a member? <a href="${request.contextPath}/user/register">Sign up now</a>
+		Not a member? <a href="${request.contextPath}/user/register">Sign up now</a><br />
+		Looking for the Grailsgoat tutorials? <a href="${request.contextPath}/tutorials">Click here</a>
 	</div>
 
 <!-- Get jQuery from Google CDN -->

@@ -5,7 +5,7 @@
 	</head>
 <body>
 		<div class="page-header">
-			<h1><span class="text-light-gray"><g:if test="${session.user.id == user.id}">My </g:if>Profile / </span>View</h1>
+			<h1><span class="text-light-gray"><g:if test="${session.user.id == user.id}">My </g:if>Profile / </span>View <span class="text-light-gray">(#<g:if test="${params.id}">${params.id}</g:if><g:else>${session.user.id}</g:else>)</span></h1>
 		</div> <!-- / .page-header -->
 
 		<div class="profile-full-name">

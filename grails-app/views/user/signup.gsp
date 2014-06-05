@@ -110,7 +110,8 @@
 	</div>
 
 		<div class="have-account">
-		Already have an account? <a href="${request.contextPath}/user/login">Sign In</a>
+		Already have an account? <a href="${request.contextPath}/user/login">Sign In</a><br />
+		Looking for the Grailsgoat tutorials? <a href="${request.contextPath}/tutorials">Click here</a>
 	</div>
 
 
