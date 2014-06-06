@@ -7,6 +7,12 @@ class UrlMappings {
             }
         }
 
+        "/tutorials/($which)?"
+        {
+            controller = "tutorials"
+            action = "tutorial"
+        }
+
         "/"
         {
             controller = "main"
