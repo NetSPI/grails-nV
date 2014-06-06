@@ -12,6 +12,7 @@ class ProfileController {
                 def userdata = User.find("from User where id = ${params.id}")
 
                 //FIX: def userdata = User.get(params.id)
+                //FIX insecure DOA too: def userdata = User.get(session.user.id)
 
                 if (userdata != null) {
                     render(view: "profile", model: [user: userdata])
