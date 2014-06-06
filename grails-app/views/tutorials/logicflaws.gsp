@@ -17,7 +17,8 @@
 						</div> <!-- / .panel-heading -->
 						<div id="collapseDescription" class="panel-collapse in">
 							<div class="panel-body">
-								A logic flaw is simply a mistake made by the developer that allows users to bypass the normal flow of actions within the app. Usually, a logic flaw is a result of not considering all possible scenarios for a given series of actions. For example, if <code>A -> B</code> and <code>B -> C</code>, then <code>A -> B -> C</code>. However, if a logic flaw could be exploited to directly go from <code>A -> C</code>, without the intermediate <code>B</code> step, authentication or security could be bypassed.<br><br>
+								A logic flaw is simply a mistake made by the developer that allows users to bypass the normal flow of actions within the app. Usually, a logic flaw is a result of not considering all possible scenarios for a given series of actions. For example, if <code>A -> B</code> and <code>B -> C</code>, then <code>A -> B -> C</code>. However, if a logic flaw could be exploited to directly go from <code>A -> C</code>, without the intermediate <code>B</code> step, authentication or security could be bypassed.<br/r><br/>
+								
 								Logic flaws can potentially be more dangerous than other flaws, because they are often more difficult to detect. They cannot be picked up by static analysis tools, and can require thinking from a different mindset than the one used when developing the application to identify.
 							</div> <!-- / .panel-body -->
 						</div> <!-- / .collapse -->
@@ -63,7 +64,7 @@ if (user_email.contains("findmeajob.com")) {
 						</div> <!-- / .panel-heading -->
 						<div id="collapseSolution" class="panel-collapse collapse">
 							<div class="panel-body">
-								The code as presented above has the logical flaw of assuming any user with a certain characteristic is an employee of FindMeAJob. If someone bypasses the middle step, they are able to go directly from signing up to being given admin level privileges on the website.<br><br>
+								The code as presented above has the logical flaw of assuming any user with a certain characteristic is an employee of FindMeAJob. If someone bypasses the middle step, they are able to go directly from signing up to being given admin level privileges on the website.<br/><br/>
 
 								The most secure way to solve the problem in this instance is to either manually assign users administrator privileges, or use a more secure way of authenticating them, such as requiring an employee pin or an email. However, we can also update the check to include the '@' symbol, which cannot be included as part of an extra string in the email.
 								<pre class="line-numbers"><code class="language-groovy">// If they're one of our employees, automatically make them admin
