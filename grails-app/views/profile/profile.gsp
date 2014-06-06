@@ -26,6 +26,7 @@
 					<div class="panel-body">
 						<g:if test="${user.description}">${user.description}</g:if><g:else>[User has no description]</g:else><br><br>
 						<g:if test="${user.resume}"><p><a href="${request.contextPath}/uploads/${user.resume}">Download My Resume</a></p></g:if>
+						<g:if test="${user.id == session.user.id && user.ssn}">My SSN: ${user.ssn}</g:if><br><br>
 					</div>
 				</div>
 			</div>
