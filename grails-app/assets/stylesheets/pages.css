@@ -1901,13 +1901,13 @@ html body.page-signup {
   padding-bottom: 20px;
   position: relative;
   border-bottom-width: 2px;
-  margin-bottom: 0;
   text-align: center;
 }
 .page-profile .profile-content .tab-content {
   background: #fff;
 }
 .page-profile .profile-block {
+  width: 162px;
   margin-bottom: 18px;
   text-align: center;
 }
