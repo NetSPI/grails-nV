@@ -38,7 +38,7 @@
 					<div class="panel">
 						<div class="panel-heading">
 							<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#vuln-accordion" href="#collapseBug">
-								Bug
+								Problem
 							</a>
 						</div> <!-- / .panel-heading -->
 						<div id="collapseBug" class="panel-collapse collapse">

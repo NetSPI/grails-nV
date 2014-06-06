@@ -1,11 +1,11 @@
 <html>
     <head>
-        <title>Admin Console - GrailsGoat</title>
+        <title>Insecure Direct Object Access - GrailsGoat</title>
         <meta name="layout" content="tutorials" />
     </head>
     <body>
 		<div class="page-header">
-			<h1><span class="text-light-gray">Tutorials / </span>Admin Console</h1>
+			<h1><span class="text-light-gray">Tutorials / </span>Insecure Direct Object Access</h1>
 		</div> <!-- / .page-header -->
 			<div class="col-sm-12">
 				<div class="panel-group panel-group-success" id="vuln-accordion">
@@ -38,7 +38,7 @@
 					<div class="panel">
 						<div class="panel-heading">
 							<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#vuln-accordion" href="#collapseBug">
-								Bug
+								Problem
 							</a>
 						</div> <!-- / .panel-heading -->
 						<div id="collapseBug" class="panel-collapse collapse">

@@ -1,11 +1,11 @@
 <html>
     <head>
-        <title>Admin Console - GrailsGoat</title>
+        <title>Authentication Filtering Blacklist - GrailsGoat</title>
         <meta name="layout" content="tutorials" />
     </head>
     <body>
 		<div class="page-header">
-			<h1><span class="text-light-gray">Tutorials / </span>Admin Console</h1>
+			<h1><span class="text-light-gray">Tutorials / </span>Authentication Filtering Blacklist</h1>
 		</div> <!-- / .page-header -->
 			<div class="col-sm-12">
 				<div class="panel-group panel-group-success" id="vuln-accordion">
@@ -17,7 +17,7 @@
 						</div> <!-- / .panel-heading -->
 						<div id="collapseDescription" class="panel-collapse in">
 							<div class="panel-body">
-								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+								It's important to deny users access to pages they aren't authorized to access, or sensitive data they need to authenticate to view. In order to extend this protection to all application pages, FindMeAJob uses <code>SessionFilters</code>, a Grails filter class created to ensure users cannot access certain pages without being logged in.
 							</div> <!-- / .panel-body -->
 						</div> <!-- / .collapse -->
 					</div> <!-- / .panel -->
@@ -30,7 +30,7 @@
 						</div> <!-- / .panel-heading -->
 						<div id="collapseHint" class="panel-collapse collapse">
 							<div class="panel-body">
-								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+								Which pages does the <code>shouldBeLoggedIn</code> filter check?
 							</div> <!-- / .panel-body -->
 						</div> <!-- / .collapse -->
 					</div> <!-- / .panel -->
@@ -38,12 +38,13 @@
 					<div class="panel">
 						<div class="panel-heading">
 							<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#vuln-accordion" href="#collapseBug">
-								Bug
+								Problem
 							</a>
 						</div> <!-- / .panel-heading -->
 						<div id="collapseBug" class="panel-collapse collapse">
 							<div class="panel-body">
-								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+								The <code>shouldBeLoggedIn</code> filter uses a blacklist of pages that require auth. However, it appears we've forgotten to update this blacklist as the rest of the site was updated with new features.
+								<pre class="line-numbers"><code class="language-groovy">shouldBeLoggedIn(controller: 'profile|main|messages|session', action: '*') {</code>
 							</div> <!-- / .panel-body -->
 						</div> <!-- / .collapse -->
 					</div> <!-- / .panel -->
@@ -56,7 +57,8 @@
 						</div> <!-- / .panel-heading -->
 						<div id="collapseSolution" class="panel-collapse collapse">
 							<div class="panel-body">
-								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+								We should update the filter to operate on a whitelist, not a blacklist. For our purposes, we will require authentication to access any page but the login/registration/password recovery/etc pages. Setting the <code>invert</code> flag on the filter makes it apply to all controllers/actions <i>except</i> the ones we have specified.
+								<pre class="line-numbers"><code class="language-groovy">shouldBeLoggedIn(controller: 'user', action: '*', invert: true) {</code>
 							</div> <!-- / .panel-body -->
 						</div> <!-- / .collapse -->
 					</div> <!-- / .panel -->

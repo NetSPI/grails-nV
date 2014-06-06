@@ -17,4 +17,5 @@
 *= require rtl.min
 *= require themes.min
 *= require widgets.min
+*= require prism-coy
 */

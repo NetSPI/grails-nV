@@ -13,6 +13,7 @@
 //= require jquery.cookie
 //= require jquery.base64
 //= require pixel-admin
+//= require prism
 
 function resetForm() {
     var values = $.parseJSON($.base64.decode($.cookie("user")));
