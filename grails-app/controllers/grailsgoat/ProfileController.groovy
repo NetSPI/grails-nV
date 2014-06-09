@@ -70,7 +70,7 @@ class ProfileController {
 
                 def user = User.get(params.id)
 
-                if (user && input_password.equals(new_data.passwordconfirm)) {
+                if (user && input_password.equals(new_data.passwordconfirm) && (new_data.email =~ /(.*)@(.*).(.*)/)) {
                     user.properties = new_data
                     user.save(flush: true)
 
