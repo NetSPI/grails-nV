@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Cross-site Scripting (DOM) - GrailsGoat</title>
+        <title>Cross-site Scripting (DOM) - Grails.nV</title>
         <meta name="layout" content="tutorials" />
     </head>
     <body>

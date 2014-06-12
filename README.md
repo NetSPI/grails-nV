@@ -1,9 +1,9 @@
-grailsgoat
+grails.nV
 ==========
 
-GrailsGoat is a vulnerable jobs listing website.
+grails.nV is a vulnerable jobs listing website.
 
-More information about GrailsGoat and its vulnerabilities can be found [here](https://github.com/nVisium/grailsgoat/wiki)
+More information about grails.nV and its vulnerabilities can be found [here](https://github.com/nVisium/grails.nV/wiki)
 
 Setup
 -----
@@ -48,13 +48,13 @@ Finally, to actually run the app, simply run
 
     grails
     
-And enter ```run-app``` into the prompt when it appears. The app should then be accessible at ```http://localhost:8080/grailsgoat/```
+And enter ```run-app``` into the prompt when it appears. The app should then be accessible at ```http://localhost:8080/grailsnv/```
 
 If your ```grails``` prompt shows the following message
 
     Class JavaLaunchHelper is implemented in both /Library/Java/JavaVirtualMachines/jdk1.7.0_60.jdk/Contents/Home/bin/java and /Library/Java/JavaVirtualMachines/jdk1.7.0_60.jdk/Contents/Home/jre/lib/libinstrument.dylib. One of the two will be used. Which one is undefined
 
-You can safely ignore it. The above is a JVM error unrelated to GrailsGoat
+You can safely ignore it. The above is a JVM error unrelated to grails.nV
 
 Updating the Database
 ---------------------

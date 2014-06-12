@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Validators - GrailsGoat</title>
+        <title>Validators - Grails.nV</title>
         <meta name="layout" content="tutorials" />
     </head>
     <body>

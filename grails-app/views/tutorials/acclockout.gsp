@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Lack of Account Lockout - GrailsGoat</title>
+        <title>Lack of Account Lockout - Grails.nV</title>
         <meta name="layout" content="tutorials" />
     </head>
     <body>

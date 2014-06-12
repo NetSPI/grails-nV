@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Weak Password Complexity - GrailsGoat</title>
+        <title>Weak Password Complexity - Grails.nV</title>
         <meta name="layout" content="tutorials" />
     </head>
     <body>

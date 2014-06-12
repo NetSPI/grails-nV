@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>CSRF - GrailsGoat</title>
+        <title>CSRF - Grails.nV</title>
         <meta name="layout" content="tutorials" />
     </head>
     <body>
@@ -46,7 +46,7 @@
 								Grails provides a special <code>&lt;g:form&gt;</code> tag to generate HTML forms. One of the options on this tag is to include a special CSRF form token. Each time the page is generated, a unique token will be inserted as a hidden tag on the form.
 								<pre class="line-numbers"><code class="language-javascript">&lt;g:form action="signin" name="signin-form_id" method="post" useToken="True"&gt;
 &lt;input type="hidden" name="SYNCHRONIZER_TOKEN" value="40c90bc8-bf62-4cd5-b98c-0241b17f5e48" id="SYNCHRONIZER_TOKEN" /&gt;
-&lt;input type="hidden" name="SYNCHRONIZER_URI" value="/grailsgoat/user/signin" id="SYNCHRONIZER_URI" /&gt;
+&lt;input type="hidden" name="SYNCHRONIZER_URI" value="/grails.nV/user/signin" id="SYNCHRONIZER_URI" /&gt;
 ...
 &lt;/g:form&gt;</code></pre>
 								In order to process this on the server, we simply have to wrap our action with a <code>withForm</code> statement. If this token is not correct when the request is submitted to the server endpoint, the request will be automatically rejected

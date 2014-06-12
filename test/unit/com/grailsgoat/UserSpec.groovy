@@ -1,4 +1,4 @@
-package com.grailsgoat
+package com.grails.nV
 
 import grails.test.mixin.TestFor
 import spock.lang.Specification

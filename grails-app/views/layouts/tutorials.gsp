@@ -56,7 +56,7 @@
 				<!-- Logo -->
 				<a href="${request.contextPath}/tutorials/" class="navbar-brand">
 					<div><asset:image alt="Pixel Admin" src="pixel-admin/main-navbar-logo.png"/></div>
-					Grailsgoat Tutorials
+					Grails.nV Tutorials
 				</a>
 
 				<!-- Main navbar toggle -->

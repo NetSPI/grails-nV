@@ -1,4 +1,4 @@
-package grailsgoat
+package grails.nV
 
 import javax.servlet.http.Cookie
 import grails.converters.JSON

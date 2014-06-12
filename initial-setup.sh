@@ -1,5 +1,5 @@
 #!/bin/bash
 
-echo "create database \`grailsgoat-dev\`" | mysql -u root
+echo "create database \`grailsnv-dev\`" | mysql -u root
 grails dbm-update
-mysql -u root grailsgoat-dev < data-initial.sql
+mysql -u root grailsnv-dev < data-initial.sql

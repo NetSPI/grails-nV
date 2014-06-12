@@ -120,7 +120,7 @@
 
 	<div class="not-a-member">
 		Not a member? <a href="${request.contextPath}/user/register">Sign up now</a><br />
-		Looking for the Grailsgoat tutorials? <a href="${request.contextPath}/tutorials">Click here</a>
+		Looking for the Grails.nV tutorials? <a href="${request.contextPath}/tutorials">Click here</a>
 	</div>
 
 <!-- Get jQuery from Google CDN -->

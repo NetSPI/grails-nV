@@ -1,4 +1,4 @@
-package grailsgoat
+package grails.nV
 
 import org.codehaus.groovy.grails.web.mapping.LinkGenerator
 

@@ -1,4 +1,4 @@
-package com.grailsgoat
+package com.grails.nV
 
 
 

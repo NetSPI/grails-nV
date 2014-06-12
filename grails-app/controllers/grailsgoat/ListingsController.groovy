@@ -1,4 +1,4 @@
-package grailsgoat
+package grails.nV
 
 class ListingsController {
 
