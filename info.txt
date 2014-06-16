@@ -1,3 +1,8 @@
+Information
+-----------
+
+The below is a plaintext description of Grails.nV vulnerabilities
+
 Username Enumeration:
 	UserController.groovy: The signup() action should return only a single "invalid registration" message, and not give more information based on whether or not the user email exists
     UserController.groovy: The signup() action should not return a message if your account is locked, because then 3 tries on a username will reveal if it is real or not
