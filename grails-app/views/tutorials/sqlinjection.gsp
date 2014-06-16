@@ -5,7 +5,7 @@
     </head>
     <body>
 		<div class="page-header">
-			<h1><span class="text-light-gray">Tutorials / </span>Admin Console</h1>
+			<h1><span class="text-light-gray">Tutorials / </span>SQL Injection</h1>
 		</div> <!-- / .page-header -->
 			<div class="col-sm-12">
 				<div class="panel-group panel-group-success" id="vuln-accordion">
