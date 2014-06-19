@@ -34,7 +34,7 @@ Finally, to actually run the app, simply run
 
     grails
     
-And enter ```run-app``` into the prompt when it appears. The app should then be accessible at ```http://localhost:8080/grailsnv/```
+And enter ```run-app``` into the prompt when it appears. The app should then be accessible at ```http://localhost:8080/grails.nV/```
 
 If your ```grails``` prompt shows the following message
 
