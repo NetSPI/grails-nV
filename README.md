@@ -23,7 +23,9 @@ To set up the database, run the initial setup script provided in the directory.
     chmod +x initial-setup.sh
     ./initial-setup.sh
 
-In order for the app to send mail (for account verification, password resets, etc) you will need to configure the mailserver settings in the ```grails-app\Config.groovy``` file. By default, we have used settings for ```mailcatcher```, which captures all emails sent to it and displays them in a web interface.
+By default, grails.nV uses the build in H2 database stored on disc. However, the ```grails-app\conf\DataSource.groovy``` and ```initial-setup.sh``` have commented out settings to switch to MySQL if that's preferable.
+
+In order for the app to send mail (for account verification, password resets, etc) you will need to configure the mailserver settings in the ```grails-app\conf\Config.groovy``` file. By default, we have used settings for ```mailcatcher```, which captures all emails sent to it and displays them in a web interface.
 
     gem install mailcatcher
     mailcatcher
