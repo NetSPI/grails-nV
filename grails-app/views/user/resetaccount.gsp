@@ -107,7 +107,7 @@
 
 
 <!-- Pixel Admin's javascripts -->
-<asset:javascript href="application.js"/>
+<asset:javascript src="application.js"/>
 
 <script type="text/javascript">
 	// Resize BG

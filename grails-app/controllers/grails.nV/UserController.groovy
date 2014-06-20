@@ -61,9 +61,7 @@ class UserController {
                         //flash.userid = user.id
 
                         // Redirect to the last page
-                        println params.lastpage
                         if (params.lastpage) {
-                            println params.lastpage
                             redirect(url: params.lastpage)
                         } else {
         				    redirect(controller: "main", action: "index")
@@ -92,7 +90,7 @@ class UserController {
                                         async true
                                         to user_email    
                                         subject "Reset your FindMeAJob account"
-                                        body 'Reset your account here: ' + createLink(absolute: true, controller: 'user', action: 'resethook', params: ['token': user.reset_token]) 
+                                        html 'Reset your account here: <a href="' + createLink(absolute: true, controller: 'user', action: 'resethook', params: ['token': user.reset_token]) + '">link</a>'
                                     }
                                 }
                                 user.save(flush: true)
@@ -130,7 +128,7 @@ class UserController {
                                         async true
                                         to user_email    
                                         subject "Reset your FindMeAJob account"
-                                        body 'Reset your account here: ' + createLink(absolute: true, controller: 'user', action: 'resethook', params: ['token': session["reset_token"]])  
+                                        html 'Reset your account here: <a href="' + createLink(absolute: true, controller: 'user', action: 'resethook', params: ['token': session["reset_token"]]) + '">link</a>'
                                     }
                                 }
 
@@ -230,7 +228,7 @@ class UserController {
         							async true
           							to user_email    
           							subject "Verify your FindMeAJob account"      
-          							body 'Someone signed you up for FindMeAJob. We\'re the premier site for helping some people find jobs occasionally. If you were the one who signed up, click on the link below. If you weren\'t, don\'t click on the link! ' + createLink(absolute: true, controller: 'user', action: 'verifyhook', params: ['token': user_verify_token]) 
+          							html 'Someone signed you up for FindMeAJob. We\'re the premier site for helping some people find jobs occasionally. If you were the one who signed up, click on the link below. If you weren\'t, don\'t click on the link! <a href="' + createLink(absolute: true, controller: 'user', action: 'verifyhook', params: ['token': user_verify_token]) + '">link</a>'
         						}
 
                                 flash.success = "Your account has been registered! Please verify your email to log in"
@@ -275,10 +273,8 @@ class UserController {
 						async true
   						to user_email    
   						subject "Reset your FindMeAJob account"
-  						body 'Someone requested their password on FindMeAJob be reset. If it was you, click on the link below. If it wasn\'t, don\'t click on the link! ' + createLink(absolute: true, controller: 'user', action: 'forgothook', params: ['token': user.forgot_token]) 
+  						body 'Someone requested their password on FindMeAJob be reset. If it was you, click on the link below. If it wasn\'t, don\'t click on the link! <a href="' + createLink(absolute: true, controller: 'user', action: 'forgothook', params: ['token': user.forgot_token]) + '">link</a>'
 					}
-
-					println "Reset account"
 
 					flash.info = "If an account with that email exists, it has been sent a reset token"
 					render(view: "signin")
@@ -294,9 +290,6 @@ class UserController {
 
    def resethook() {
             /*if (request.post) {
-                println params.reset_token
-                println params.password
-                println params.confirm
                 // If someone is posting, they're sending their new password up
                 if (params.password && params.confirm && params.reset_token) {
                     def user_password = params.password
