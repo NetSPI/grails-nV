@@ -198,15 +198,20 @@
 		$("#lang").click();
 
 		$( "#lang" ).click(function() {
+			if (location.hash.length > 0) {
 			hashParam = location.hash.split("#")[1];
-			// Unfortunately, we don't have spanish support yet :(
-			if (hashParam.length > 0) {
-				$(this).html("Switch to " + hashParam);
-				if (hashParam === "English") {
-					location.hash = "Spanish"
-				} else {
-					location.hash = "English"
+				// Unfortunately, we don't have spanish support yet :(
+				if (hashParam.length > 0) {
+					$(this).html("Switch to " + hashParam);
+					if (hashParam === "English") {
+						location.hash = "Spanish";
+					} else {
+						location.hash = "English";
+					}
 				}
+			} else {
+				location.hash = "Spanish";
+				$(this).html("Switch to English");
 			}
   		});
 	})
