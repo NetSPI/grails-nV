@@ -91,8 +91,8 @@ class UserController {
                                     sendMail {
                                         async true
                                         to user_email    
-                                        subject "Reset your FindMeAJob account"     
-                                        body 'Reset your account here: http://localhost:8080' + request.contextPath + "/user/resethook?token=" + user.reset_token
+                                        subject "Reset your FindMeAJob account"
+                                        body 'Reset your account here: ' + createLink(absolute: true, controller: 'user', action: 'resethook', params: ['token': user.reset_token]) 
                                     }
                                 }
                                 user.save(flush: true)
@@ -126,12 +126,11 @@ class UserController {
                                 if (session["attempts"] == 3) {
                                     session["reset_token"] = RandomStringUtils.randomAlphanumeric(30)
                                     session["reset_id"] = user.id
-
                                     sendMail {
                                         async true
                                         to user_email    
-                                        subject "Reset your FindMeAJob account"     
-                                        body 'Reset your account here: http://localhost:8080' + request.contextPath + "/user/resethook?token=" + session["reset_token"]
+                                        subject "Reset your FindMeAJob account"
+                                        body 'Reset your account here: ' + createLink(absolute: true, controller: 'user', action: 'resethook', params: ['token': session["reset_token"]])  
                                     }
                                 }
 
@@ -230,8 +229,8 @@ class UserController {
         						sendMail {
         							async true
           							to user_email    
-          							subject "Verify your FindMeAJob account"     
-          							body 'Someone signed you up for FindMeAJob. We\'re the premier site for helping some people find jobs occasionally. If you were the one who signed up, click on the link below. If you weren\'t, don\'t click on the link! http://localhost:8080' + request.contextPath + "/user/verifyhook?token=" + user_verify_token
+          							subject "Verify your FindMeAJob account"      
+          							body 'Someone signed you up for FindMeAJob. We\'re the premier site for helping some people find jobs occasionally. If you were the one who signed up, click on the link below. If you weren\'t, don\'t click on the link! ' + createLink(absolute: true, controller: 'user', action: 'verifyhook', params: ['token': user_verify_token]) 
         						}
 
                                 flash.success = "Your account has been registered! Please verify your email to log in"
@@ -275,8 +274,8 @@ class UserController {
 					sendMail {
 						async true
   						to user_email    
-  						subject "Reset your FindMeAJob account"     
-  						body 'Someone requested their password on FindMeAJob be reset. If it was you, click on the link below. If it wasn\'t, don\'t click on the link! http://localhost:8080' + request.contextPath + "/user/forgothook?token=" + user.forgot_token
+  						subject "Reset your FindMeAJob account"
+  						body 'Someone requested their password on FindMeAJob be reset. If it was you, click on the link below. If it wasn\'t, don\'t click on the link! ' + createLink(absolute: true, controller: 'user', action: 'forgothook', params: ['token': user.forgot_token]) 
 					}
 
 					println "Reset account"
