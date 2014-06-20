@@ -70,7 +70,7 @@
 						<ul class="nav navbar-nav pull-right right-navbar-nav">
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle user-menu" data-toggle="dropdown">
-									<asset:image src="demo/avatars/1.jpg"/>
+									<asset:image src="pixel-admin/default.jpg"/>
 									<span>${session.user?.firstname} ${session.user?.lastname}</span>
 								</a>
 								<ul class="dropdown-menu">
@@ -118,7 +118,7 @@
 				<div>
 					<div class="text-bg"><span class="text-slim">Welcome,</span> <span class="text-semibold">${session.user?.firstname}<br></span><g:if test="${session.user?.accesslevel > 0}"><span class="text-slim">(site admin)</span></g:if></div>
 
-					<asset:image src="demo/avatars/1.jpg" alt="" class=""/>
+					<asset:image src="pixel-admin/default.jpg" alt="" class=""/>
 					<div class="btn-group">
 						<a href="#" class="btn btn-xs btn-primary btn-outline dark"><i class="fa fa-envelope"></i></a>
 						<a href="#" class="btn btn-xs btn-primary btn-outline dark"><i class="fa fa-user"></i></a>

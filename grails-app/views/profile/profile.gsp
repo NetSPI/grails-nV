@@ -13,9 +13,9 @@
 		</div>
 	 	<div class="profile-row">
 			<div class="">
-				<div class="profile-block" style="width:162px">
+				<div class="profile-block" style="width:152px">
 					<div class="panel profile-photo">
-						<asset:image src="demo/avatars/5.jpg" alt=""/>
+						<asset:image src="pixel-admin/default.jpg" alt=""/>
 					</div>
 				</div>
 				
