@@ -58,6 +58,7 @@ class ProfileController {
     def edit() {
     	if (request.post) {
             if (params.firstname && params.lastname && params.description && params.ssn && params.email && params.password && params.passwordconfirm && params.id?.isInteger()) {
+                flash.error = "Shit broke inside loop"
                 def new_data = params
 
                 def input_password = new_data.password

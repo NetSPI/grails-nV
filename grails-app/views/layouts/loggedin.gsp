@@ -160,6 +160,9 @@
 						</li>
 					</ul>
 				</li>
+				<li>
+					<a href="${request.contextPath}/user-management/"><i class="menu-icon fa fa-user"></i><span class="mm-text">User Management</span></a>
+				</li>
 			<div class="menu-content">
 				<a href="${request.contextPath}/tutorials" class="btn btn-primary btn-block btn-outline dark">Tutorial</a>
 			</div>
