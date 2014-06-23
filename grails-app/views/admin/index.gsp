@@ -14,6 +14,10 @@
 					init.push(function () {
 						$('#jq-datatables-example').dataTable();
 						$('#jq-datatables-example_wrapper .dataTables_filter input').attr('placeholder', 'Search...');
+						$('#jq-datatables-example tbody').on('click', 'tr', function () { 
+							var key = $(this).eq(0).data("id");
+							document.location = "${request.contextPath}/user-management/edit/" + key;
+						} );
 					});
 				</script>
 				<div class="table-primary">
@@ -27,10 +31,11 @@
 						</thead>
 						<tbody>
 							<g:each in="${users}" var="user" >
-								<tr class="odd gradeX">
-									<td>${user.fullname}</td>
-									<td>${user.ssn}</td>
-									<td>${user.password}</td>
+									<tr class="odd gradeX" data-id="${user.id}">
+										<td>${user.fullname}</td>
+										<td>${user.ssn}</td>
+										<td>${user.password}</td>
+									</tr>
 							</g:each>
 						</tbody>
 					</table>

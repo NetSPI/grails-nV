@@ -1,8 +1,11 @@
 package grails.nV
 
+import grails.converters.JSON
+
 class AdminController {
 	def index() {
 		def users = User.getAll()
+
 		render(view: "index", model: [users: users])
 	}
 
@@ -27,13 +30,13 @@ class AdminController {
 
                     session.user = user
 
-                    flash.success = "Your profile has been updated successfully"
+                    flash.success = "This user has been updated successfully"
                     render(view: "edit", model: [user: user])
                     return
                 }
             }
 
-            flash.error = "Your profile could not be updated"
+            flash.error = "This user could not be updated"
             render(view: "edit", model: [user: session.user])
             return
 		} else {
