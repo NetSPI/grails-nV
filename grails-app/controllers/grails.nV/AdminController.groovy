@@ -3,6 +3,19 @@ package grails.nV
 import grails.converters.JSON
 
 class AdminController {
+
+    def beforeInterceptor = [action:this.&requireAdmin, except:["index"]]
+
+      def requireAdmin() {
+        if(!session.user || !session.user.accesslevel.equals(1)) {
+          flash.error = "You need to be an administrator to perform this action"
+
+          redirect(controller:"main", action:"index")
+          return false
+        }
+      }
+
+
 	def index() {
 		def users = User.getAll()
 
