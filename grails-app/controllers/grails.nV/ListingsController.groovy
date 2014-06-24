@@ -50,17 +50,24 @@ class ListingsController {
 
     def edit() {
         if (request.post) {
-            if (params.id?.isInteger() && params.name && params.description && params.website) {
+            if (params.listing?.isInteger() && params.name && params.description && params.requirements && params.howtoapply && params.location && params.startdate && params.fulltime) {
                 // There are no real requirements for any of these
-                def listing = JobListing.get(params.id)
+                def listing = JobListing.get(params.listing)
+
+                if (params.fulltime) {
+                    println "true"
+                } else {
+                    println "false"
+                }
 
                 if (listing) {
                     listing.name = params.name
                     listing.description = params.description
                     listing.requirements = params.requirements
                     listing.howtoapply = params.howtoapply
-                    listing.startdate = params.startdate
-                    listing.fulltime = params.fulltime == 1 ? true : false
+                    listing.location = params.location
+                    listing.startdate = new Date().parse("yyyy-M-d'T'H:m", params.startdate)
+                    listing.fulltime = params.fulltime.equals("1") ? true : false
 
                     listing.save(flush: true)
                     flash.success = listing.name + " was updated in the database"
@@ -72,9 +79,13 @@ class ListingsController {
             redirect(view: "update")
             return
         } else {
-            if (params.id?.isInteger()) {
-                def listing = JobListing.get(params.id)
-                render(view: "update", model: [listing: listing])
+            if (params.listing?.isInteger()) {
+                def listing = JobListing.get(params.listing)
+
+                // We need to specially format the date
+                def dateformatted = listing.startdate.format("yyyy-MM-dd'T'HH:mm")
+
+                render(view: "update", model: [listing: listing, dateformatted: dateformatted])
                 return
             } else {
                 redirect(view: "index")

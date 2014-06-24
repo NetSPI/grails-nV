@@ -25,22 +25,40 @@
 							rules: {
 								'name': {
 									required: true,
-									maxLength: 200
+									maxLength: 300
 								},
 								'description': {
 									required: true,
 									maxLength: 3000
 								},
-								'website': {
-									maxLength: 11,
-									maxLength: 2000
+								'requirements': {
+									required: true
+									maxLength: 3000
+								},
+								'howtoapply': {
+									required: true
+									maxLength: 3000
+								},
+								'location': {
+									required: true
+									maxLength: 300
+								},
+								'startdate': {
+									required: true
+								},
+								'fulltime': {
+									required: true
 								},
 							},
 							messages: {
-								'name': 'Your company name must be under 200 characters',
+								'name': 'Your company name must be under 300 characters',
 								'description': 'Your description must be under 3000 characters',
-								'website': 'Your website URL must be under 2000 characters',
+								'requirements': 'Your description must be under 3000 characters',
+								'howtoapply': 'Your description must be under 3000 characters',
+								'location': 'Your description must be under 3000 characters',
+								'website': 'Your website URL must be under 3000 characters',
 							}
+
 						});
 					});
 				</script>
@@ -52,27 +70,63 @@
 					</div>
 					<div class="panel-body">
 						<g:if test="${flash.error}"><div class="note note-error">${flash.error}</div></g:if><g:if test="${flash.success}"><div class="note note-success">${flash.success}</div></g:if>
-						<form class="form-horizontal" id="jq-validation-form" action="${request.contextPath}/companies/edit/${company.id}" method="post">
+						<form class="form-horizontal" id="jq-validation-form" action="${request.contextPath}/listings/${listing.id}/edit" method="post">
 							<div class="form-group">
 								<label for="name" class="col-sm-3 control-label">Name</label>
 								<div class="col-sm-9">
-									<input type="text" class="form-control" id="name" name="name" placeholder="Name" value="${company.name}">
+									<input type="text" class="form-control" id="name" name="name" placeholder="Name" value="${listing.name}">
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label for="descriptionvalid" class="col-sm-3 control-label">Description</label>
 								<div class="col-sm-9">
-									<input type="text" class="form-control" id="description" name="description" placeholder="Description" value="${company.description}">
+									<input type="text" class="form-control" id="description" name="description" placeholder="Description" value="${listing.description}">
 								</div>
 							</div>
 
 							<div class="form-group">
-								<label for="websitevalid" class="col-sm-3 control-label">Social Security Number</label>
+								<label for="descriptionvalid" class="col-sm-3 control-label">Requirements</label>
 								<div class="col-sm-9">
-									<input type="text" class="form-control" id="website" name="website" placeholder="URL" value="${company.website}">
+									<input type="text" class="form-control" id="requirements" name="requirements" placeholder="Requirements" value="${listing.requirements}">
 								</div>
 							</div>
+
+							<div class="form-group">
+								<label for="descriptionvalid" class="col-sm-3 control-label">How to Apply</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" id="howtoapply" name="howtoapply" placeholder="How to Apply" value="${listing.howtoapply}">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="descriptionvalid" class="col-sm-3 control-label">Location</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" id="location" name="location" placeholder="Location" value="${listing.location}">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="descriptionvalid" class="col-sm-3 control-label">Start Date</label>
+								<div class="col-sm-9">
+									<input type="datetime-local" class="form-control" id="startdate" name="startdate" value="${ dateformatted }">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="descriptionvalid" class="col-sm-3 control-label">Hours</label>
+								<div class="col-sm-9">
+									<g:if test="${listing.fulltime}">
+										<input type="radio" class="form-control" name="fulltime" value="1" checked>Full time<br/>
+										<input type="radio" class="form-control" name="fulltime" value="0">Part time
+									</g:if>
+									<g:else>
+										<input type="radio" class="form-control" name="fulltime" value="1">Full time<br/>
+										<input type="radio" class="form-control" name="fulltime" value="0" checked>Part time
+									</g:else>
+								</div>
+							</div>
+
 
 							<div class="form-group">
 								<div class="col-sm-offset-3 col-sm-9">
