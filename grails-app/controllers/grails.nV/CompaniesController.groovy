@@ -38,6 +38,13 @@ class CompaniesController {
     			// There are no real requirements for any of these
     			def company = Company.get(params.id)
 
+                // User has to be part of the company to edit it
+                if (User.get(session.user.id)?.employer?.id != company.id) {
+                    flash.error = "Unable to update company"
+                    redirect(view: "index")
+                    return
+                }
+
     			if (company) {
     				company.name = params.name
     				company.description = params.description
@@ -55,6 +62,14 @@ class CompaniesController {
     	} else {
     		if (params.id?.isInteger()) {
 				def company = Company.get(params.id)
+
+                // User has to be part of the company to edit it
+                if (User.get(session.user.id)?.employer?.id != company.id) {
+                    flash.error = "Unable to update company"
+                    redirect(view: "index")
+                    return
+                }
+
 				render(view: "update", model: [company: company])
 				return
 			} else {

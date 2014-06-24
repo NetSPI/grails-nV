@@ -10,9 +10,6 @@
 
 	 	<div class="profile-row">
 			<div class="">
-				<!--<div class="profile-block">
-					<a href="${request.contextPath}/messages/sendto/" class="btn"><i class="fa fa-comment"> Message This User</i></a>
-				</div>-->
 				
 				<g:if test="${listing.description}">
 				<div class="panel panel-transparent">
