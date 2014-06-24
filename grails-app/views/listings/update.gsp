@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Edit Company - Find Me A Job</title>
+		<title>Edit Job Listing - Find Me A Job</title>
 		<meta name="layout" content="loggedin" />
 	</head>
 <body>

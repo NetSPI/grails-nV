@@ -7,6 +7,7 @@
 		<div class="page-header">
 			<h1><span class="text-light-gray">Job Listings / </span>View</h1>
 		</div> <!-- / .page-header -->
+		<g:if test="${flash.error}"><div class="note note-error">${flash.error}</div></g:if><g:if test="${flash.success}"><div class="note note-success">${flash.success}</div></g:if>
 		<p>This page lists all the current job offerings in the system. Only job offerings still available will be listed</p>
 		<div class="row">
 			<div class="col-sm-12">
