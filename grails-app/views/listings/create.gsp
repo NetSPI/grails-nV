@@ -76,7 +76,7 @@
 							<div class="form-group">
 								<label for="name" class="col-sm-3 control-label">Company</label>
 								<div class="col-sm-9">
-									<g:select optionKey="id" optionValue="name" name="companyid" from="${companies}" />
+									<p>${company.name}</p>
 								</div>
 							</div>
 

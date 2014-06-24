@@ -23,27 +23,28 @@ class ListingsController {
     }
 
     def create() {
-        if (request.post) {
-            if (params.companyid?.isInteger() && params.name && params.description && params.requirements && params.howtoapply && params.location && params.startdate && params.fulltime) {
 
-                // User has to be part of the company to edit it
-                if (User.get(session.user.id)?.employer?.id != params.companyid) {
-                    flash.error = "Unable to update company"
-                    redirect(view: "index")
-                    return
-                }
+        def user_employer = User.get(session.user.id).employer
+
+        // User has to be part of the company to edit it
+        if (!user_employer) {
+            flash.error = "Unable to create job listing"
+            redirect(view: "index")
+            return
+        }
+
+        if (request.post) {
+            if (params.name && params.description && params.requirements && params.howtoapply && params.location && params.startdate && params.fulltime) {
 
                 def newdate = new Date().parse("yyyy-M-d'T'H:m", params.startdate)
 
                 def listing = new JobListing(name: params.name, description: params.description, requirements: params.requirements, howtoapply: params.howtoapply, location: params.location, startdate: newdate, fulltime: params.fulltime == 1 ? true : false)
 
-                Company.get(params.companyid).addToJoblistings(listing).save()
+                user_employer.addToJoblistings(listing).save()
                 if (!listing.save(flush: true)) {
-                    listing.errors.each {
-                        println it
-                    }
+
                     flash.error = "Unable to create job listing"
-                    render(view: "create", model: [companies: Company.getAll()])
+                    render(view: "create", model: [company: user_employer])
                     return
                 }
                 flash.success = listing.name + " was added to the database"
@@ -52,10 +53,10 @@ class ListingsController {
             }
             flash.error = "Unable to create job listing"
 
-            render(view: "create", model: [companies: Company.getAll()])
+            render(view: "create", model: [company: user_employer])
             return
         } else {
-            render(view: "create", model: [companies: Company.getAll()])
+            render(view: "create", model: [company: user_employer])
             return
         }
     }
@@ -68,7 +69,7 @@ class ListingsController {
 
                 // User has to be part of the company to edit it
                 if (User.get(session.user.id)?.employer?.id != listing.company.id) {
-                    flash.error = "Unable to update company"
+                    flash.error = "Unable to update job listing"
                     redirect(view: "index")
                     return
                 }
@@ -104,7 +105,7 @@ class ListingsController {
 
                 // User has to be part of the company to edit it
                 if (User.get(session.user.id)?.employer?.id != listing.company.id) {
-                    flash.error = "Unable to update company"
+                    flash.error = "Unable to update job listing"
                     redirect(view: "index")
                     return
                 }
