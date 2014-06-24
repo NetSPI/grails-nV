@@ -22,11 +22,25 @@ class UrlMappings {
             controller = "session"
             action = "logout"
         }
+
+        "/listings/create"
+        {
+            controller = "listings"
+            action = "create"
+        }
+
         "/listings/($listing)?"
         {
             controller = "listings"
             action = "index"
         }
+        
+        "/listings/($listing)?/edit"
+        {
+            controller = "listings"
+            action = "edit"
+        }
+
         "/profile/edit/$id?"
         {
             controller = "profile"
@@ -56,6 +70,11 @@ class UrlMappings {
         {
             controller = "messages"
             action = "sendto"
+        }
+        "/companies/edit/$id?"
+        {
+            controller = "company"
+            action = "edit"
         }
         "500"(view:'/error')
 	}

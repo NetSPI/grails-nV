@@ -7,6 +7,7 @@
 		<div class="page-header">
 			<h1><span class="text-light-gray">Companies / </span>View</h1>
 		</div> <!-- / .page-header -->
+		<g:if test="${flash.error}"><div class="note note-error">${flash.error}</div></g:if><g:if test="${flash.success}"><div class="note note-success">${flash.success}</div></g:if>
 		<p>This page lists all the companies and employers in the system. The job listings from these companeis can be seen on the main job listing page</p>
 		<div class="row">
 			<div class="col-sm-12">
@@ -14,7 +15,7 @@
 				<script>
 					init.push(function () {
 						$('#jq-datatables-example').dataTable();
-						$('#jq-datatables-example_wrapper .table-caption').text('Some header text');
+						$('#jq-datatables-example_wrapper .table-caption').text('Companies');
 						$('#jq-datatables-example_wrapper .dataTables_filter input').attr('placeholder', 'Search...');
 					});
 				</script>

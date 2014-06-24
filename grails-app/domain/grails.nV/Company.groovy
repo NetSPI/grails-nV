@@ -11,6 +11,6 @@ class Company {
     static constraints = {
     	name maxSize: 300
     	description maxSize: 3000
-    	website maxSize: 2000
+    	website maxSize: 2000, url: true
     }
 }
