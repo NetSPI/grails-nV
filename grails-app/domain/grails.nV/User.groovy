@@ -24,6 +24,7 @@ class User {
     String reset_token
 
     static hasMany = [messages: Message]
+    static belongsTo = [employer: Company]
 
     static constraints = {
     	updated_at nullable: true
@@ -34,6 +35,7 @@ class User {
         ssn nullable: true
         resume nullable: true
         reset_token nullable: true
+        employer nullable: true
 
     	email maxSize: 255
 

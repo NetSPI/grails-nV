@@ -6,7 +6,7 @@ class Company {
 	String description
 	String website
 
-	static hasMany = [joblistings: JobListing]
+	static hasMany = [joblistings: JobListing, employees: User]
 
     static constraints = {
     	name maxSize: 300
