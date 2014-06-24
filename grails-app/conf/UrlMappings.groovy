@@ -76,6 +76,17 @@ class UrlMappings {
             controller = "company"
             action = "edit"
         }
+        "/user-management"
+        {
+            controller = "admin"
+            action = "index"
+        }
+
+        "/user-management/edit/$id?"
+        {
+            controller = "admin"
+            action = "edit"
+        }
         "500"(view:'/error')
 	}
 }
