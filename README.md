@@ -8,6 +8,9 @@ More information about grails.nV and its vulnerabilities can be found [here](htt
 Setup
 -----
 
+Before setting up, you will need to have the JDK installed. Simply having the JRE is not enough. OpenJDK works well, but there
+are other options as well.
+
 To set up Groovy, we recommend using the GVM, which allows for easy installation.
 
     curl -s get.gvmtool.net | bash
@@ -25,7 +28,7 @@ To set up the database, run the initial setup script provided in the directory.
 
 By default, grails.nV uses the build in H2 database stored on disc. However, the ```grails-app\conf\DataSource.groovy``` and ```initial-setup.sh``` have commented out settings to switch to MySQL if that's preferable.
 
-In order for the app to send mail (for account verification, password resets, etc) you will need to configure the mailserver settings in the ```grails-app\conf\Config.groovy``` file. By default, we have used settings for ```mailcatcher```, which captures all emails sent to it and displays them in a web interface.
+In order for the app to send mail (for account verification, password resets, etc) you will need to configure the mailserver settings in the ```grails-app\conf\Config.groovy``` file. By default, we have used settings for ```mailcatcher```, which captures all emails sent to it and displays them in a web interface. You'll need to install Ruby if you choose to use it.
 
     gem install mailcatcher
     mailcatcher
@@ -34,9 +37,9 @@ Then open ```http://localhost:1080``` and you should be able to view all emails 
 
 Finally, to actually run the app, simply run
 
-    grails
+    grails run-app
     
-And enter ```run-app``` into the prompt when it appears. The app should then be accessible at ```http://localhost:8080/grails.nV/```
+The app should then be accessible at ```http://localhost:8080/grails.nV/```
 
 If your ```grails``` prompt shows the following message
 
