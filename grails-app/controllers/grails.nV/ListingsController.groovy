@@ -19,6 +19,7 @@ class ListingsController {
         // Let's just propogate these because this isn't a real page...
         flash.error = flash.error
         flash.success = flash.success
+        flash.employer_set = User.get(session.user.id).employer
         redirect(controller: "main", view: "index")
     }
 

@@ -8,6 +8,7 @@
 			<h1><span class="text-light-gray">Job Listings / </span>View</h1>
 		</div> <!-- / .page-header -->
 		<g:if test="${flash.error}"><div class="note note-error">${flash.error}</div></g:if><g:if test="${flash.success}"><div class="note note-success">${flash.success}</div></g:if>
+		<a href="${request.contextPath}/listings/create"><button class="btn btn-labeled btn-primary"><span class="btn-label icon fa fa-plus"></span>New Listing</button></a><br><br>
 		<p>This page lists all the current job offerings in the system. Only job offerings still available will be listed</p>
 		<div class="row">
 			<div class="col-sm-12">
