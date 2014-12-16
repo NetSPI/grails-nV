@@ -29,6 +29,12 @@ class UrlMappings {
             action = "create"
         }
 
+        "/listings/search"
+        {
+            controller = "listings"
+            action = "search"
+        }
+
         "/listings/($listing)?"
         {
             controller = "listings"
