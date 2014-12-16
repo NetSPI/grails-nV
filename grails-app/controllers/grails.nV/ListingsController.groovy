@@ -122,4 +122,18 @@ class ListingsController {
             }
         }
     }
+
+    def search() {
+        if (request.get) {
+            if (params.q) {
+                //def listings = JobListing.findAllByNameLike("${params.q}%")
+                def listings = JobListing.getAll()
+                render(view: "search", model: [query: params.q, listings: listings])
+                return
+            }
+        }
+        flash.error = "Unable to search listings"
+        redirect(view: "index")
+        return
+    }
 }
