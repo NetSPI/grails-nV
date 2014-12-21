@@ -16,6 +16,7 @@ class TutorialsController {
 		"insecureredirect",
 		"acclockout",
 		"logicflaws",
+		"massassign",
 		"sessionfixation",
 		"sessiontimeout",
 		"sqlinjection",

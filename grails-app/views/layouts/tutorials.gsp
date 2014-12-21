@@ -127,6 +127,9 @@
 					<a href="${request.contextPath}/tutorials/logicflaws"><i class="menu-icon fa fa-list"></i><span class="mm-text">Logic Flaws</span></a>
 				</li>
 				<li>
+					<a href="${request.contextPath}/tutorials/massassign"><i class="menu-icon fa fa-list"></i><span class="mm-text">Mass Assignment</span></a>
+				</li>
+				<li>
 					<a href="${request.contextPath}/tutorials/sessionfixation"><i class="menu-icon fa fa-list"></i><span class="mm-text">Session Fixation</span></a>
 				</li>
 				<li>
