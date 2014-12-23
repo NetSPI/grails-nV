@@ -126,7 +126,9 @@ class ListingsController {
     def search() {
         if (params.q) {
             def searched = params.q
-            def listings = JobListing.findAllByNameLike("%${searched}%")
+            def listings = JobListing.withCriteria {
+                ilike('name', "%${searched}%")
+            }
             render(view: "search", model: [query: searched, listings: listings])
             return
         }
