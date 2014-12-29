@@ -11,7 +11,7 @@ class ListingsController {
 
     			def listing = JobListing.get(params.listing)
 
-    			render(view: "index", model: [listing: listing])
+    			render(view: "index", model: [listing: listing, can_edit: (User.get(session.user.id).employer?.id == listing.company.id || User.get(session.user.id).accesslevel > 0)])
                 return
     		}
     	}
@@ -69,7 +69,7 @@ class ListingsController {
                 def listing = JobListing.get(params.listing)
 
                 // User has to be part of the company to edit it
-                if (User.get(session.user.id)?.employer?.id != listing.company.id) {
+                if (User.get(session.user.id)?.employer?.id != listing.company.id && User.get(session.user.id)?.accesslevel == 0) {
                     flash.error = "Unable to update job listing"
                     redirect(view: "index")
                     return
@@ -99,7 +99,7 @@ class ListingsController {
                 def listing = JobListing.get(params.listing)
 
                 // User has to be part of the company to edit it
-                if (User.get(session.user.id)?.employer?.id != listing.company.id) {
+                if (User.get(session.user.id)?.employer?.id != listing.company.id && User.get(session.user.id)?.accesslevel == 0) {
                     flash.error = "Unable to update job listing"
                     redirect(view: "index")
                     return
