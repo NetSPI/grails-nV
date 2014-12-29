@@ -75,12 +75,6 @@ class ListingsController {
                     return
                 }
 
-                if (params.fulltime) {
-                    println "true"
-                } else {
-                    println "false"
-                }
-
                 if (listing) {
                     listing.name = params.name
                     listing.description = params.description
