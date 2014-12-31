@@ -279,7 +279,11 @@ class UserController {
 					flash.info = "If an account with that email exists, it has been sent a reset token"
 					render(view: "signin")
 					return
-				}
+				} else {
+                    flash.error = "No account with that email is registered"
+                    render(view: "signin")
+                    return
+                }
     		}
 
     		redirect(action: "signin")
