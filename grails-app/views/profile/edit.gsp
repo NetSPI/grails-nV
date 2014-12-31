@@ -43,10 +43,11 @@
 									required: true,
 									minlength: 6,
 								},
+								'newpassword': {
+									minlength: 6
+								},
 								'passwordconfirm': {
-									required: true,
-									minlength: 6,
-									equalTo: "#passwordvalid"
+									equalTo: "#newpassword"
 								},
 							},
 							messages: {
@@ -55,7 +56,8 @@
 								'description': 'Your description must be under 3000 characters',
 								'email': 'You must enter a valid email',
 								'password': 'Your password must be at least 6 characters long',
-								'passwordconfirm': 'Confirm password must match the original password'
+								'newpassword': 'The new password must be at least 6 characters long',
+								'passwordconfirm': 'This field must match the new password'
 							}
 						});
 					});
@@ -106,7 +108,7 @@
 							</div>
 
 							<div class="form-group">
-								<label for="passwordvalid" class="col-sm-3 control-label">Password</label>
+								<label for="passwordvalid" class="col-sm-3 control-label">Current Password</label>
 								<div class="col-sm-9">
 									<input type="password" class="form-control" id="password" name="password" placeholder="Password" autocomplete="off">
 									<p class="help-block">Passwords must be at least 6 characters long and contain one number</p>
@@ -114,12 +116,21 @@
 							</div>
 
 							<div class="form-group">
-								<label for="passwordconfirmationvalid" class="col-sm-3 control-label">Confirm password</label>
+								<label for="newpasswordvalid" class="col-sm-3 control-label">New password</label>
 								<div class="col-sm-9">
-									<input type="password" class="form-control" id="passwordconfirm" name="passwordconfirm" placeholder="Confirm password" autocomplete="off">
-									<p class="help-block">This must match the original password</p>
+									<input type="password" class="form-control" id="newpassword" name="newpassword" placeholder="New password" autocomplete="off">
+									<p class="help-block">(Optional) Enter a new password for the account</p>
 								</div>
 							</div>
+
+							<div class="form-group">
+								<label for="passwordconfirmationvalid" class="col-sm-3 control-label">Confirm new password</label>
+								<div class="col-sm-9">
+									<input type="password" class="form-control" id="passwordconfirm" name="passwordconfirm" placeholder="Confirm password" autocomplete="off">
+									<p class="help-block">(Optional) Confirm the new password</p>
+								</div>
+							</div>
+
 							<div class="form-group">
 								<div class="col-sm-offset-3 col-sm-9">
 									<button type="submit" class="btn btn-primary">Update Information</button>

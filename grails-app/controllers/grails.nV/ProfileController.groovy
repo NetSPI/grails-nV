@@ -57,10 +57,9 @@ class ProfileController {
 
     def edit() {
     	if (request.post) {
-            if (params.firstname && params.lastname && params.description && params.ssn && params.email && params.password && params.passwordconfirm && params.id?.isInteger()) {
-                def new_data = params
 
-                def input_password = new_data.password
+            if (params.firstname && params.lastname && params.description && params.ssn && params.email && params.password && params.id?.isInteger()) {
+                def new_data = params
 
                 new_data.password = new_data.password.encodeAsMD5()
                 /*
@@ -70,7 +69,20 @@ class ProfileController {
 
                 def user = User.get(params.id)
 
-                if (user && input_password.equals(new_data.passwordconfirm) && (new_data.email =~ /(.*)@(.*).(.*)/)) {
+                if (user && user.password == new_data.password && (new_data.email =~ /(.*)@(.*).(.*)/)) {
+
+                    // Should we update password?
+                    if (new_data.newpassword) {
+                        if (new_data.newpassword.equals(new_data.passwordconfirm) && new_data.password.length() >= 6) {
+                            new_data.password = new_data.newpassword.encodeAsMD5()
+                            /* new_data.password = bcryptService.hashPassword(new_data.newpassword) */
+                        } else {
+                            flash.error = "New password was not valid"
+                            render(view: "edit", model: [user: session.user])
+                            return                            
+                        }
+                    }
+
                     user.properties = new_data
                     user.save(flush: true)
 
