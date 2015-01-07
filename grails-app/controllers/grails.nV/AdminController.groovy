@@ -8,7 +8,7 @@ class AdminController {
 
       def requireAdmin() {
         if(!session.user || !session.user.accesslevel.equals(1)) {
-          flash.error = "You need to be an administrator to perform this action"
+          flash.error = "You do not have sufficient access to perform this action"
 
           redirect(controller:"main", action:"index")
           return false

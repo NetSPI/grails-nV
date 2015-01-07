@@ -76,6 +76,7 @@
 								<ul class="dropdown-menu">
 									<li><a href="${request.contextPath}/profile/${session.user?.id}">My Profile</a></li>
 									<li><a href="${request.contextPath}/tutorials"><i class="dropdown-icon fa fa-cog"></i>&nbsp;&nbsp;Tutorial</a></li>
+									<g:if test="${session.user.accesslevel > 0}"><li><a href="${request.contextPath}/admin"><i class="dropdown-icon fa fa-user"></i>&nbsp;&nbsp;Admin Panel</a></li></g:if>
 									<li class="divider"></li>
 									<li><a href="${request.contextPath}/logout"><i class="dropdown-icon fa fa-power-off"></i>&nbsp;&nbsp;Log Out</a></li>
 								</ul>

@@ -33,7 +33,7 @@ class CompaniesController {
 			render(view: "create")
 			return
     	} else {
-q
+
             // User has to be admin to add a company to the system
             if (User.get(session.user.id).accesslevel == 0) {
                 flash.error = "Unable to add company"
