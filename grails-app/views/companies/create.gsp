@@ -69,7 +69,7 @@
 							</div>
 
 							<div class="form-group">
-								<label for="websitevalid" class="col-sm-3 control-label">Social Security Number</label>
+								<label for="websitevalid" class="col-sm-3 control-label">Website</label>
 								<div class="col-sm-9">
 									<input type="text" class="form-control" id="website" name="website" placeholder="URL" value="">
 								</div>

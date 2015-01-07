@@ -24,13 +24,13 @@ class BootStrap {
             def jack = new User(email: "jack@l33t.com", firstname: "Jack", lastname: "Edwards", fullname: "Jack Edwards", password: "password".encodeAsMD5(), verify_token: null, accesslevel: 2).save(failOnError: true)
             leetsec.addToEmployees(jack).save()
 
-            def james = new User(email: "james@megacorp.gov", firstname: "James", lastname: "Bradley", fullname: "James Bradley", password: "password".encodeAsMD5(), verify_token: null, accesslevel: 2).save(failOnError: true)
+            def james = new User(email: "james@megacorp.gov", firstname: "James", lastname: "Bradley", fullname: "James Bradley", password: "password".encodeAsMD5(), verify_token: null, accesslevel: 0).save(failOnError: true)
             megacorp.addToEmployees(james).save()
 
-            def joseph = new User(email: "joseph@megacorp.gov", firstname: "Joseph", lastname: "Nelson", fullname: "Joseph Nelson", password: "password".encodeAsMD5(), verify_token: null, accesslevel: 2).save(failOnError: true)
+            def joseph = new User(email: "joseph@megacorp.gov", firstname: "Joseph", lastname: "Nelson", fullname: "Joseph Nelson", password: "password".encodeAsMD5(), verify_token: null, accesslevel: 0).save(failOnError: true)
             megacorp.addToEmployees(joseph).save()
 
-            def jeremy = new User(email: "jeremy@goatsllc.org", firstname: "Jeremy", lastname: "Krimper", fullname: "Jeremy Krimper", password: "password".encodeAsMD5(), verify_token: null, accesslevel: 2).save(failOnError: true)
+            def jeremy = new User(email: "jeremy@goatsllc.org", firstname: "Jeremy", lastname: "Krimper", fullname: "Jeremy Krimper", password: "password".encodeAsMD5(), verify_token: null, accesslevel: 0).save(failOnError: true)
             goatsllc.addToEmployees(jeremy).save()
 
     		def message = new Message(subject: "Help with job", body: "Hello Admin, I'm currently looking for help finding a job. Please give me a call, (222) 345-9241", author_id: 2, recipient: admin).save(failOnError: true)

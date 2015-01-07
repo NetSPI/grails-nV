@@ -3,9 +3,7 @@ package grails.nV
 class CompaniesController {
 
     def index() {
-    	def companies = [companies: Company.getAll()]
-
-    	render(view: "index", model: companies)
+    	render(view: "index", model: [companies: Company.getAll(), can_create: (User.get(session.user.id).accesslevel > 0), user_employer_id: User.get(session.user.id).employer?.id])
     }
 
     def create() {
@@ -13,6 +11,14 @@ class CompaniesController {
     		if (params.name && params.description && params.website) {
     			// There are no real requirements for any of these
     			def company = new Company(name: params.name, description: params.description, website: params.website)
+
+                // User has to be admin to add a company to the system
+                if (User.get(session.user.id).accesslevel == 0) {
+                    flash.error = "Unable to add company"
+                    redirect(view: "index")
+                    return
+                }
+
     			if (!company.save(flush: true)) {
     				flash.error = "Unable to create company"
     				render(view: "create")
@@ -27,6 +33,14 @@ class CompaniesController {
 			render(view: "create")
 			return
     	} else {
+q
+            // User has to be admin to add a company to the system
+            if (User.get(session.user.id).accesslevel == 0) {
+                flash.error = "Unable to add company"
+                redirect(view: "index")
+                return
+            }
+
     		render(view: "create")
     		return
     	}
@@ -38,8 +52,8 @@ class CompaniesController {
     			// There are no real requirements for any of these
     			def company = Company.get(params.id)
 
-                // User has to be part of the company to edit it
-                if (User.get(session.user.id)?.employer?.id != company.id) {
+                // User has to be part of the company, or an admin, to edit it
+                if (User.get(session.user.id)?.employer?.id != company.id && User.get(session.user.id).accesslevel == 0) {
                     flash.error = "Unable to update company"
                     redirect(view: "index")
                     return
@@ -64,7 +78,7 @@ class CompaniesController {
 				def company = Company.get(params.id)
 
                 // User has to be part of the company to edit it
-                if (User.get(session.user.id)?.employer?.id != company.id) {
+                if (User.get(session.user.id)?.employer?.id != company.id && User.get(session.user.id).accesslevel == 0) {
                     flash.error = "Unable to update company"
                     redirect(view: "index")
                     return

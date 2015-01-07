@@ -9,7 +9,7 @@
 		</div> <!-- / .page-header -->
 
 		<g:if test="${can_edit}">
-			<div class="row"><div class="col-sm-4"><a href="${request.contextPath}/listings/${listing.id}/edit"><button class="btn btn-labeled btn-primary"><span class="btn-label icon fa fa-plus"></span>Edit Listing</button></a><br /><br />
+			<div class="row"><div class="col-sm-4"><a href="${request.contextPath}/listings/${listing.id}/edit"><button class="btn btn-labeled btn-primary"><span class="btn-label icon fa fa-plus"></span>Edit Listing</button></a></div></div><br />
 		</g:if>
 	 	<div class="profile-row">
 			<div class="">

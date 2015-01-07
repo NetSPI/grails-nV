@@ -52,36 +52,43 @@ class UrlMappings {
             controller = "profile"
             action = "edit"
         }
+
         "/profile/"
         {
             controller = "profile"
             action = "index"
         }
+
         "/profile/($id)?"
         {
             controller = "profile"
             action = "index"
         }
+
         "/profile/resume"
         {
             controller = "profile"
             action = "resume"
         }
+
         "/messages/send/($messageid)?"
         {
             controller = "messages"
             action = "send"
         }
+
         "/messages/sendto/($userid)?"
         {
             controller = "messages"
             action = "sendto"
         }
+
         "/companies/edit/$id?"
         {
             controller = "company"
             action = "edit"
         }
+
         "/user-management"
         {
             controller = "admin"
@@ -93,6 +100,7 @@ class UrlMappings {
             controller = "admin"
             action = "edit"
         }
+
         "500"(view:'/error')
 	}
 }
