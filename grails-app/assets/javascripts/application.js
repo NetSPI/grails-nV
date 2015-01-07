@@ -22,3 +22,14 @@ function resetForm() {
     $("#description").val(values['description']);
     $("#email").val(values['email']);
 }
+
+
+$(document).ready(function() {
+	if ( $("#search-form").length ) {
+		// base64 the search query for security!
+	    $('#search-form').on('submit', function(e) {
+	        e.preventDefault();  //prevent form from submitting
+	        window.location.href = $("#search-form").attr("action") + "?q=" + window.btoa($("#q").val());
+	    });
+	}
+});

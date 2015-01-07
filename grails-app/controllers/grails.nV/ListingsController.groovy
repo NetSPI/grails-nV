@@ -119,7 +119,7 @@ class ListingsController {
 
     def search() {
         if (params.q) {
-            def searched = params.q
+            def searched = new String(params.q.decodeBase64())
             def listings = JobListing.withCriteria {
                 ilike('name', "%${searched}%")
             }
