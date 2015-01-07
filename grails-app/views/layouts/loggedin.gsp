@@ -20,20 +20,6 @@
 	<g:layoutHead />
 </head>
 
-
-<!-- 1. $BODY ======================================================================================
-	
-	Body
-
-	Classes:
-	* 'theme-{THEME NAME}'
-	* 'right-to-left'      - Sets text direction to right-to-left
-	* 'main-menu-right'    - Places the main menu on the right side
-	* 'no-main-menu'       - Hides the main menu
-	* 'main-navbar-fixed'  - Fixes the main navigation
-	* 'main-menu-fixed'    - Fixes the main menu
-	* 'main-menu-animated' - Animate main menu
--->
 <body class="theme-default main-menu-animated">
 
 <script>var init = [];</script>
@@ -76,7 +62,7 @@
 								<ul class="dropdown-menu">
 									<li><a href="${request.contextPath}/profile/${session.user?.id}">My Profile</a></li>
 									<li><a href="${request.contextPath}/tutorials"><i class="dropdown-icon fa fa-cog"></i>&nbsp;&nbsp;Tutorial</a></li>
-									<g:if test="${session.user.accesslevel > 0}"><li><a href="${request.contextPath}/admin"><i class="dropdown-icon fa fa-user"></i>&nbsp;&nbsp;Admin Panel</a></li></g:if>
+									<g:if test="${session.user?.accesslevel > 0}"><li><a href="${request.contextPath}/admin"><i class="dropdown-icon fa fa-user"></i>&nbsp;&nbsp;Admin Panel</a></li></g:if>
 									<li class="divider"></li>
 									<li><a href="${request.contextPath}/logout"><i class="dropdown-icon fa fa-power-off"></i>&nbsp;&nbsp;Log Out</a></li>
 								</ul>
@@ -90,29 +76,7 @@
 <!-- /2. $END_MAIN_NAVIGATION -->
 
 
-<!-- 4. $MAIN_MENU =================================================================================
-
-		Main menu
-		
-		Notes:
-		* to make the menu item active, add a class 'active' to the <li>
-		  example: <li class="active">...</li>
-		* multilevel submenu example:
-			<li class="mm-dropdown">
-			  <a href="#"><span class="mm-text">Submenu item text 1</span></a>
-			  <ul>
-				<li>...</li>
-				<li class="mm-dropdown">
-				  <a href="#"><span class="mm-text">Submenu item text 2</span></a>
-				  <ul>
-					<li>...</li>
-					...
-				  </ul>
-				</li>
-				...
-			  </ul>
-			</li>
--->
+<!-- 4. $MAIN_MENU ================================================================================= -->
 	<div id="main-menu" role="navigation">
 		<div id="main-menu-inner">
 			<div class="menu-content top" id="menu-content-demo">
