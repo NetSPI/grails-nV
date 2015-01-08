@@ -20,7 +20,7 @@ class InsecureRedirectRuleAstVisitor extends AbstractAstVisitor {
         if (isFirstVisit(call)) {
             if (call.getMethod().getText() == "redirect" && call.arguments && call.arguments.expressions) {
                 def exp = call.getArguments().first()
-                if (exp instanceof NamedArgumentListExpression) {
+                if (exp && exp instanceof NamedArgumentListExpression) {
                     for (x in exp.getMapEntryExpressions()) {
                         if (x.getKeyExpression().getText() == "url") {
                             if ( !(x.getValueExpression() instanceof ConstantExpression) ) {

@@ -22,7 +22,7 @@ grails.project.fork = [
 ]
 
 // CodeNarc
-codenarc.ruleSetFiles= ["file:test/codenarc/TestRuleSet.groovy"]
+codenarc.ruleSetFiles= ["rulesets/grails.xml", "file:test/codenarc/TestRuleSet.groovy"]
 
 grails.project.dependency.resolver = "maven" // or ivy
 grails.project.dependency.resolution = {
