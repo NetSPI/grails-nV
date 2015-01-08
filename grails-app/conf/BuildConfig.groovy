@@ -22,7 +22,7 @@ grails.project.fork = [
 ]
 
 // CodeNarc
-codenarc.ruleSetFiles= ["file:grails-app/conf/TestRuleSet.groovy"]
+codenarc.ruleSetFiles= ["file:test/codenarc/TestRuleSet.groovy"]
 
 grails.project.dependency.resolver = "maven" // or ivy
 grails.project.dependency.resolution = {
@@ -62,7 +62,7 @@ grails.project.dependency.resolution = {
         build ":tomcat:7.0.54"
 
         // CodeNarc
-        compile ":codenarc:0.22"
+        test ":codenarc:0.22"
 
         // plugins for the compile step
         compile ":scaffolding:2.1.1"
