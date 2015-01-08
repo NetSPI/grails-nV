@@ -67,6 +67,7 @@ grails.project.dependency.resolution = {
         compile ":asset-pipeline:1.8.11"
 
         compile ":mail:1.0.5"
+        compile ":greenmail:1.3.4"
         compile ":markdown:1.1.1"
         compile ":bcrypt:1.0"
 
