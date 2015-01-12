@@ -2,9 +2,7 @@ package org.codenarc.rule.grails
 
 import org.codenarc.rule.AbstractAstVisitorRule
 import org.codenarc.rule.AbstractAstVisitor
-import org.codehaus.groovy.ast.expr.NamedArgumentListExpression
 import org.codehaus.groovy.ast.expr.MethodCallExpression
-import org.codehaus.groovy.ast.expr.ConstantExpression
 
 class InsecureHashFunctionRule extends AbstractAstVisitorRule {
     String name = 'InsecureHashFunctionRule'
