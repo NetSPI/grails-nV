@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Mass Assignment - Grails.nV</title>
+        <title>Mass Assignment - grailsnV</title>
         <meta name="layout" content="tutorials" />
     </head>
     <body>

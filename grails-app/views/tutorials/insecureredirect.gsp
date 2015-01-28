@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Insecure Redirect - Grails.nV</title>
+        <title>Insecure Redirect - grailsnV</title>
         <meta name="layout" content="tutorials" />
     </head>
     <body>
@@ -51,7 +51,7 @@
 }
 return</code></pre>
 								Internally to the site, this is used with relative URLs and unauthenticated users. When a user who has not logged in attempts to access the site, this is used to redirect them back to the page they were browsing once they've logged in. In other words, I can send the user a link to 
-								<code>https://<findmeajob.com>/grails.nV/user/signin?redirect_to=http%3A%2F%2Fmalware.evil</code>
+								<code>https://<findmeajob.com>/grailsnV/user/signin?redirect_to=http%3A%2F%2Fmalware.evil</code>
 								and while they believe they are on a secured domain, they will be redirected to my malicious host after login.
 
 							</div> <!-- / .panel-body -->

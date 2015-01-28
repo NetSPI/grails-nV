@@ -1,4 +1,4 @@
-package grails.nV
+package grailsnV
 
 class CompaniesController {
 

@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Authentication Filtering Blacklist - Grails.nV</title>
+        <title>Authentication Filtering Blacklist - grailsnV</title>
         <meta name="layout" content="tutorials" />
     </head>
     <body>

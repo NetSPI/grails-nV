@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Information Disclosure - Grails.nV</title>
+        <title>Information Disclosure - grailsnV</title>
         <meta name="layout" content="tutorials" />
     </head>
     <body>
