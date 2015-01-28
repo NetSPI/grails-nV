@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Session Fixation - grailsnV</title>
+        <title>Session Fixation - grails_nV</title>
         <meta name="layout" content="tutorials" />
     </head>
     <body>

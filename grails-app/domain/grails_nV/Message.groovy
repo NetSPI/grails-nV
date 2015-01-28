@@ -1,4 +1,4 @@
-package grailsnV
+package grails_nV
 
 class Message {
 

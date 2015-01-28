@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>SQL Injection - grailsnV</title>
+        <title>SQL Injection - grails_nV</title>
         <meta name="layout" content="tutorials" />
     </head>
     <body>

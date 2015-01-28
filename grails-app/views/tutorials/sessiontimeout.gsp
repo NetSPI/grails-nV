@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Lack of Session Timeout - grailsnV</title>
+        <title>Lack of Session Timeout - grails_nV</title>
         <meta name="layout" content="tutorials" />
     </head>
     <body>

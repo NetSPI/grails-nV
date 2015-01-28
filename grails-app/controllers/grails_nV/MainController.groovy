@@ -1,4 +1,4 @@
-package grailsnV
+package grails_nV
 
 import grails.converters.JSON
 

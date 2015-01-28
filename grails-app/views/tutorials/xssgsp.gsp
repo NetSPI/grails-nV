@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Cross-site Scripting (GSP) - grailsnV</title>
+        <title>Cross-site Scripting (GSP) - grails_nV</title>
         <meta name="layout" content="tutorials" />
     </head>
     <body>

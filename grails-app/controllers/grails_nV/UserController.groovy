@@ -1,4 +1,4 @@
-package grailsnV
+package grails_nV
 
 import org.apache.commons.lang.RandomStringUtils
 import org.codehaus.groovy.grails.web.servlet.mvc.GrailsHttpSession
