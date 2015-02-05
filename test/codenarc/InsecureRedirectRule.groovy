@@ -1,4 +1,4 @@
-package org.codenarc.rule.grails
+package org.codenarc.rule.security
 
 import org.codenarc.rule.AbstractAstVisitorRule
 import org.codenarc.rule.AbstractAstVisitor

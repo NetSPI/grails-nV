@@ -62,10 +62,12 @@ class UserController {
 
                         // Redirect to the last page
                         if (params.lastpage) {
-                            redirect(url: params.lastpage)
+                            def new_redirect_loc = params.lastpage
+                            redirect(url: new_redirect_loc)
                         } else {
         				    redirect(controller: "main", action: "index")
                         }
+
         				return
         			}
 
