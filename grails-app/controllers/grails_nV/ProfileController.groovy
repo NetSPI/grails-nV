@@ -1,4 +1,4 @@
-package grails.nV
+package grails_nV
 
 import javax.servlet.http.Cookie
 import grails.converters.JSON
@@ -15,7 +15,7 @@ class ProfileController {
                 //FIX insecure DOA too: def userdata = User.get(session.user.id)
 
                 if (userdata != null) {
-                    render(view: "profile", model: [user: userdata])
+                    render(view: "profile", model: [user: userdata, can_edit: (User.get(session.user.id).accesslevel == 1)])
                     return
                 }
             }
@@ -23,7 +23,7 @@ class ProfileController {
             def userdata = User.get(session.user.id)
 
             if (userdata != null) {
-                render(view: "profile", model: [user: userdata])
+                render(view: "profile", model: [user: userdata, can_edit: true])
                 return
             }
         }

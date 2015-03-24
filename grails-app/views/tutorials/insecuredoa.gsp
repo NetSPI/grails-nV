@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Insecure Direct Object Access - Grails.nV</title>
+        <title>Insecure Direct Object Access - grails_nV</title>
         <meta name="layout" content="tutorials" />
     </head>
     <body>

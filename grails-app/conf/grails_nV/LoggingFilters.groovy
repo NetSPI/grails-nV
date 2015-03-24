@@ -1,4 +1,4 @@
-package grails.nV
+package grails_nV
 
 class LoggingFilters {
 

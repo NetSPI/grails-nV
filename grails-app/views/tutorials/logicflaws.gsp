@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Logic Flaws - Grails.nV</title>
+        <title>Logic Flaws - grails_nV</title>
         <meta name="layout" content="tutorials" />
     </head>
     <body>

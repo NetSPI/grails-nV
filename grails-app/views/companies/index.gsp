@@ -31,6 +31,7 @@
 								<th>Name</th>
 								<th>Description</th>
 								<th>Website</th>
+								<th>Employees</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -41,6 +42,7 @@
 									<td>${company.name}</td>
 									<td>${company.description}</td>
 									<td><a href="${company.website}">${company.website}</a></td>
+									<td><g:each in="${company.employees}" var="employee"><a href="${request.contextPath}/profile/${employee.id}">${employee.fullname}</a> </g:each></td>
 							</g:each>
 						</tbody>
 					</table>

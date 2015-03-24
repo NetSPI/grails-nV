@@ -1,7 +1,7 @@
-import grails.nV.Company
-import grails.nV.JobListing
-import grails.nV.User
-import grails.nV.Message
+import grails_nV.Company
+import grails_nV.JobListing
+import grails_nV.User
+import grails_nV.Message
 
 class BootStrap {
 

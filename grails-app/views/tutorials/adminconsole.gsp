@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Admin Console - Grails.nV</title>
+        <title>Admin Console - grails_nV</title>
         <meta name="layout" content="tutorials" />
     </head>
     <body>

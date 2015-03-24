@@ -61,8 +61,7 @@ grails {
 
 grails {
     mail {
-        host = "127.0.0.1"
-        port = 1025
+        port = com.icegreen.greenmail.util.ServerSetupTest.SMTP.port
     }
 }
 

@@ -8,6 +8,10 @@
 			<h1><span class="text-light-gray"><g:if test="${session.user.id == user.id}">My </g:if>Profile / </span>View <span class="text-light-gray">(#<g:if test="${params.id}">${params.id}</g:if><g:else>${session.user.id}</g:else>)</span></h1>
 		</div> <!-- / .page-header -->
 
+		<g:if test="${can_edit}">
+			<div class="row"><div class="col-sm-4"><a href="${request.contextPath}/<g:if test="${params.id}">user-management</g:if><g:else>profile</g:else>/edit/${user.id}"><button class="btn btn-labeled btn-primary"><span class="btn-label icon fa fa-plus"></span>Edit User</button></a></div></div><br />
+		</g:if>
+
 		<div class="profile-full-name" style="margin-bottom:10px">
 			<span class="text-semibold">${user.firstname} ${user.lastname}</span>'s profile
 		</div>
@@ -33,3 +37,5 @@
 		</div>
 </body>
 </html>
+
+<g:if test="${params.id}">user-management</g:if><g:else>profile</g:else>

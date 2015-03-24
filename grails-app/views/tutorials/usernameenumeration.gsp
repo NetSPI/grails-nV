@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Username Enumeration - Grails.nV</title>
+        <title>Username Enumeration - grails_nV</title>
         <meta name="layout" content="tutorials" />
     </head>
     <body>

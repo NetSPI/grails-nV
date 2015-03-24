@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Weak Password Complexity - Grails.nV</title>
+        <title>Weak Password Complexity - grails_nV</title>
         <meta name="layout" content="tutorials" />
     </head>
     <body>

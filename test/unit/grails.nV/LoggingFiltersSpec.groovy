@@ -1,4 +1,4 @@
-package grails.nV
+package grails_nV
 
 import grails.test.mixin.Mock
 import spock.lang.Specification

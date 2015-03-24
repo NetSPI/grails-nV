@@ -1,9 +1,9 @@
-grails.nV
+grails_nV
 ==========
 
-grails.nV is a vulnerable jobs listing website.
+grails_nV is a vulnerable jobs listing website.
 
-More information about grails.nV and its vulnerabilities can be found [here](https://github.com/nVisium/grails.nV/wiki)
+More information about grails_nV and its vulnerabilities can be found [here](https://github.com/nVisium/grails_nV/wiki)
 
 Setup
 -----
@@ -26,26 +26,21 @@ To set up the database, run the initial setup script provided in the directory.
     chmod +x initial-setup.sh
     ./initial-setup.sh
 
-By default, grails.nV uses the build in H2 database stored on disc. However, the ```grails-app\conf\DataSource.groovy``` and ```initial-setup.sh``` have commented out settings to switch to MySQL if that's preferable.
+By default, grails_nV uses the build in H2 database stored on disc. However, the ```grails-app\conf\DataSource.groovy``` and ```initial-setup.sh``` have commented out settings to switch to MySQL if that's preferable.
 
-In order for the app to send mail (for account verification, password resets, etc) you will need to configure the mailserver settings in the ```grails-app\conf\Config.groovy``` file. By default, we have used settings for ```mailcatcher```, which captures all emails sent to it and displays them in a web interface. You'll need to install Ruby if you choose to use it.
-
-    gem install mailcatcher
-    mailcatcher
-
-Then open ```http://localhost:1080``` and you should be able to view all emails sent to the daemon.
+To view any mail sent from the application, navigate to ```http://localhost:8080/grails_nV/greenmail```. grails_nV uses the in-memory GreenMail mailserver.
 
 Finally, to actually run the app, simply run
 
     grails run-app
     
-The app should then be accessible at ```http://localhost:8080/grails.nV/```
+The app should then be accessible at ```http://localhost:8080/grails_nV/```
 
 If your ```grails``` prompt shows the following message
 
     Class JavaLaunchHelper is implemented in both /Library/Java/JavaVirtualMachines/jdk1.7.0_60.jdk/Contents/Home/bin/java and /Library/Java/JavaVirtualMachines/jdk1.7.0_60.jdk/Contents/Home/jre/lib/libinstrument.dylib. One of the two will be used. Which one is undefined
 
-You can safely ignore it. The above is a JVM error unrelated to grails.nV
+You can safely ignore it. The above is a JVM error unrelated to grails_nV
 
 Updating the Database
 ---------------------

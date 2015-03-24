@@ -107,7 +107,7 @@
 
 		<div class="have-account">
 		Already have an account? <a href="${request.contextPath}/user/login">Sign In</a><br />
-		Looking for the Grails.nV tutorials? <a href="${request.contextPath}/tutorials">Click here</a>
+		Looking for the grails_nV tutorials? <a href="${request.contextPath}/tutorials">Click here</a>
 	</div>
 
 
