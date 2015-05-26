@@ -56,15 +56,15 @@ grails.project.dependency.resolution = {
 
     plugins {
         // plugins for the build system only
-        build ":tomcat:7.0.54"
+        build ':tomcat:7.0.55.2'
 
         // CodeNarc
         compile ":codenarc:0.22"
 
         // plugins for the compile step
-        compile ":scaffolding:2.1.1"
-        compile ':cache:1.1.6'
-        compile ":asset-pipeline:1.8.11"
+        compile ':cache:1.1.8'
+        compile ':scaffolding:2.1.2'
+        compile ':asset-pipeline:2.1.5'
 
         compile ":mail:1.0.5"
         compile ":greenmail:1.3.4"
@@ -72,7 +72,7 @@ grails.project.dependency.resolution = {
         compile ":bcrypt:1.0"
 
         // plugins needed at runtime but not for compilation
-        runtime ':hibernate4:4.3.5.4'
+        runtime ':hibernate4:4.3.8.1'
         runtime ":database-migration:1.4.0"
         runtime ":jquery:1.11.1"
 
