@@ -62,7 +62,7 @@ grails.project.dependency.resolution = {
         build ':tomcat:7.0.55.2'
 
         // CodeNarc
-        test ":codenarc:0.22"
+        test ":codenarc:0.23"
 
         // plugins for the compile step
         compile ':cache:1.1.8'
