@@ -2,6 +2,7 @@ package com.nvisium.rule.security
 
 import org.codehaus.groovy.ast.ClassNode
 import org.codehaus.groovy.ast.InnerClassNode
+import org.codehaus.groovy.ast.expr.BinaryExpression
 import org.codehaus.groovy.ast.expr.ConstantExpression
 import org.codehaus.groovy.ast.expr.DeclarationExpression
 import org.codehaus.groovy.ast.expr.MethodCallExpression
@@ -17,6 +18,7 @@ import org.codehaus.groovy.ast.stmt.ForStatement
  * Rule that checks for instances of insecure redirects within Grails code.
  * Based on the UnusedVariableRule by Chris Mair and Hamlet D'Arcy
  *
+ * @author Cyrus Malekpour
  * @author Chris Mair
  * @author Hamlet D'Arcy
 */
@@ -32,20 +34,24 @@ class InsecureRedirectRule2AstVisitor extends AbstractAstVisitor  {
     private final variablesByBlockScope = [] as Stack
     private variablesInCurrentBlockScope = []
 
-    void visitDeclarationExpression(DeclarationExpression declarationExpression) {
-        if (isFirstVisit(declarationExpression)) {
-            def varExpressions = AstUtil.getVariableExpressions(declarationExpression)
-            varExpressions.each { varExpression ->
-                if (declarationExpression.getRightExpression().getText().contains("params")) {
-                    variablesInCurrentBlockScope << varExpression
-                }
-
-                if (declarationExpression.getRightExpression().getText() in variablesInCurrentBlockScope) {
-                    variablesInCurrentBlockScope << varExpression
+    void visitBinaryExpression(BinaryExpression binaryExpression) {
+        if (isFirstVisit(binaryExpression)) {
+            if (AstUtil.isBinaryExpressionType(binaryExpression, "=")) {
+                if (binaryExpression.getRightExpression().getText().contains("params")) {
+                    variablesInCurrentBlockScope.add(binaryExpression.getLeftExpression().getText())
+                } else {
+                    def updateList = []
+                    variablesInCurrentBlockScope.each {
+                        if (binaryExpression.getRightExpression().getText().contains(it)) {
+                            updateList.add(binaryExpression.getLeftExpression().getText())
+                        }
+                    }
+                    variablesInCurrentBlockScope.addAll(updateList)
+                    variablesInCurrentBlockScope = variablesInCurrentBlockScope.unique()
                 }
             }
         }
-        super.visitDeclarationExpression(declarationExpression)
+        super.visitBinaryExpression(binaryExpression)
     }
 
     void visitBlockStatement(BlockStatement block) {
@@ -63,9 +69,9 @@ class InsecureRedirectRule2AstVisitor extends AbstractAstVisitor  {
                 if (exp && exp instanceof NamedArgumentListExpression) {
                     for (x in exp.getMapEntryExpressions()) {
                         if (x.getKeyExpression().getText() == "url") {
-                            for (varInBlockScope in variablesInCurrentBlockScope) {
-                                if (x.getValueExpression().getText().contains(varInBlockScope.variable)) {
-                                    addViolation(call, "Insecure redirect. Specify redirects using controller and action parameters, not based on user parameters (${varInBlockScope.variable}) [Tainted: ${variablesInCurrentBlockScope}]")
+                            variablesInCurrentBlockScope.each {
+                                if (x.getValueExpression().getText().contains(it)) {
+                                    addViolation(call, "Insecure redirect. Specify redirects using controller and action parameters, not based on user parameters (${it.toString()})")
                                 }
                             }
                         }

@@ -61,13 +61,8 @@ class UserController {
                         //flash.userid = user.id
 
                         // Redirect to the last page
-                        def test_redirect = params.lastpage
                         if (params.lastpage) {
-                            def new_redirect_loc = params.lastpage + ""
-                            def lol_redirect = new_redirect_loc + ""
-                            redirect(url: new_redirect_loc)
-                            redirect(url: test_redirect)
-                            redirect(url: lol_redirect)
+                            redirect(url: params.lastpage)
                         } else {
         				    redirect(controller: "main", action: "index")
                         }
