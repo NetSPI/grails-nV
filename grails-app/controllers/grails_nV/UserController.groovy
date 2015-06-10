@@ -66,6 +66,7 @@ class UserController {
                         } else {
         				    redirect(controller: "main", action: "index")
                         }
+
         				return
         			}
 

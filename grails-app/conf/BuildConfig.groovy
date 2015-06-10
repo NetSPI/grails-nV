@@ -21,6 +21,9 @@ grails.project.fork = [
     console: [maxMemory: 768, minMemory: 64, debug: false, maxPerm: 256]
 ]
 
+// CodeNarc
+codenarc.ruleSetFiles= ["rulesets/grails.xml", "file:test/codenarc/TestRuleSet.groovy"]
+
 grails.project.dependency.resolver = "maven" // or ivy
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
@@ -59,7 +62,7 @@ grails.project.dependency.resolution = {
         build ':tomcat:7.0.55.2'
 
         // CodeNarc
-        compile ":codenarc:0.22"
+        test ":codenarc:0.23"
 
         // plugins for the compile step
         compile ':cache:1.1.8'
