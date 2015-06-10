@@ -69,9 +69,13 @@ class InsecureRedirectRule2AstVisitor extends AbstractAstVisitor  {
                 if (exp && exp instanceof NamedArgumentListExpression) {
                     for (x in exp.getMapEntryExpressions()) {
                         if (x.getKeyExpression().getText() == "url") {
-                            variablesInCurrentBlockScope.each {
-                                if (x.getValueExpression().getText().contains(it)) {
-                                    addViolation(call, "Insecure redirect. Specify redirects using controller and action parameters, not based on user parameters (${it.toString()})")
+                            if (x.getValueExpression().getText().contains("params")) {
+                                addViolation(call, "Insecure redirect. Specify redirects using controller and action parameters, not based on user parameters (params)")
+                            } else {
+                                variablesInCurrentBlockScope.each {
+                                    if (x.getValueExpression().getText().contains(it)) {
+                                        addViolation(call, "Insecure redirect. Specify redirects using controller and action parameters, not based on user parameters (${it.toString()})")
+                                    }
                                 }
                             }
                         }
