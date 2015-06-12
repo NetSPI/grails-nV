@@ -53,10 +53,10 @@
 
 								When we take a look at the login and authentication code, we find the following code to validate the user's account.
 								<pre class="line-numbers"><code class="language-groovy">def user = User.find("from User where password = '${user_password_hash}' and email = '${user_email}'")</code></pre>
-								This leaves us open to injection, since the parmaeters are directly inserted into the query without any sort of escaping done on the inputs. In the <code>ProfileController</code>, we find another piece of risky code.
+								This leaves us open to injection, since the parameters are directly inserted into the query without any sort of escaping done on the inputs. In the <code>ProfileController</code>, we find another piece of risky code.
 								<pre class="line-numbers"><code class="language-groovy">if (params.id?.isInteger()) {
     // Show the specific user ID
-    def userdata = User.find("from User where id = ${params.id}")
+    def userdata = User.find("from User where id = ${'${params.id}'}")
 
     if (userdata != null) {
         ...
