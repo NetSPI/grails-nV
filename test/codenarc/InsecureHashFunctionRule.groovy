@@ -4,10 +4,16 @@ import org.codenarc.rule.AbstractAstVisitorRule
 import org.codenarc.rule.AbstractAstVisitor
 import org.codehaus.groovy.ast.expr.MethodCallExpression
 
+/**
+ * Rule that checks for usage of any insecure hash functions
+ *
+ * @author Cyrus Malekpour
+*/
 class InsecureHashFunctionRule extends AbstractAstVisitorRule {
     String name = 'InsecureHashFunctionRule'
     int priority = 2
     Class astVisitorClass = InsecureHashFunctionRuleAstVisitor
+    String description = "Checks for usage of any insecure hash functions"
 }
 
 @SuppressWarnings('NestedBlockDepth')
