@@ -53,3 +53,12 @@ When the app starts, it will automatically bring the schema up to date.
     grails dbm-gorm-diff YYYY-MM-DD-added-blah-blah.groovy --add
     
 (from http://grails.github.io/grails-howtos/en/manageDatabases.html)
+
+CodeNarc
+--------
+
+You can run CodeNarc, a Groovy static analysis tool, on the codebase using the grails command
+
+    grails codenarc
+    
+It will generate a report, located at ```target\CodeNarcReport.html```, with information about issues detected by the CodeNarc ruleset. If you're interested in customizing the rules run, the selected rulesets are in ```grails-app\conf\BuildConfig.groovy``` and custom rules are located in the ```test\codenarc``` folder.
